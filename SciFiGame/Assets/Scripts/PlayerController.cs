@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    public Animator anim;
 
     [SerializeField] private GameObject interactSign;
     [SerializeField] private Vector2 inputDirection;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         }
 
         interactSign.SetActive(canInteract);
+        Animate();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -43,5 +46,11 @@ public class PlayerController : MonoBehaviour
     {
         interactable = null;
         canInteract = false;
+    }
+
+    private void Animate() {
+        anim.SetFloat("AnimMoveX", inputDirection.x);
+        anim.SetFloat("AnimMoveY", inputDirection.y);
+        anim.SetBool("isWalking", inputDirection.magnitude != 0);
     }
 }
