@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int velocity = 5;
 
     private bool canInteract;
-    private IInteractable interactable;
+    private Interactable interactable;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            interactable.interact(gameObject);
+            interactable.Interact(gameObject);
         }
 
         interactSign.SetActive(canInteract);
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        interactable = collision.gameObject.GetComponent<IInteractable>();
+        interactable = collision.gameObject.GetComponent<Interactable>();
         canInteract = interactable != null;
     }
 

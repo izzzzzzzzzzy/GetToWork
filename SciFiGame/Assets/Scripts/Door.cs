@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : Interactable
 {
     SceneController controller;
 
@@ -21,7 +21,7 @@ public class Door : MonoBehaviour, IInteractable
         
     }
 
-    public void interact(GameObject player)
+    override public void Interact(GameObject player)
     {
         StartCoroutine(controller.Teleport(player, nPlayerPos, nCameraPos));
     }

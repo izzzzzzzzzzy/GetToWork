@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.90943396, g: 0, b: 0.5494105, a: 1}
   m_FlipX: 0
@@ -143,5 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffd0ea4c0796844b8c120ffbc97f7bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newPlayerCoords: {x: 0, y: -3}
-  newCameraCoords: {x: 0, y: 0}
+  nPlayerPos: {x: 0, y: 0}
+  nCameraPos: {x: 0, y: 0}

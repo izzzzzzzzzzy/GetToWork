@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigameTransition : MonoBehaviour, IInteractable
+public class MinigameTransition : Interactable
 {
     SceneController sceneController;
 
@@ -14,7 +14,7 @@ public class MinigameTransition : MonoBehaviour, IInteractable
         sceneController = FindFirstObjectByType<SceneController>();
     }
 
-    public void interact(GameObject player)
+    override public void Interact(GameObject player)
     {
         StartCoroutine(sceneController.ChangeScene(sceneName));
     }
