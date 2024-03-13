@@ -5,14 +5,18 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
-    public Animator anim;
 
     [SerializeField] private GameObject interactSign;
     [SerializeField] private Vector2 inputDirection;
+
     [SerializeField] private int velocity = 5;
 
     private bool canInteract;
     private Interactable interactable;
+
+    // Animator stuff
+    public Animator anim;
+    private Vector2 lastInputDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +28,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        if ((moveX == 0 && moveY == 0) && (inputDirection.x != 0 || inputDirection.y != 0)) {
+            lastInputDirection = inputDirection;
+        }
+
+        inputDirection = new Vector2(moveX, moveY);
+
         rb.velocity = inputDirection.normalized * velocity;
 
         if (canInteract && Input.GetKeyDown(KeyCode.E))
@@ -51,6 +63,8 @@ public class PlayerController : MonoBehaviour
     private void Animate() {
         anim.SetFloat("AnimMoveX", inputDirection.x);
         anim.SetFloat("AnimMoveY", inputDirection.y);
+        anim.SetFloat("AnimLastMoveX", lastInputDirection.x);
+        anim.SetFloat("AnimLastMoveY", lastInputDirection.y);
         anim.SetBool("isWalking", inputDirection.magnitude != 0);
     }
 }
