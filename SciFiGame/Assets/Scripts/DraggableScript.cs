@@ -36,4 +36,9 @@ public class DraggableScript : MonoBehaviour
 
         dragging = false;
     }
+
+    public bool IsDragging()
+    {
+        return dragging;
+    }
 }
