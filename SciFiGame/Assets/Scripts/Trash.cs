@@ -5,18 +5,21 @@ using UnityEngine;
 public class Trash : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Rigidbody rb;
+    DraggableScript draggableScript;
+    SortTrash gameManager;
 
     [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue, Color.yellow };
+    [SerializeField] private float speed = 5;
 
     private int color;
-    private float speed;
+    public bool onBelt;
     
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody>();
+        draggableScript = GetComponent<DraggableScript>();
+        gameManager = FindFirstObjectByType<SortTrash>();
 
         color = Mathf.FloorToInt(Random.Range(0, colors.Length));
 
@@ -26,12 +29,37 @@ public class Trash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.position + (Vector3.up * speed);
-
-
         if (transform.position.y > 7.5)
         {
             transform.position = new Vector2(transform.position.x, -7.5f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("hi");
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        print(collision);
+        if (collision.CompareTag("Conveyor"))
+        {
+            transform.position += speed * Time.deltaTime * Vector3.up;
+        }
+
+        if (collision.CompareTag("Chute") && !draggableScript.IsDragging())
+        {
+            if (color == collision.GetComponent<TrashChute>().GetColor())
+            {
+                gameManager.IncreaseScore();
+            }
+            else
+            {
+                gameManager.DecreaseScore();
+            }
+
+            Destroy(gameObject);
         }
     }
 
