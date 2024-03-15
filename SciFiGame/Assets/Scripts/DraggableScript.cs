@@ -5,13 +5,18 @@ using UnityEngine;
 public class DraggableScript : MonoBehaviour
 {
     public float speedAdjustment = 1;
-    private bool dragging = false;
+    public float newScaleX;
+    public float newScaleY;
+    public bool dragging = false;
+
+    private Vector3 oldScale;
     private Vector3 offset;
     private Rigidbody2D myRB2D;
     // Start is called before the first frame update
     void Start()
     {
         myRB2D = GetComponent<Rigidbody2D>();
+        oldScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -24,6 +29,7 @@ public class DraggableScript : MonoBehaviour
 
     private void OnMouseDown(){
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.localScale = new Vector3(newScaleX, newScaleY, 1);
         dragging = true;
     }
 
@@ -34,11 +40,8 @@ public class DraggableScript : MonoBehaviour
         vel.y = Input.GetAxis("Mouse Y") * speedAdjustment;
         myRB2D.velocity = vel;
 
-        dragging = false;
-    }
+        transform.localScale = oldScale;
 
-    public bool IsDragging()
-    {
-        return dragging;
+        dragging = false;
     }
 }

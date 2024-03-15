@@ -13,7 +13,7 @@ public class Trash : MonoBehaviour
 
     private int color;
     public bool onBelt;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +48,7 @@ public class Trash : MonoBehaviour
             transform.position += speed * Time.deltaTime * Vector3.up;
         }
 
-        if (collision.CompareTag("Chute") && !draggableScript.IsDragging())
+        if (collision.CompareTag("Chute") && !draggableScript.dragging == true)
         {
             if (color == collision.GetComponent<TrashChute>().GetColor())
             {
