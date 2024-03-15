@@ -120,6 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedAdjustment: 1
+  newScaleX: 1
+  newScaleY: 1
+  dragging: 0
 --- !u!58 &1438144649725369261
 CircleCollider2D:
   m_ObjectHideFlags: 0
