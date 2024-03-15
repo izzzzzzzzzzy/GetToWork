@@ -35,14 +35,8 @@ public class Trash : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print("hi");
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
-        print(collision);
         if (collision.CompareTag("Conveyor"))
         {
             transform.position += speed * Time.deltaTime * Vector3.up;

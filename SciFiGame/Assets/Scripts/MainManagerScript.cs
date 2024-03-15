@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
+    SceneController sceneController;
+
     public static MainManager Instance;
 
     //Player stats
@@ -30,21 +32,14 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        sceneController = GetComponent<SceneController>();
     }
     // Update is called once per frame
     void Update()
-    {
-
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
     }
