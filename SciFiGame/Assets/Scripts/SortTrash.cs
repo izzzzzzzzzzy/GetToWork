@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class SortTrash : MonoBehaviour
 {
+    SceneController controller;
 
     [SerializeField] private float gameTime = 60f;
     [SerializeField] private float target = 20f;
     [SerializeField] private float score;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool gameOver;
 
     // Update is called once per frame
     void Update()
     {
         gameTime -= Time.deltaTime;
 
-        if (gameTime < 0)
+        if (gameTime < 0 && !gameOver)
         {
-            //TODO: End minigame
+            gameOver = true;
+
+            controller = FindFirstObjectByType<SceneController>();
+            controller.EndMinigame();
         }
     }
 
