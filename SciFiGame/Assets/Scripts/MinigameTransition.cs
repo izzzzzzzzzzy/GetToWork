@@ -6,7 +6,8 @@ public class MinigameTransition : Interactable
 {
     SceneController sceneController;
 
-    [SerializeField] private string sceneName;
+    [SerializeField] private string nextScene;
+    [SerializeField] private Vector3 returnOffset;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,6 @@ public class MinigameTransition : Interactable
 
     override public void Interact(GameObject player)
     {
-        StartCoroutine(sceneController.ChangeScene(sceneName));
+        sceneController.StartMinigame(nextScene, transform.position + returnOffset);
     }
 }

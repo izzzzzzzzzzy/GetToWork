@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigame.unity
     guid: 5e85f4edda64fbf449e6c0b125ab2e34
+  - enabled: 1
+    path: Assets/Scenes/SortTrash.unity
+    guid: 8131a2c985d561141b07ff3400cee59d
   m_configObjects: {}
