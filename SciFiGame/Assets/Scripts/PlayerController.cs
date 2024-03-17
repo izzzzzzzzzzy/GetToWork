@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    SceneController controller;
 
     [SerializeField] private GameObject interactSign;
     [SerializeField] private Vector2 inputDirection;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canInteract;
     private Interactable interactable;
+    private bool isPaused;
 
     // Animator stuff
     public Animator anim;
@@ -23,25 +25,32 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        controller = FindFirstObjectByType<SceneController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        isPaused = controller.getPaused();
 
-        if ((moveX == 0 && moveY == 0) && (inputDirection.x != 0 || inputDirection.y != 0)) {
-            lastInputDirection = inputDirection;
-        }
-
-        inputDirection = new Vector2(moveX, moveY);
-
-        rb.velocity = inputDirection.normalized * velocity;
-
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (!isPaused)
         {
-            interactable.Interact(gameObject);
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
+
+            if ((moveX == 0 && moveY == 0) && (inputDirection.x != 0 || inputDirection.y != 0))
+            {
+                lastInputDirection = inputDirection;
+            }
+
+            inputDirection = new Vector2(moveX, moveY);
+
+            rb.velocity = inputDirection.normalized * velocity;
+
+            if (canInteract && Input.GetKeyDown(KeyCode.E))
+            {
+                interactable.Interact(gameObject);
+            }
         }
 
         interactSign.SetActive(canInteract);

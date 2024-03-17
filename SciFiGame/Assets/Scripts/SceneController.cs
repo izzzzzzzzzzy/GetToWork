@@ -14,6 +14,7 @@ public class SceneController : MonoBehaviour
     private Camera mainCamera;
     private SceneFade sceneFade;
     private PlayerController mainPlayer;
+    private bool isPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,18 @@ public class SceneController : MonoBehaviour
     {
         if (sceneFade == null) {
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                PauseGame();
+            }
+            else
+            {
+                PlayGame();
+            }
         }
     }
 
@@ -84,4 +97,23 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
         }
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+        print("hi");
+    }
+
+    public void PlayGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public bool getPaused()
+    {
+        return isPaused;
+    }
+
 }
