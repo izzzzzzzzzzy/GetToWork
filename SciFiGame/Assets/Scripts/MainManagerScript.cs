@@ -10,8 +10,8 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
 
     //Player stats
-    public int debt;
-    public int money;
+    public float debt;
+    public float money;
     public int rArmHealth;
     public int lArmHealth;
     public int rLegHealth;
