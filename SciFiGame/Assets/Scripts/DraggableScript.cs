@@ -20,7 +20,7 @@ public class DraggableScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(dragging){
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
