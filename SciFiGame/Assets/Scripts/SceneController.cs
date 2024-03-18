@@ -11,9 +11,9 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
 
-    private GameObject mainCamera;
+    private Camera mainCamera;
     private SceneFade sceneFade;
-    private GameObject mainPlayer;
+    private PlayerController mainPlayer;
     public Canvas pauseMenu;
     private bool isPaused;
 
@@ -49,22 +49,30 @@ public class SceneController : MonoBehaviour
         pauseMenu.gameObject.SetActive(isPaused);
     }
 
-    public void Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
+    public void EnterDoor(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
-        StartCoroutine(TeleportCor(player, nPlayerPos, nCameraPos));
+        StartCoroutine(Teleport(player, nPlayerPos, nCameraPos));
     }
 
     public void StartMinigame(string sceneName, Vector2 exitCoords)
     {
-        StartCoroutine(StartMinigameCor(sceneName, exitCoords));
+        StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
     public void EndMinigame()
     {
-        StartCoroutine(EndMinigameCor());
+        StartCoroutine(LoadMainScene());
     }
 
-    IEnumerator TeleportCor(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
+    public void StartDay()
+    {
+        mainCameraCoords = new Vector3(0, -15, -10);
+        mainPlayerCoords = new Vector2(0, -15);
+        print("hi");
+        StartCoroutine(LoadMainScene());
+    }
+
+    IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
         yield return new WaitForSeconds(transitionTime);
@@ -73,7 +81,7 @@ public class SceneController : MonoBehaviour
         player.transform.position = nPlayerPos;
     }
 
-    IEnumerator StartMinigameCor(string sceneName, Vector2 exitCoords)
+    IEnumerator LoadMinigame(string sceneName, Vector2 exitCoords)
     {
         mainCameraCoords = mainCamera.transform.position;
         mainPlayerCoords = exitCoords;
@@ -83,7 +91,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    IEnumerator EndMinigameCor()
+    IEnumerator LoadMainScene()
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
         yield return new WaitForSeconds(transitionTime);
@@ -92,11 +100,11 @@ public class SceneController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mainCamera = FindFirstObjectByType<Camera>().gameObject;
+        mainCamera = FindFirstObjectByType<Camera>();
 
         if (scene.name == "MainScene")
         {
-            mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
+            mainPlayer = FindFirstObjectByType<PlayerController>();
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
         }
