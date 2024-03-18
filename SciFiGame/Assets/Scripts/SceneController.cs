@@ -11,16 +11,18 @@ public class SceneController : MonoBehaviour
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
     
-    private Camera mainCamera;
+    private GameObject mainCamera;
     private SceneFade sceneFade;
-    private PlayerController mainPlayer;
+    private GameObject mainPlayer;
+    private Canvas pauseMenu;
     private bool isPaused;
 
     // Start is called before the first frame update
     void Start()
     {   
-        mainCamera = FindFirstObjectByType<Camera>();
-        mainPlayer = FindFirstObjectByType<PlayerController>();
+        mainCamera = FindFirstObjectByType<Camera>().gameObject;
+        mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
+        pauseMenu = GetComponentInChildren<Canvas>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -43,6 +45,8 @@ public class SceneController : MonoBehaviour
                 PlayGame();
             }
         }
+
+        pauseMenu.enabled = isPaused;
     }
 
     public void Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
@@ -88,11 +92,11 @@ public class SceneController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mainCamera = FindFirstObjectByType<Camera>();
+        mainCamera = FindFirstObjectByType<Camera>().gameObject;
 
         if (scene.name == "MainScene")
         {
-            mainPlayer = FindFirstObjectByType<PlayerController>();
+            mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
         }
@@ -102,7 +106,6 @@ public class SceneController : MonoBehaviour
     {
         Time.timeScale = 0f;
         isPaused = true;
-        print("hi");
     }
 
     public void PlayGame()

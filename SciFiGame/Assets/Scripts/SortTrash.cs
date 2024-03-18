@@ -7,7 +7,7 @@ public class SortTrash : MonoBehaviour
     SceneController controller;
 
     [SerializeField] private float gameTime = 60f;
-    [SerializeField] private float target = 20f;
+    //[SerializeField] private float target = 20f;
     [SerializeField] private float score;
 
     private bool gameOver;
