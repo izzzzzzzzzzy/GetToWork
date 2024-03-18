@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     Collider2D coll;
     SpriteRenderer mySpriteRenderer;
     Item item;
+    SceneController controller;
 
     [Header("Inputs")]
     public Vector2 inputDirection;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool interactInput;
     public float jumpTimer;
     public float itemsCollected = 0;
+   
 
     [Header("Modifiers")]
     [SerializeField] private float fallSpeedBuffer = 3f;
@@ -29,6 +31,10 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float minSpeed = 0.1f;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask itemLayers;
+
+    [Header("Scene Controller")]
+    [SerializeField] private float sceneTimer = 25;
+    [SerializeField] private bool gameOver = false;
 
     private bool isGrounded;
     private bool canInteract;
@@ -45,13 +51,19 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         jumpTimer -= Time.deltaTime;
-        if (jumpTimer < 0) {
-        }
+        sceneTimer -= Time.deltaTime;
 
         if (jumpInput) {
             if (isGrounded) {
                 Jump();
             }
+        }
+
+        if (sceneTimer < 0 && !gameOver) {
+            gameOver = true;
+            controller = FindFirstObjectByType<SceneController>();
+            controller.EndMinigame();
+
         }
     }
 
