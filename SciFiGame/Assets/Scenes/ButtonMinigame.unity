@@ -415,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 3871444715497236854, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1271357079}
     - target: {fileID: 4032291681604903513, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -455,10 +459,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1271357079}
+    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5635533415503262018, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: timeSeconds
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7343115448689419288, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1271357079}
     - target: {fileID: 8558095043171358220, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_IsActive
       value: 1

@@ -4893,11 +4893,6 @@ Transform:
   - {fileID: 880669867}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!223 &795019245 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8704787419329824234, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-  m_PrefabInstance: {fileID: 2115850093}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &820989317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7874,6 +7869,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 628699374}
   m_SourcePrefab: {fileID: 100100000, guid: a912513178edbf743bcbe68f18b91d64, type: 3}
+--- !u!20 &1552873134 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 592540872198408227, guid: a912513178edbf743bcbe68f18b91d64, type: 3}
+  m_PrefabInstance: {fileID: 1552873133}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1554112880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10474,7 +10474,7 @@ PrefabInstance:
     - target: {fileID: 1189001484445324413, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: pauseMenu
       value: 
-      objectReference: {fileID: 795019245}
+      objectReference: {fileID: 0}
     - target: {fileID: 2650093424118397814, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_FirstSelected
       value: 
@@ -10487,6 +10487,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3871444715497236854, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1552873134}
     - target: {fileID: 4032291681604903513, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.54
@@ -10527,6 +10531,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1552873134}
+    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4910274314127927905, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.2264151
@@ -10543,6 +10555,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7343115448689419288, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1552873134}
     - target: {fileID: 8554350984502090752, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_Layer
       value: 0
