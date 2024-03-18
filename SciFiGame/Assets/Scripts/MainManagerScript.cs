@@ -32,6 +32,7 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
     }
     // Start is called before the first frame update
     void Start()

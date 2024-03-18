@@ -10,19 +10,19 @@ public class SceneController : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
-    
+
     private GameObject mainCamera;
     private SceneFade sceneFade;
     private GameObject mainPlayer;
-    private Canvas pauseMenu;
+    public Canvas pauseMenu;
     private bool isPaused;
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         mainCamera = FindFirstObjectByType<Camera>().gameObject;
         mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
-        pauseMenu = GetComponentInChildren<Canvas>();
+        //pauseMenu = GetComponentInChildren<Canvas>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -46,7 +46,7 @@ public class SceneController : MonoBehaviour
             }
         }
 
-        pauseMenu.enabled = isPaused;
+        pauseMenu.gameObject.SetActive(isPaused);
     }
 
     public void Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
