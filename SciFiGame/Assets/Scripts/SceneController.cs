@@ -21,7 +21,7 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         mainCamera = FindFirstObjectByType<Camera>().gameObject;
-        mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
+        //mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
         //pauseMenu = GetComponentInChildren<Canvas>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
