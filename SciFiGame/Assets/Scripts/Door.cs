@@ -23,6 +23,6 @@ public class Door : Interactable
 
     override public void Interact(GameObject player)
     {
-        controller.Teleport(player, nPlayerPos, nCameraPos);
+        controller.EnterDoor(player, nPlayerPos, nCameraPos);
     }
 }

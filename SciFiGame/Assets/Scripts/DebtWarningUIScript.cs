@@ -32,7 +32,7 @@ public class DebtWarningUIScript : MonoBehaviour
 
     void Die(){
         //TODO: go to death screen
-        SceneManager.LoadScene(nextLevelName);
+        FindFirstObjectByType<SceneController>().StartDay();
     }
 
     void GoBack(){

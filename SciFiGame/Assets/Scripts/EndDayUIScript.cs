@@ -108,7 +108,7 @@ public class EndDayUIScript : MonoBehaviour
             //change this num manually; the amount deducted for debt paid each day
             MainManager.Instance.debt -= 1;
             MainManager.Instance.money -= totalCost;
-            SceneManager.LoadScene(nextLevelName);
+            FindFirstObjectByType<SceneController>().StartDay();
         }
 
     }
