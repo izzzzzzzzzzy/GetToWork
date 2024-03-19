@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class ButtonMinigame : MonoBehaviour
 {
-    SceneController controller;
+    public MinigameController miniController;
 
-    [SerializeField] private float gameTime = 60f;
-    [SerializeField] private float score;
     [SerializeField] private int[] buttonOrder = {-1, -1, -1, -1, -1, -1};
     [SerializeField] private int difficulty = 1;
     [SerializeField] private int[] input = { -1, -1, -1, -1, -1, -1 };
@@ -21,10 +19,11 @@ public class ButtonMinigame : MonoBehaviour
 
     public Canvas correctFeedback;
     public Canvas incorrectFeedback;
-    private bool gameOver;
+    //private bool gameOver;
 
     void Start(){
         showingButtons = true;
+        miniController = miniController.GetComponent<MinigameController>();
         /*for(int i = 0; i < buttons.Length; i++){
             Button temp = buttons[i].GetComponent<Button>();
             temp.onClick.AddListener(delegate {ButtonSelected(i);});
@@ -49,17 +48,7 @@ public class ButtonMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameTime -= Time.deltaTime;
-
-        if (gameTime < 0 && !gameOver)
-        {
-            gameOver = true;
-
-            controller = FindFirstObjectByType<SceneController>();
-            controller.EndMinigame();
-        }
-
-        if(gameTime >= 0 && showingButtons){
+        if(miniController.GetGameTime() >= 0 && showingButtons){
             if(placeInButtons <= buttons.Length){
                 ScrambleButtonOrder();
                 Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
@@ -68,19 +57,6 @@ public class ButtonMinigame : MonoBehaviour
                 showingButtons = false;
             }
         }
-        if(gameTime >= 0 && showingButtons == false){
-
-        }
-    }
-
-    public void IncreaseScore()
-    {
-        score++;
-    }
-
-    public void DecreaseScore()
-    {
-        score--;
     }
 
     void ScrambleButtonOrder(){
@@ -134,7 +110,7 @@ public class ButtonMinigame : MonoBehaviour
             }
             if(areEqual){
                 print("Correct!");
-                score += difficulty * 5;
+                miniController.IncreaseScore(difficulty * 5);
                 difficulty +=1;
                 input = new int[] {-1, -1, -1, -1, -1, -1};
                 placeInInput = 0;
