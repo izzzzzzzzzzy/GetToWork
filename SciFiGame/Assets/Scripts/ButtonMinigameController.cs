@@ -109,7 +109,6 @@ public class ButtonMinigame : MonoBehaviour
                 }
             }
             if(areEqual){
-                print("Correct!");
                 miniController.IncreaseScore(difficulty * 5);
                 difficulty +=1;
                 input = new int[] {-1, -1, -1, -1, -1, -1};
@@ -118,7 +117,6 @@ public class ButtonMinigame : MonoBehaviour
                 showingButtons = true;
             }
             else{
-                print("Incorrect :(");
                 input = new int[] {-1, -1, -1, -1, -1, -1};
                 placeInInput = 0;
                 StartCoroutine(ShowFeedback(1));
