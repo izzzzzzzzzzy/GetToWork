@@ -17,7 +17,6 @@ public class ButtonMinigame : MonoBehaviour
     [SerializeField] private bool showingButtons;
     private int placeInButtons = 0;
     private Color prevButColor;
-    private float startShowingTimer = -1;
     private bool gameOver;
 
     void Start(){
@@ -37,34 +36,13 @@ public class ButtonMinigame : MonoBehaviour
         }
 
         if(gameTime >= 0 && showingButtons){
-            if(startShowingTimer == -1 && placeInButtons <= buttons.Length){
-                //ScrambleButtonOrder();
-                startShowingTimer += Time.deltaTime;
-                print("aa");
-            }/*
-            else if(startShowingTimer >= 1 && placeInButtons <= buttons.Length){
-                //if reached end of time for button to be colored
+            if(placeInButtons <= buttons.Length){
+                ScrambleButtonOrder();
                 Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
-                x.image.color = prevButColor;
-                placeInButtons +=1;
-                //if not reached end of list
-                if(placeInButtons < buttons.Length){
-                    x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
-                    prevButColor = x.image.color;
-                }
-                startShowingTimer = 0;
-            }
-            else if(placeInButtons <= buttons.Length){
-                // if still showing buttons
-                Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
-                x.image.color = x.colors.pressedColor;
-                startShowingTimer += Time.deltaTime;
-            }
-            else{
-                startShowingTimer = -1;
-                placeInButtons = 0;
+                prevButColor = x.image.color;
+                StartCoroutine(PlayButtons());
                 showingButtons = false;
-            }*/
+            }
         }
     }
 
@@ -79,52 +57,41 @@ public class ButtonMinigame : MonoBehaviour
     }
 
     void ScrambleButtonOrder(){
-        print("scramble 1");
         buttonOrder = new int[] {-1, -1, -1, -1, -1, -1};
         int i = 0;
         while(i <= difficulty){
-            print("scramble 2");
             buttonOrder[i] = Random.Range(0, buttons.Length);
             i+=1;
         }
 
         i = 0;
-        //deactivate buttons
-        while(i < buttons.Length){
-            print("scramble 3: deactivating");
-            buttons[i].GetComponent<Button>().interactable = false;
-        }
     }
 
     //NOT working
-    /*
     public IEnumerator PlayButtons(){
-        print("play 1");
         int i = 0;
         //deactivate buttons
         while(i < buttons.Length){
-            print("play 2: deactivating");
             buttons[i].GetComponent<Button>().interactable = false;
+            i+=1;
         }
+        yield return new WaitForSeconds(0.5f);
         //change buttons color
         i = 0;
-        while(i < buttonOrder.Length){
+        while(i < buttonOrder.Length && buttonOrder[i] != -1){
             Button x = buttons[buttonOrder[i]].GetComponent<Button>();
             Color prevButColor = x.image.color;
             x.image.color = x.colors.pressedColor;
-            print("play 3a");
-            yield return new WaitForSeconds(5);
-            print("play 3b");
+            yield return new WaitForSeconds(1);
             x.image.color = prevButColor;
-            //yield return new WaitForSeconds(3);
-            print("play 3c");
-            i++;
+            yield return new WaitForSeconds(0.5f);
+            i+=1;
         }
         //reactivate buttons
         i = 0;
         while(i < buttons.Length){
-            print("play 4: activating");
             buttons[i].GetComponent<Button>().interactable = true;
+            i+=1;
         }
-    }*/
+    }
 }
