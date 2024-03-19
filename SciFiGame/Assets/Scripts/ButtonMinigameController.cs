@@ -8,19 +8,43 @@ public class ButtonMinigame : MonoBehaviour
     SceneController controller;
 
     [SerializeField] private float gameTime = 60f;
-    //[SerializeField] private float target = 20f;
     [SerializeField] private float score;
     [SerializeField] private int[] buttonOrder = {-1, -1, -1, -1, -1, -1};
     [SerializeField] private int difficulty = 1;
+    [SerializeField] private int[] input = { -1, -1, -1, -1, -1, -1 };
+    private int placeInInput = 0;
     public GameObject[] buttons;
 
     [SerializeField] private bool showingButtons;
     private int placeInButtons = 0;
     private Color prevButColor;
+
+    public Canvas correctFeedback;
+    public Canvas incorrectFeedback;
     private bool gameOver;
 
     void Start(){
         showingButtons = true;
+        /*for(int i = 0; i < buttons.Length; i++){
+            Button temp = buttons[i].GetComponent<Button>();
+            temp.onClick.AddListener(delegate {ButtonSelected(i);});
+        }
+        Tried to do this scalably, did not work*/
+        Button temp0 = buttons[0].GetComponent<Button>();
+        temp0.onClick.AddListener(delegate {ButtonSelected(0);});
+        Button temp1 = buttons[1].GetComponent<Button>();
+        temp1.onClick.AddListener(delegate {ButtonSelected(1);});
+        Button temp2 = buttons[2].GetComponent<Button>();
+        temp2.onClick.AddListener(delegate {ButtonSelected(2);});
+        Button temp3 = buttons[3].GetComponent<Button>();
+        temp3.onClick.AddListener(delegate {ButtonSelected(3);});
+        Button temp4 = buttons[4].GetComponent<Button>();
+        temp4.onClick.AddListener(delegate {ButtonSelected(4);});
+        Button temp5 = buttons[5].GetComponent<Button>();
+        temp5.onClick.AddListener(delegate {ButtonSelected(5);});
+
+        correctFeedback.GetComponent<Canvas>().gameObject.SetActive(false);
+        incorrectFeedback.GetComponent<Canvas>().gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -43,6 +67,9 @@ public class ButtonMinigame : MonoBehaviour
                 StartCoroutine(PlayButtons());
                 showingButtons = false;
             }
+        }
+        if(gameTime >= 0 && showingButtons == false){
+
         }
     }
 
@@ -93,5 +120,47 @@ public class ButtonMinigame : MonoBehaviour
             buttons[i].GetComponent<Button>().interactable = true;
             i+=1;
         }
+    }
+
+    void ButtonSelected(int i){
+        input[placeInInput] = i;
+        placeInInput+=1;
+        if(placeInInput > difficulty){
+            bool areEqual = true;
+            for(int j = 0; j < input.Length; j ++){
+                if(input[j]!= buttonOrder[j]){
+                    areEqual = false;
+                }
+            }
+            if(areEqual){
+                print("Correct!");
+                score += difficulty * 5;
+                difficulty +=1;
+                input = new int[] {-1, -1, -1, -1, -1, -1};
+                placeInInput = 0;
+                StartCoroutine(ShowFeedback(0));
+                showingButtons = true;
+            }
+            else{
+                print("Incorrect :(");
+                input = new int[] {-1, -1, -1, -1, -1, -1};
+                placeInInput = 0;
+                StartCoroutine(ShowFeedback(1));
+                showingButtons = true;
+            }
+        }
+    }
+
+    private IEnumerator ShowFeedback(int i){
+        Canvas temp;
+        if (i == 0){
+            temp = correctFeedback.GetComponent<Canvas>();
+        }
+        else{
+            temp = incorrectFeedback.GetComponent<Canvas>();
+        }
+        temp.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        temp.gameObject.SetActive(false);
     }
 }
