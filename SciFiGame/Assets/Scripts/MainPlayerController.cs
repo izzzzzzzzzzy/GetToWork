@@ -16,8 +16,6 @@ public class MainPlayerController : PlayerBase
     // Start is called before the first frame update
     void Start()
     {
-        controller = FindFirstObjectByType<SceneController>();
-
         InitializeComponents();
     }
 

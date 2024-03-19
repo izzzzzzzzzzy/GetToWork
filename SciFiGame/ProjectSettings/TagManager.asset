@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Conveyor
   - Chute
+  - Ground
+  - Crate Stack
   layers:
   - Default
   - TransparentFX

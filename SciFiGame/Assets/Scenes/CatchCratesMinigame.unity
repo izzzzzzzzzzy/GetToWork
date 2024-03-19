@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 91441068}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,9 +353,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3947309937144341655, guid: 15143cc68e243ca489b3562667f62611, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
+    - target: {fileID: 2370484952996904200, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4056886962895597328, guid: 15143cc68e243ca489b3562667f62611, type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,12 +397,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4271269252278190628, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271269252278190628, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271269252278190628, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7620932600744652224, guid: 15143cc68e243ca489b3562667f62611, type: 3}
       propertyPath: m_Name
       value: CrateCatchingPlayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2702112969184693568, guid: 15143cc68e243ca489b3562667f62611, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15143cc68e243ca489b3562667f62611, type: 3}
@@ -463,6 +476,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a912513178edbf743bcbe68f18b91d64, type: 3}
+--- !u!1 &411940605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411940608}
+  - component: {fileID: 411940606}
+  m_Layer: 0
+  m_Name: CrateSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &411940606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411940605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d226dc1720cf8294dae7bdc1425f7268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 4
+  spawnedItem: {fileID: 7662831068796799305, guid: 8aaab02c62d74394ab9965b8806d5204, type: 3}
+  spawnRange: 8
+--- !u!4 &411940608
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411940605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: -8.382875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &551487445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -594,3 +654,4 @@ SceneRoots:
   - {fileID: 551487445}
   - {fileID: 2058798729}
   - {fileID: 129854838}
+  - {fileID: 411940608}

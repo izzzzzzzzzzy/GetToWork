@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class TrashSpawner : MonoBehaviour
+public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate;
     [SerializeField] private GameObject spawnedItem;
