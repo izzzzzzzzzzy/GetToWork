@@ -22,7 +22,9 @@ public class SceneController : MonoBehaviour
     {
         mainCamera = FindFirstObjectByType<Camera>();
         mainPlayer = FindFirstObjectByType<PlayerController>();
-        //pauseMenu = GetComponentInChildren<Canvas>();
+
+        mainCameraCoords = new(0, 0, -10);
+        mainPlayerCoords = new(0, 0);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -45,7 +47,6 @@ public class SceneController : MonoBehaviour
                 PlayGame();
             }
         }
-
         pauseMenu.gameObject.SetActive(isPaused);
     }
 
@@ -66,8 +67,8 @@ public class SceneController : MonoBehaviour
 
     public void StartDay()
     {
-        mainCameraCoords = new Vector3(0, -15, -10);
-        mainPlayerCoords = new Vector2(0, -15);
+        mainCameraCoords = new(0, -15, -10);
+        mainPlayerCoords = new(0, -15);
 
         StartCoroutine(LoadMainScene());
     }
@@ -75,7 +76,7 @@ public class SceneController : MonoBehaviour
     IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
 
         mainCamera.transform.position = new Vector3(nCameraPos.x, nCameraPos.y, -10);
         player.transform.position = nPlayerPos;
@@ -87,14 +88,14 @@ public class SceneController : MonoBehaviour
         mainPlayerCoords = exitCoords;
 
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
         SceneManager.LoadScene(sceneName);
     }
 
     IEnumerator LoadMainScene()
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime);
         SceneManager.LoadScene("MainScene");
     }
 
