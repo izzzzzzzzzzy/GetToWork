@@ -5,65 +5,51 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
-    Rigidbody2D rb;
+public class PlatformingPlayerController : PlayerBase
+{
     Collider2D coll;
     SpriteRenderer mySpriteRenderer;
     Item item;
-    SceneController controller;
+    MinigameController controller;
 
     [Header("Inputs")]
-    public Vector2 inputDirection;
-    public bool jumpInput;
-    public bool jumpHeld;
-    public bool interactInput;
     public float jumpTimer;
     public float itemsCollected = 0;
    
-
     [Header("Modifiers")]
     [SerializeField] private float fallSpeedBuffer = 3f;
     [SerializeField] private float fallGravity = 3f;
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private float groundVelocity = 5f;
-    public float deccelerationMultiplier = 10f;
+    [SerializeField] private float deccelerationMultiplier = 10f;
     [SerializeField] private float terminalVelocity = 10f;
     [SerializeField] private float minSpeed = 0.1f;
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask itemLayers;
 
-    [Header("Scene Controller")]
-    [SerializeField] private float sceneTimer = 25;
-    [SerializeField] private bool gameOver = false;
-
     private bool isGrounded;
-    private bool canInteract;
 
     // Start is called before the first frame update
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
-
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         item = GetComponent<Item>();
+        controller = FindFirstObjectByType<MinigameController>();
+
+        InitializeComponents();
     }
 
     // Update is called once per frame
     void Update() {
-        jumpTimer -= Time.deltaTime;
-        sceneTimer -= Time.deltaTime;
+
+        GetInputs();
+
+        anim.SetInputs(new(inputDirection.x, 0), new(lastInputDirection.x, 0));
 
         if (jumpInput) {
             if (isGrounded) {
                 Jump();
             }
-        }
-
-        if (sceneTimer < 0 && !gameOver) {
-            gameOver = true;
-            controller = FindFirstObjectByType<SceneController>();
-            controller.EndMinigame();
-
         }
     }
 
@@ -71,7 +57,6 @@ public class PlayerMovement : MonoBehaviour {
         CheckWhatIsNear();
         ApplyMovement();
         ApplyGravity();
-        ApplyDirection();
     }
 
     private void ApplyMovement() {
@@ -97,13 +82,6 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private void ApplyDirection() {
-        if (inputDirection.x != 0) {
-            Vector3 currentScale = transform.localScale;
-            transform.localScale = currentScale;
-        }
-    }
-
     private void Jump() {
         jumpInput = false;
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -115,17 +93,19 @@ public class PlayerMovement : MonoBehaviour {
         RaycastHit2D itemHit = Physics2D.BoxCast(groundBoxPos, coll.bounds.size, 0f, Vector2.down, .1f, itemLayers);
 
         isGrounded = groundHit.collider != null;
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        Item item = collision.collider.GetComponent<Item>();
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        item = collision.GetComponent<Item>();
 
-        if (item != null) {
-            itemsCollected++;
+        if (item != null)
+        {
+            controller.IncreaseScore(item.GetValue());
             item.TakeHit();
-
         }
     }
+
+
 }
 

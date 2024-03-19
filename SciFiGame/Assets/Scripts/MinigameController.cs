@@ -6,21 +6,21 @@ using UnityEngine;
 public class MinigameController : MonoBehaviour
 {
     SceneController controller;
-    TMP_Text timer;
+    Timer timer;
     MinigameStartScreen startScreen;
 
     [SerializeField] private float gameTime = 60f;
     [SerializeField] private float score;
 
     private bool gameOver;
-    private int mins;
-    private int secs;
+    private float timeRemaining;
 
     private void Start()
     {
-        timer = GetComponentInChildren<TMP_Text>();
+        timer = GetComponentInChildren<Timer>();
+        timer.SetTimeRemaining(gameTime);
         timer.gameObject.SetActive(false);
-        startScreen = FindFirstObjectByType<MinigameStartScreen>();
+        startScreen = GetComponentInChildren<MinigameStartScreen>();
 
         Time.timeScale = 0f;
     }
@@ -28,22 +28,17 @@ public class MinigameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameTime < 0 && !gameOver)
+        timeRemaining = timer.GetTimeRemaining();
+
+        if (!gameOver && timeRemaining <= 0)
         {
             gameOver = true;
 
-            timer.enabled = false;
+            timer.gameObject.SetActive(false);
 
             controller = FindFirstObjectByType<SceneController>();
             controller.EndMinigame();
         }
-
-        mins = (int)gameTime / 60;
-        secs = (int)gameTime % 60;
-
-        timer.text = string.Format("{0}:{1:00}", mins, secs);
-
-        gameTime -= Time.deltaTime;
     }
 
     public void IncreaseScore(int amt)
@@ -62,7 +57,7 @@ public class MinigameController : MonoBehaviour
         startScreen.gameObject.SetActive(false);
         timer.gameObject.SetActive(true);
     }
-    
+
     public float GetGameTime(){
         return gameTime;
     }
