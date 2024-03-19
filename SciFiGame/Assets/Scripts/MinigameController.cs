@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SortTrash : MonoBehaviour
+public class MinigameController : MonoBehaviour
 {
     SceneController controller;
+    TimerUIScript timer;
 
     [SerializeField] private float gameTime = 60f;
-    //[SerializeField] private float target = 20f;
     [SerializeField] private float score;
 
     private bool gameOver;
 
+    private void Start()
+    {
+        timer = GetComponentInChildren<TimerUIScript>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        gameTime -= Time.deltaTime;
-
         if (gameTime < 0 && !gameOver)
         {
             gameOver = true;
@@ -24,15 +27,20 @@ public class SortTrash : MonoBehaviour
             controller = FindFirstObjectByType<SceneController>();
             controller.EndMinigame();
         }
+
+        gameTime -= Time.deltaTime;
+
+        timer.timeMinutes = (int)gameTime / 60;
+        timer.timeSeconds = (int)gameTime % 60;
     }
 
-    public void IncreaseScore()
+    public void IncreaseScore(int amt)
     {
-        score++;
+        score += amt;
     }
 
-    public void DecreaseScore()
+    public void DecreaseScore(int amt)
     {
-        score--;
+        score -= amt;
     }
 }
