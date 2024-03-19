@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isPaused = controller.getPaused();
+        isPaused = controller.GetPaused();
 
         if (!isPaused)
         {

@@ -20,9 +20,8 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //mainCamera = FindFirstObjectByType<Camera>();
-        mainCamera = FindFirstObjectByType<Camera>().gameObject;
-        //mainPlayer = FindFirstObjectByType<PlayerController>().gameObject;
+        mainCamera = FindFirstObjectByType<Camera>();
+        mainPlayer = FindFirstObjectByType<PlayerController>();
         //pauseMenu = GetComponentInChildren<Canvas>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -69,7 +68,7 @@ public class SceneController : MonoBehaviour
     {
         mainCameraCoords = new Vector3(0, -15, -10);
         mainPlayerCoords = new Vector2(0, -15);
-        print("hi");
+
         StartCoroutine(LoadMainScene());
     }
 
@@ -123,7 +122,7 @@ public class SceneController : MonoBehaviour
         isPaused = false;
     }
 
-    public bool getPaused()
+    public bool GetPaused()
     {
         return isPaused;
     }

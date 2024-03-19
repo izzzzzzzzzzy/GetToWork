@@ -1427,6 +1427,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 164992025}
     m_Modifications:
+    - target: {fileID: 1301131244536928357, guid: 1132f8a52e5e1b54e85c8e4fb43584af, type: 3}
+      propertyPath: nextScene
+      value: WhackBugsMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301131244536928357, guid: 1132f8a52e5e1b54e85c8e4fb43584af, type: 3}
+      propertyPath: returnOffset.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2841147754190307626, guid: 1132f8a52e5e1b54e85c8e4fb43584af, type: 3}
       propertyPath: m_Name
       value: Minigame Door (7)
@@ -2752,6 +2760,10 @@ PrefabInstance:
     - target: {fileID: 7929093781286957037, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199880959519861978, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
