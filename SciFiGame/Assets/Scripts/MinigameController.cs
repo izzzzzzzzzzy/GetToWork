@@ -62,4 +62,8 @@ public class MinigameController : MonoBehaviour
         startScreen.gameObject.SetActive(false);
         timer.gameObject.SetActive(true);
     }
+    
+    public float GetGameTime(){
+        return gameTime;
+    }
 }
