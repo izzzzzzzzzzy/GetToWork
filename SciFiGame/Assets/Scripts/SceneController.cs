@@ -13,7 +13,7 @@ public class SceneController : MonoBehaviour
 
     private Camera mainCamera;
     private SceneFade sceneFade;
-    private PlayerController mainPlayer;
+    private MainPlayerController mainPlayer;
     public Canvas pauseMenu;
     private bool isPaused;
 
@@ -21,7 +21,7 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         mainCamera = FindFirstObjectByType<Camera>();
-        mainPlayer = FindFirstObjectByType<PlayerController>();
+        mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
         mainCameraCoords = new(0, 0, -10);
         mainPlayerCoords = new(0, 0);
@@ -105,7 +105,7 @@ public class SceneController : MonoBehaviour
 
         if (scene.name == "MainScene")
         {
-            mainPlayer = FindFirstObjectByType<PlayerController>();
+            mainPlayer = FindFirstObjectByType<MainPlayerController>();
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
         }
@@ -123,7 +123,7 @@ public class SceneController : MonoBehaviour
         isPaused = false;
     }
 
-    public bool GetPaused()
+    public bool IsPaused()
     {
         return isPaused;
     }
