@@ -102,7 +102,7 @@ public class ButtonMinigame : MonoBehaviour
             buttons[i].GetComponent<Button>().interactable = false;
             i+=1;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         //change buttons color
         i = 0;
         while(i < buttonOrder.Length && buttonOrder[i] != -1){
