@@ -43,4 +43,8 @@ public class MinigameController : MonoBehaviour
     {
         score -= amt;
     }
+
+    public float GetGameTime(){
+        return gameTime;
+    }
 }
