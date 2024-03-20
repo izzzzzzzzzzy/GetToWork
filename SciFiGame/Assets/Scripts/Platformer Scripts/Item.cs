@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    Rigidbody2D rb;
+    [SerializeField] private int value;
 
     // Start is called before the first frame update
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
     //When called it will destroy the gameobject and spawn a VFX
     public void TakeHit() {
         Destroy(gameObject);
+    }
+
+    public int GetValue()
+    {
+        return value;
     }
 }
 

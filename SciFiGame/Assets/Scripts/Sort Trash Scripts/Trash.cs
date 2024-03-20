@@ -6,10 +6,11 @@ public class Trash : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     DraggableScript draggableScript;
-    SortTrash gameManager;
+    MinigameController gameManager;
 
     [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue, Color.yellow };
     [SerializeField] private float speed = 5;
+    [SerializeField] private int value = 1;
 
     private int color;
     public bool onBelt;
@@ -19,7 +20,7 @@ public class Trash : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         draggableScript = GetComponent<DraggableScript>();
-        gameManager = FindFirstObjectByType<SortTrash>();
+        gameManager = FindFirstObjectByType<MinigameController>();
 
         color = Mathf.FloorToInt(Random.Range(0, colors.Length));
 
@@ -46,11 +47,11 @@ public class Trash : MonoBehaviour
         {
             if (color == collision.GetComponent<TrashChute>().GetColor())
             {
-                gameManager.IncreaseScore();
+                gameManager.IncreaseScore(value);
             }
             else
             {
-                gameManager.DecreaseScore();
+                gameManager.DecreaseScore(value);
             }
 
             Destroy(gameObject);
