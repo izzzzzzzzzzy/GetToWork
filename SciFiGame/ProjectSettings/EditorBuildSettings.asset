@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CatchCratesMinigame.unity
     guid: 22348092976391e47a213e71401e17e3
+  - enabled: 1
+    path: Assets/Scenes/ButtonMinigame.unity
+    guid: b7c6729563e594dc4930d2819242547f
   m_configObjects: {}

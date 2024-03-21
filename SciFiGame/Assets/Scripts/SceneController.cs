@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
 
+    MainManager mainManager;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -20,6 +21,7 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainManager = GetComponent<MainManager>();
         mainCamera = FindFirstObjectByType<Camera>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
@@ -60,8 +62,12 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
-    public void EndMinigame()
+    public void EndMinigame(int timeSec, int timeMin, int points)
     {
+        int time = (mainManager.dayTimeLeftSeconds + (mainManager.dayTimeLeftMinutes * 60)) - (timeSec + (timeMin * 60));
+        mainManager.dayTimeLeftSeconds = (int)time%60;
+        mainManager.dayTimeLeftMinutes = (int)time/60;
+        mainManager.money += points;
         StartCoroutine(LoadMainScene());
     }
 
