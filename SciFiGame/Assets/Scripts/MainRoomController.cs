@@ -20,6 +20,8 @@ public class MainRoomController : MonoBehaviour
         mainManager = controller.GetComponent<MainManager>();
         controller = controller.GetComponent<SceneController>();
         gameTime = (mainManager.dayTimeLeftMinutes * 60 ) + mainManager.dayTimeLeftSeconds;
+        timeRemaining = gameTime;
+
         timer = timer.GetComponent<Timer>();
         timer.SetTimeRemaining(gameTime);
         score = mainManager.money;
@@ -28,18 +30,21 @@ public class MainRoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = timer.GetTimeRemaining();
+        timeRemaining -= Time.deltaTime;
+        timer.SetTimeRemaining(timeRemaining);
+        //timeRemaining = timer.GetTimeRemaining();
+
 
         if (!gameOver && timeRemaining <= 0)
         {
             gameOver = true;
 
             timer.gameObject.SetActive(false);
-            EndDay(score);
+            EndDay();
         }
     }
 
-    void EndDay(float money){
+    void EndDay(){
         SceneManager.LoadScene("EndOfDay");
     }
 }

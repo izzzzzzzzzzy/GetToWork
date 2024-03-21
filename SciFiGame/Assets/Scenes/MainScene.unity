@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 396039987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49a8664c16c53406e8516d033d737a19, type: 3}
+  m_Script: {fileID: 11500000, guid: 322a3b50da738401f96a148f214af705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1999306330}
@@ -3400,7 +3400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1767684191}
-  timeRemaining: 120
+  timeRemaining: 0
 --- !u!114 &1664231492
 MonoBehaviour:
   m_ObjectHideFlags: 0
