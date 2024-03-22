@@ -48,7 +48,7 @@ public class ButtonMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(miniController.GetGameTime() >= 0 && showingButtons){
+        if(miniController.GetTimeRemaining() >= 0 && showingButtons){
             if(placeInButtons <= buttons.Length){
                 ScrambleButtonOrder();
                 Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
@@ -57,6 +57,9 @@ public class ButtonMinigame : MonoBehaviour
                 showingButtons = false;
             }
         }
+        /*else if(miniController.GetTimeRemaining() <= 0){
+
+        }*/
     }
 
     void ScrambleButtonOrder(){

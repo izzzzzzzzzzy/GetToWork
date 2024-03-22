@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 9e1ab56d8917a4d6a93b24511204afb8
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Minigame.unity
-    guid: 5e85f4edda64fbf449e6c0b125ab2e34
   - enabled: 1
     path: Assets/Scenes/SortTrashMinigame.unity
     guid: 8131a2c985d561141b07ff3400cee59d
@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CatchCratesMinigame.unity
     guid: 22348092976391e47a213e71401e17e3
+  - enabled: 1
+    path: Assets/Scenes/ButtonMinigame.unity
+    guid: b7c6729563e594dc4930d2819242547f
+  - enabled: 1
+    path: Assets/Scenes/EndOfDay.unity
+    guid: 3d35a9a695cfd48a3b0d460feb6eecd3
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: 53b3e102dabec4429b1eb83a05ef21c8
   m_configObjects: {}
