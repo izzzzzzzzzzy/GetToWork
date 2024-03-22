@@ -100,12 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b21edb52ad6b9fc449e0f1455724bdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trash: {fileID: -1053596137, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
+  glass: {fileID: -662363324, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
+  compost: {fileID: 1092993378, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
+  cardboard: {fileID: -1969808483, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
   colors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   speed: 2
+  value: 1
   onBelt: 0
 --- !u!114 &868597956813132670
 MonoBehaviour:
