@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public static SceneController Instance;
 
     MainManager mainManager;
     [SerializeField] private float transitionTime = 1f;
@@ -17,6 +19,16 @@ public class SceneController : MonoBehaviour
     private MainPlayerController mainPlayer;
     public Canvas pauseMenu;
     private bool isPaused;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()

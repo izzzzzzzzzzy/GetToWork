@@ -5,6 +5,7 @@ using UnityEngine.Windows;
 
 public class CrateCatchingPlayerController : PlayerBase
 {
+    Rigidbody2D rb;
 
     [SerializeField] private float velocity = 5f;
     
@@ -12,6 +13,7 @@ public class CrateCatchingPlayerController : PlayerBase
     void Start()
     {
         InitializeComponents();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
