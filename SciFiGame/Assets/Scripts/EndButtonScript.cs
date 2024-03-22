@@ -26,8 +26,7 @@ public class EndButtonScript : MonoBehaviour
     {
         mainManager.debt = 500000f;
         mainManager.money = 0f;
-        mainManager.dayTimeLeftSeconds = 0;
-        mainManager.dayTimeLeftMinutes = 2;
+        mainManager.dayTimeLeft = 120;
         SceneManager.LoadScene("StartScreen");
     }
 }

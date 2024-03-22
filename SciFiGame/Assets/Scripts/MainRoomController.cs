@@ -17,9 +17,9 @@ public class MainRoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controller = FindFirstObjectByType<SceneController>();
         mainManager = controller.GetComponent<MainManager>();
-        controller = controller.GetComponent<SceneController>();
-        gameTime = (mainManager.dayTimeLeftMinutes * 60 ) + mainManager.dayTimeLeftSeconds;
+        gameTime = mainManager.dayTimeLeft;
         timeRemaining = gameTime;
 
         timer = timer.GetComponent<Timer>();
@@ -30,9 +30,7 @@ public class MainRoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeRemaining -= Time.deltaTime;
-        timer.SetTimeRemaining(timeRemaining);
-        //timeRemaining = timer.GetTimeRemaining();
+        timeRemaining = timer.GetTimeRemaining();
 
 
         if (!gameOver && timeRemaining <= 0)
@@ -40,11 +38,7 @@ public class MainRoomController : MonoBehaviour
             gameOver = true;
 
             timer.gameObject.SetActive(false);
-            EndDay();
+            controller.EndDay();
         }
-    }
-
-    void EndDay(){
-        SceneManager.LoadScene("EndOfDay");
     }
 }
