@@ -20,8 +20,7 @@ public class MainManager : MonoBehaviour
     public int lLegHealth;
 
     //timers
-    public int dayTimeLeftSeconds;
-    public int dayTimeLeftMinutes;
+    public float dayTimeLeft;
 
 
     private void Awake(){
@@ -42,6 +41,6 @@ public class MainManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        dayTimeLeft -= Time.deltaTime;
     }
 }

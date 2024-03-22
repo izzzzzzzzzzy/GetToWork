@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
 
+    MainManager mainManager;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -20,6 +21,7 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainManager = GetComponent<MainManager>();
         mainCamera = FindFirstObjectByType<Camera>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
@@ -60,9 +62,10 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
-    public void EndMinigame()
+    public void EndMinigame(float score)
     {
-        StartCoroutine(LoadMainScene());
+        mainManager.money += score;
+        StartCoroutine(LoadScene("MainScene"));
     }
 
     public void StartDay()
@@ -70,7 +73,12 @@ public class SceneController : MonoBehaviour
         mainCameraCoords = new(0, -15, -10);
         mainPlayerCoords = new(0, -15);
 
-        StartCoroutine(LoadMainScene());
+        StartCoroutine(LoadScene("MainScene"));
+    }
+
+    public void EndDay()
+    {
+        StartCoroutine(LoadScene("EndOfDay"));
     }
 
     IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
@@ -92,11 +100,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    IEnumerator LoadMainScene()
+    IEnumerator LoadScene(string sceneName)
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
         yield return new WaitForSecondsRealtime(transitionTime);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene(sceneName);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
