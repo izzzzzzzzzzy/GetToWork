@@ -9,16 +9,14 @@ public class MinigameController : MonoBehaviour
     Timer timer;
     MinigameStartScreen startScreen;
 
-    [SerializeField] private float gameTime = 60f;
+    [SerializeField] private float timeRemaining = 60f;
     [SerializeField] private float score;
 
     private bool gameOver;
-    private float timeRemaining;
 
     private void Start()
     {
         timer = GetComponentInChildren<Timer>();
-        timer.SetTimeRemaining(gameTime);
         timer.gameObject.SetActive(false);
         startScreen = GetComponentInChildren<MinigameStartScreen>();
 
@@ -28,7 +26,9 @@ public class MinigameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = timer.GetTimeRemaining();
+        timeRemaining -= Time.deltaTime;
+
+        timer.SetTime(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)
         {

@@ -23,6 +23,7 @@ public class SceneController : MonoBehaviour
     {
         mainManager = GetComponent<MainManager>();
         mainCamera = FindFirstObjectByType<Camera>();
+        sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
         mainCameraCoords = new(0, 0, -10);
@@ -34,7 +35,11 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sceneFade == null) {
+        if (mainCamera == null)
+        {
+            mainCamera = FindFirstObjectByType<Camera>();
+        }
+        if (sceneFade == null) { 
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
@@ -84,7 +89,7 @@ public class SceneController : MonoBehaviour
     IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSecondsRealtime(transitionTime);
+        yield return new WaitForSeconds(transitionTime);
 
         mainCamera.transform.position = new Vector3(nCameraPos.x, nCameraPos.y, -10);
         player.transform.position = nPlayerPos;
@@ -96,14 +101,14 @@ public class SceneController : MonoBehaviour
         mainPlayerCoords = exitCoords;
 
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSecondsRealtime(transitionTime);
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
     }
 
     IEnumerator LoadScene(string sceneName)
     {
         StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSecondsRealtime(transitionTime);
+        yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
     }
 

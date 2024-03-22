@@ -8,7 +8,6 @@ using System;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private TMP_Text timer;
-    [SerializeField] private float timeRemaining;
 
     // Start is called before the first frame update
     void Start()
@@ -16,21 +15,8 @@ public class Timer : MonoBehaviour
         timer = timer.GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetTime(float seconds)
     {
-        timer.text = string.Format("{0}:{1:00}", (int)timeRemaining / 60, (int)timeRemaining % 60);
-
-        timeRemaining -= Time.deltaTime;
-    }
-
-    public void SetTimeRemaining(float seconds)
-    {
-        timeRemaining = seconds;
-    }
-
-    public float GetTimeRemaining()
-    {
-        return timeRemaining;
+        timer.text = string.Format("{0}:{1:00}", (int)(seconds / 60), (int)(seconds % 60));
     }
 }

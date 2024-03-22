@@ -5,33 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainRoomController : MonoBehaviour
 {
-    public SceneController controller;
-    public Timer timer;
+    SceneController controller;
+    Timer timer;
     MainManager mainManager;
 
-    [SerializeField] private float gameTime;
+    [SerializeField] private float timeRemaining;
     [SerializeField] private float score;
 
     private bool gameOver;
-    private float timeRemaining;
     // Start is called before the first frame update
     void Start()
     {
         controller = FindFirstObjectByType<SceneController>();
         mainManager = controller.GetComponent<MainManager>();
-        gameTime = mainManager.dayTimeLeft;
-        timeRemaining = gameTime;
+        timer = GetComponentInChildren<Timer>();
 
-        timer = timer.GetComponent<Timer>();
-        timer.SetTimeRemaining(gameTime);
-        score = mainManager.money;
+        timeRemaining = mainManager.dayTimeLeft;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = timer.GetTimeRemaining();
-
+        timeRemaining = mainManager.dayTimeLeft;
+        timer.SetTime(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)
         {
