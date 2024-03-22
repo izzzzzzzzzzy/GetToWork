@@ -8,6 +8,11 @@ public class Trash : MonoBehaviour
     DraggableScript draggableScript;
     MinigameController gameManager;
 
+    public Sprite trash;
+    public Sprite glass;
+    public Sprite compost;
+    public Sprite cardboard;
+
     [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue, Color.yellow };
     [SerializeField] private float speed = 5;
     [SerializeField] private int value = 1;
@@ -24,7 +29,16 @@ public class Trash : MonoBehaviour
 
         color = Mathf.FloorToInt(Random.Range(0, colors.Length));
 
-        spriteRenderer.color = colors[color];
+        //spriteRenderer.color = colors[color];
+        if (colors[color] == Color.red) {
+            spriteRenderer.sprite = trash;
+        } else if (colors[color] == Color.blue) {
+            spriteRenderer.sprite = glass;
+        } else if (colors[color] == Color.green) {
+            spriteRenderer.sprite = compost;
+        } else {
+            spriteRenderer.sprite = cardboard;
+        }
     }
 
     // Update is called once per frame
