@@ -9,7 +9,7 @@ public class MinigameController : MonoBehaviour
     Timer timer;
     MinigameStartScreen startScreen;
 
-    [SerializeField] private float timeRemaining = 60f;
+    [SerializeField] private float timeRemaining = 30f;
     [SerializeField] private float score;
 
     private bool gameOver;

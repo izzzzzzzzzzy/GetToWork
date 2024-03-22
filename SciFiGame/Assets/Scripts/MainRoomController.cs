@@ -20,13 +20,13 @@ public class MainRoomController : MonoBehaviour
         mainManager = controller.GetComponent<MainManager>();
         timer = GetComponentInChildren<Timer>();
 
-        timeRemaining = mainManager.dayTimeLeft;
+        timeRemaining = mainManager.timeRemaining;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = mainManager.dayTimeLeft;
+        timeRemaining = mainManager.timeRemaining;
         timer.SetTime(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)

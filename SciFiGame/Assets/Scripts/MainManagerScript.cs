@@ -20,7 +20,8 @@ public class MainManager : MonoBehaviour
     public int lLegHealth;
 
     //timers
-    public float dayTimeLeft;
+    public float dayTime = 180;
+    public float timeRemaining;
 
 
     private void Awake(){
@@ -37,10 +38,16 @@ public class MainManager : MonoBehaviour
     void Start()
     {
         sceneController = GetComponent<SceneController>();
+        timeRemaining = dayTime;
     }
     // Update is called once per frame
     void Update()
     {
-        dayTimeLeft -= Time.deltaTime;
+        timeRemaining -= Time.deltaTime;
+    }
+
+    public void StartDay()
+    {
+        timeRemaining = dayTime;
     }
 }

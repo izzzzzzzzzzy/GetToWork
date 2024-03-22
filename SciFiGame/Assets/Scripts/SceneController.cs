@@ -69,7 +69,8 @@ public class SceneController : MonoBehaviour
 
     public void EndMinigame(float score)
     {
-        mainManager.money += score;
+        mainManager.money += score > 0 ? score : 0;
+
         StartCoroutine(LoadScene("MainScene"));
     }
 
@@ -77,6 +78,8 @@ public class SceneController : MonoBehaviour
     {
         mainCameraCoords = new(0, -15, -10);
         mainPlayerCoords = new(0, -15);
+
+        mainManager.StartDay();
 
         StartCoroutine(LoadScene("MainScene"));
     }

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e81fff637623ed4d96914dea7ec44f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 30
+  timeRemaining: 30
   score: 0
 --- !u!1 &882227850188301519
 GameObject:
@@ -640,7 +640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 4470290730908577074}
-  timeRemaining: 0
 --- !u!1 &5391312680043765057
 GameObject:
   m_ObjectHideFlags: 0
