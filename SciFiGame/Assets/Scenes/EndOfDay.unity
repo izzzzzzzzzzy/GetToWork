@@ -2608,7 +2608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextDayButton: {fileID: 249518890}
-  nextLevelName: MainScene
+  nextLevelName: DeathScreen
   closeWindow: {fileID: 356396952}
   payDebt: {fileID: 39654447}
 --- !u!1 &1993959465
@@ -3136,6 +3136,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 3086633342577532042, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -174.79999
+      objectReference: {fileID: 0}
     - target: {fileID: 3269170430157754136, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_text
       value: = $0.00
@@ -3144,6 +3148,10 @@ PrefabInstance:
       propertyPath: debt
       value: 
       objectReference: {fileID: 373027764}
+    - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: moneyHave
+      value: 
+      objectReference: {fileID: 2602788043985133728}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: debtWarning
       value: 
@@ -3204,6 +3212,17 @@ PrefabInstance:
       addedObject: {fileID: 1214803606}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+--- !u!114 &2602788043985133728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3581477572955047875, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+  m_PrefabInstance: {fileID: 2602788043985133727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
