@@ -37,7 +37,7 @@ public class MinigameController : MonoBehaviour
             timer.gameObject.SetActive(false);
 
             controller = FindFirstObjectByType<SceneController>();
-            controller.EndMinigame((int)gameTime%60, (int)gameTime/60, (int)score);
+            controller.EndMinigame(score);
         }
     }
 
