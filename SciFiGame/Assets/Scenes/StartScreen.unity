@@ -661,6 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startButton: {fileID: 1319170044}
+  quitGameButton: {fileID: 610302738}
   nextLevelName: MainScene
 --- !u!1 &357684406
 GameObject:
