@@ -3176,6 +3176,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440094945412997832, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_Name
+      value: NextDay
+      objectReference: {fileID: 0}
     - target: {fileID: 6505160015478284724, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_text
       value: -$1.00

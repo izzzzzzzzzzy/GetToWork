@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class MainManager : MonoBehaviour
+public class MainManager : MonoBehaviour, ISaveable
 {
     SceneController sceneController;
 
@@ -22,6 +22,9 @@ public class MainManager : MonoBehaviour
     //timers
     public float dayTime = 180;
     public float timeRemaining;
+
+    //Save data
+    public string fileName = "";
 
 
     private void Awake(){
@@ -49,5 +52,51 @@ public class MainManager : MonoBehaviour
     public void StartDay()
     {
         timeRemaining = dayTime;
+    }
+
+    //Saving and loading
+    public void SaveJsonData(MainManager mm){
+        SaveData sd = new SaveData();
+        mm.PopulateSaveData(sd);
+
+        if(FileManager.WriteToFile(mm.fileName, sd.ToJson())){
+            Debug.Log("Save Successful");
+        }
+
+    }
+
+    public void PopulateSaveData(SaveData sd){
+        sd.name = fileName;
+        sd.debt = debt;
+        sd.money = money;
+        sd.rArmHealth = rArmHealth;
+        sd.lArmHealth = lArmHealth;
+        sd.rLegHealth = rLegHealth;
+        sd.lLegHealth = lLegHealth;
+    }
+
+    public bool LoadJsonData(MainManager mm, string name){
+        if(FileManager.LoadFromFile(name, out var json)){
+            SaveData sd = new SaveData();
+            sd.LoadFromJson(json);
+
+            mm.LoadFromSaveData(sd);
+            Debug.Log("Load complete");
+            return true;
+        }
+        else{
+            Debug.Log("Could not load " + name);
+            return false;
+        }
+    }
+
+    public void LoadFromSaveData(SaveData sd){
+        fileName = sd.name;
+        debt = sd.debt;
+        money = sd.money;
+        rArmHealth = sd.rArmHealth;
+        lArmHealth = sd.lArmHealth;
+        rLegHealth = sd.rLegHealth;
+        lLegHealth = sd.lLegHealth;
     }
 }

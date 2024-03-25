@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 public class EndButtonScript : MonoBehaviour
 {
     public Button endButton;
-    public MainManager mainManager;
+    //MainManager mainManager;
 
     // Start is called before the first frame update
     void Start()
     {
         Button btn = endButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        mainManager = mainManager.GetComponent<MainManager>();
+        //mainManager = mainManager.GetComponent<MainManager>();
     }
 
     // Update is called once per frame
@@ -24,9 +24,9 @@ public class EndButtonScript : MonoBehaviour
     }
     void TaskOnClick()
     {
-        mainManager.debt = 500000f;
-        mainManager.money = 0f;
-        mainManager.timeRemaining = 120;
+        MainManager.Instance.debt = 500000f;
+        MainManager.Instance.money = 0f;
+        MainManager.Instance.timeRemaining = 120;
         SceneManager.LoadScene("StartScreen");
     }
 }

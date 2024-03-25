@@ -20,7 +20,7 @@ public class PlayerBase : MonoBehaviour
 
     protected void GetInputs()
     {
-        print(inputs);
+        //print(inputs);
         jumpInput = inputs.GetJumpInput();
         jumpHeld = inputs.GetJumpHeld();
         interactInput = inputs.GetInteractInput();

@@ -9,7 +9,7 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
 
-    MainManager mainManager;
+    //MainManager mainManager;
     [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -33,7 +33,7 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainManager = GetComponent<MainManager>();
+        //mainManager = GetComponent<MainManager>();
         mainCamera = FindFirstObjectByType<Camera>();
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
@@ -51,7 +51,7 @@ public class SceneController : MonoBehaviour
         {
             mainCamera = FindFirstObjectByType<Camera>();
         }
-        if (sceneFade == null) { 
+        if (sceneFade == null) {
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
@@ -81,7 +81,7 @@ public class SceneController : MonoBehaviour
 
     public void EndMinigame(float score)
     {
-        mainManager.money += score > 0 ? score : 0;
+        MainManager.Instance.money += score > 0 ? score : 0;
 
         StartCoroutine(LoadScene("MainScene"));
     }
@@ -91,7 +91,7 @@ public class SceneController : MonoBehaviour
         mainCameraCoords = new(0, -15, -10);
         mainPlayerCoords = new(0, -15);
 
-        mainManager.StartDay();
+        MainManager.Instance.StartDay();
 
         StartCoroutine(LoadScene("MainScene"));
     }
