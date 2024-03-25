@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MinigameTransition : Interactable
-{   
+{
 
     [SerializeField] private string nextScene;
     [SerializeField] private Vector3 returnOffset;

@@ -11,6 +11,7 @@ public class MinigameController : MonoBehaviour
 
     [SerializeField] private float timeRemaining = 30f;
     [SerializeField] private float score;
+    public TMP_Text scoreShow;
 
     private bool gameOver;
 
@@ -20,6 +21,7 @@ public class MinigameController : MonoBehaviour
         timer.gameObject.SetActive(false);
         startScreen = GetComponentInChildren<MinigameStartScreen>();
 
+        scoreShow.text = "$" + score;
         Time.timeScale = 0f;
     }
 
@@ -29,6 +31,7 @@ public class MinigameController : MonoBehaviour
         timeRemaining -= Time.deltaTime;
 
         timer.SetTime(timeRemaining);
+        scoreShow.text = "$" + score;
 
         if (!gameOver && timeRemaining <= 0)
         {
