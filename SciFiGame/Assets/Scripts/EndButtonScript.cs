@@ -14,7 +14,6 @@ public class EndButtonScript : MonoBehaviour
     {
         Button btn = endButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        //mainManager = mainManager.GetComponent<MainManager>();
     }
 
     // Update is called once per frame
@@ -24,6 +23,7 @@ public class EndButtonScript : MonoBehaviour
     }
     void TaskOnClick()
     {
+        MainManager.Instance.fileName = "";
         MainManager.Instance.debt = 500000f;
         MainManager.Instance.money = 0f;
         MainManager.Instance.timeRemaining = 120;

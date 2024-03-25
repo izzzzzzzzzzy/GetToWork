@@ -7,7 +7,6 @@ public class MainRoomController : MonoBehaviour
 {
     SceneController controller;
     Timer timer;
-    MainManager mainManager;
 
     [SerializeField] private float timeRemaining;
     [SerializeField] private float score;
@@ -17,16 +16,15 @@ public class MainRoomController : MonoBehaviour
     void Start()
     {
         controller = FindFirstObjectByType<SceneController>();
-        mainManager = controller.GetComponent<MainManager>();
         timer = GetComponentInChildren<Timer>();
 
-        timeRemaining = mainManager.timeRemaining;
+        timeRemaining = MainManager.Instance.timeRemaining;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = mainManager.timeRemaining;
+        timeRemaining = MainManager.Instance.timeRemaining;
         timer.SetTime(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)
