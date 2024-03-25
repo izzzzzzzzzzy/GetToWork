@@ -576,6 +576,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Catch Crates
       objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: scoreShow
+      value: 
+      objectReference: {fileID: 1902337228}
     - target: {fileID: 3574737631855586914, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -751,6 +755,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1902337228 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8174947183748980678, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+  m_PrefabInstance: {fileID: 551487445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2058798729
 PrefabInstance:
   m_ObjectHideFlags: 0

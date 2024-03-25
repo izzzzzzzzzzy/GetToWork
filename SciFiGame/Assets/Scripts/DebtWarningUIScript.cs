@@ -31,8 +31,9 @@ public class DebtWarningUIScript : MonoBehaviour
     }
 
     void Die(){
-        //TODO: go to death screen
-        FindFirstObjectByType<SceneController>().StartDay();
+        //TODO: go to death screen, reset scores and such
+        SceneManager.LoadScene(nextLevelName);
+        //FindFirstObjectByType<SceneController>().StartDay();
     }
 
     void GoBack(){

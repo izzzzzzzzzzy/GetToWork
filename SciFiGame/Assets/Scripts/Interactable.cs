@@ -7,6 +7,7 @@ public abstract class Interactable: MonoBehaviour
 {
 
     SpriteRenderer spriteRenderer;
+    AudioSource audioSource;
 
     private Color baseColor;
 
@@ -15,14 +16,23 @@ public abstract class Interactable: MonoBehaviour
     private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         baseColor = spriteRenderer.color;
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            audioSource.Play();
+        }
+    }
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            audioSource.Play();
             spriteRenderer.color = baseColor * 3f;
         }
     }

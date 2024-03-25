@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
-    protected Rigidbody2D rb;
     protected PlayerAnimator anim;
     protected InputHandler inputs;
     protected Vector2 inputDirection;
@@ -15,13 +14,13 @@ public class PlayerBase : MonoBehaviour
 
     protected void InitializeComponents()
     {
-        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<PlayerAnimator>();
         inputs = GetComponent<InputHandler>();
     }
 
     protected void GetInputs()
     {
+        //print(inputs);
         jumpInput = inputs.GetJumpInput();
         jumpHeld = inputs.GetJumpHeld();
         interactInput = inputs.GetInteractInput();

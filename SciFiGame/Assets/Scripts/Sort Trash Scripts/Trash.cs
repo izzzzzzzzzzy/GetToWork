@@ -12,6 +12,12 @@ public class Trash : MonoBehaviour
     public Sprite glass;
     public Sprite compost;
     public Sprite cardboard;
+    public AudioClip trashSound;
+    public AudioClip glassSound;
+    public AudioClip compostSound;
+    public AudioClip cardboardSound;
+
+    private AudioSource audioSource;
 
     [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue, Color.yellow };
     [SerializeField] private float speed = 5;
@@ -23,6 +29,7 @@ public class Trash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         draggableScript = GetComponent<DraggableScript>();
         gameManager = FindFirstObjectByType<MinigameController>();
@@ -32,12 +39,16 @@ public class Trash : MonoBehaviour
         //spriteRenderer.color = colors[color];
         if (colors[color] == Color.red) {
             spriteRenderer.sprite = trash;
+            audioSource.clip = trashSound;
         } else if (colors[color] == Color.blue) {
             spriteRenderer.sprite = glass;
+            audioSource.clip = glassSound;
         } else if (colors[color] == Color.green) {
             spriteRenderer.sprite = compost;
+            audioSource.clip = compostSound;
         } else {
             spriteRenderer.sprite = cardboard;
+            audioSource.clip = cardboardSound;
         }
     }
 

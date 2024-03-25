@@ -12,9 +12,13 @@ public class DraggableScript : MonoBehaviour
     private Vector3 oldScale;
     private Vector3 offset;
     private Rigidbody2D myRB2D;
+
+    //for sound effect playing
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         myRB2D = GetComponent<Rigidbody2D>();
         oldScale = transform.localScale;
     }
@@ -30,6 +34,7 @@ public class DraggableScript : MonoBehaviour
     private void OnMouseDown(){
         offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.localScale = new Vector3(newScaleX, newScaleY, 1);
+        audioSource.Play();
         dragging = true;
     }
 

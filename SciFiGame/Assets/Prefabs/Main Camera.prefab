@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 2808693888669620526}
   - component: {fileID: 6500402503807877913}
   - component: {fileID: 2081293213329781837}
+  - component: {fileID: 7620227918066654996}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -305,3 +306,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9e12fdd47bd334c97fc2c01e2d161e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &7620227918066654996
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570153761801237590}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

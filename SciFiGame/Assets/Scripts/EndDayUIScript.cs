@@ -18,6 +18,7 @@ public class EndDayUIScript : MonoBehaviour
     public Toggle payRepair;
 
     public TMP_Text debt;
+    public TMP_Text moneyHave;
     public TMP_Text moneyRemaining;
 
     public float debtValue;
@@ -25,6 +26,7 @@ public class EndDayUIScript : MonoBehaviour
     public float totalCost;
     private bool cantPay = false;
 
+    [SerializeField] private float debtPaid = 1;
     public GameObject debtWarning;
 
     void Start()
@@ -74,6 +76,7 @@ public class EndDayUIScript : MonoBehaviour
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
 
+        moneyHave.text = "$" + moneyValue;
         debt.text = "$" + debtValue;
         moneyRemaining.text = "= $" + (moneyValue-totalCost) + ".00";
         if(moneyValue-totalCost < 0){
@@ -95,9 +98,6 @@ public class EndDayUIScript : MonoBehaviour
     void TaskOnClick()
     {
         if(payDebt.isOn == false){
-            //TODO have warning window popup
-            //will have two buttons: pay debt or continue. continue does own
-            //scene change. cancel hides the window again and re-checks the debt box
             debtWarning.SetActive(true);
         }
         else if(cantPay == true){
@@ -105,9 +105,10 @@ public class EndDayUIScript : MonoBehaviour
             print("warning about money");
         }
         else{
-            //change this num manually; the amount deducted for debt paid each day
-            MainManager.Instance.debt -= 1;
+            MainManager.Instance.debt -= debtPaid;
             MainManager.Instance.money -= totalCost;
+            MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
+            MainManager.Instance.SaveJsonData(MainManager.Instance);
             FindFirstObjectByType<SceneController>().StartDay();
         }
 

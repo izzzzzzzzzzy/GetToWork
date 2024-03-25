@@ -11,6 +11,7 @@ public class PlatformingPlayerController : PlayerBase
     SpriteRenderer mySpriteRenderer;
     Item item;
     MinigameController controller;
+    Rigidbody2D rb;
 
     [Header("Inputs")]
     public float jumpTimer;
@@ -35,6 +36,7 @@ public class PlatformingPlayerController : PlayerBase
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         item = GetComponent<Item>();
         controller = FindFirstObjectByType<MinigameController>();
+        rb = GetComponent<Rigidbody2D>();
 
         InitializeComponents();
     }

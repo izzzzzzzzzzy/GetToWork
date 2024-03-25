@@ -2,36 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainRoomController : MonoBehaviour
 {
-    public SceneController controller;
-    public Timer timer;
-    MainManager mainManager;
+    SceneController controller;
+    Timer timer;
 
-    [SerializeField] private float gameTime;
+    [SerializeField] private float timeRemaining;
     [SerializeField] private float score;
+    public TMP_Text scoreShow;
 
     private bool gameOver;
-    private float timeRemaining;
     // Start is called before the first frame update
     void Start()
     {
         controller = FindFirstObjectByType<SceneController>();
-        mainManager = controller.GetComponent<MainManager>();
-        gameTime = mainManager.dayTimeLeft;
-        timeRemaining = gameTime;
+        timer = GetComponentInChildren<Timer>();
 
-        timer = timer.GetComponent<Timer>();
-        timer.SetTimeRemaining(gameTime);
-        score = mainManager.money;
+
+        timeRemaining = MainManager.Instance.timeRemaining;
+        score = MainManager.Instance.money;
+        scoreShow.text = "$" + score;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeRemaining = timer.GetTimeRemaining();
-
+        timeRemaining = MainManager.Instance.timeRemaining;
+        timer.SetTime(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)
         {

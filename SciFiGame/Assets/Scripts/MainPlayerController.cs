@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainPlayerController : PlayerBase
 {
     SceneController controller;
+    Rigidbody2D rb;
 
     [SerializeField] private GameObject interactSign;
     [SerializeField] private int velocity = 5;
@@ -17,6 +18,7 @@ public class MainPlayerController : PlayerBase
     void Start()
     {
         InitializeComponents();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
