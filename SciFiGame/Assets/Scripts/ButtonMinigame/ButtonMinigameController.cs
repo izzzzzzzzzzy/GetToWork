@@ -11,7 +11,7 @@ public class ButtonMinigame : MonoBehaviour
     [SerializeField] private int difficulty = 1;
     [SerializeField] private int[] input = { -1, -1, -1, -1, -1, -1 };
     private int placeInInput = 0;
-    public GameObject[] buttons;
+    public Button[] buttons;
 
     [SerializeField] private bool showingButtons;
     private int placeInButtons = 0;
@@ -24,6 +24,7 @@ public class ButtonMinigame : MonoBehaviour
     void Start(){
         showingButtons = true;
         miniController = miniController.GetComponent<MinigameController>();
+
         /*for(int i = 0; i < buttons.Length; i++){
             Button temp = buttons[i].GetComponent<Button>();
             temp.onClick.AddListener(delegate {ButtonSelected(i);});
@@ -86,11 +87,12 @@ public class ButtonMinigame : MonoBehaviour
         i = 0;
         while(i < buttonOrder.Length && buttonOrder[i] != -1){
             Button x = buttons[buttonOrder[i]].GetComponent<Button>();
+            x.GetComponent<AudioSource>().Play();
             Color prevButColor = x.image.color;
             x.image.color = x.colors.pressedColor;
-            yield return new WaitForSeconds(1);
-            x.image.color = prevButColor;
             yield return new WaitForSeconds(0.5f);
+            x.image.color = prevButColor;
+            yield return new WaitForSeconds(0.25f);
             i+=1;
         }
         //reactivate buttons
