@@ -70,8 +70,9 @@ MonoBehaviour:
   lArmHealth: 0
   rLegHealth: 0
   lLegHealth: 0
-  dayTimeLeftSeconds: 0
-  dayTimeLeftMinutes: 0
+  dayTime: 180
+  timeRemaining: 0
+  fileName: 
 --- !u!1 &2599033453995063320
 GameObject:
   m_ObjectHideFlags: 0

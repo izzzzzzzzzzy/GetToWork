@@ -1789,15 +1789,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    - target: {fileID: 2068907171205773889, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704535688912105099, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+    - target: {fileID: 365096800333733779, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8531855376810273213, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+    - target: {fileID: 2068907171205773889, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: pauseMenuActivateButton
+      value: 
+      objectReference: {fileID: 774865654}
+    - target: {fileID: 3506831610803288016, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1846,6 +1846,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+--- !u!1 &774865654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3506831610803288016, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+  m_PrefabInstance: {fileID: 774865653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &833212771
 GameObject:
   m_ObjectHideFlags: 0
