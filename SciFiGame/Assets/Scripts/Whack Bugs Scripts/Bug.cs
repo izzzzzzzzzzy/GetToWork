@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bug : MonoBehaviour
 {
     private MinigameController gameManager;
+    Animator anim;
 
     [SerializeField] private float lifetime;
     [SerializeField] private int value;
@@ -13,6 +14,7 @@ public class Bug : MonoBehaviour
     void Start()
     {
         gameManager = FindFirstObjectByType<MinigameController>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,12 @@ public class Bug : MonoBehaviour
     private void OnMouseDown()
     {
         gameManager.IncreaseScore(value);
+        anim.SetBool("isHit", true);
+        StartCoroutine(waitSecsBeforeDestroying(0.7f));
+    }
+
+    private IEnumerator waitSecsBeforeDestroying(float i){
+        yield return new WaitForSeconds(i);
         Destroy(gameObject);
     }
 }
