@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class StartButtonScript : MonoBehaviour
 {
+    SceneController sceneController;
+
     public Button startButton;
     public Button quitGameButton;
     public string nextLevelName;
@@ -13,8 +15,10 @@ public class StartButtonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = startButton.GetComponent<Button>();
-        btn.onClick.AddListener(TaskOnClick);
+        if(startButton != null){
+            Button btn = startButton.GetComponent<Button>();
+            btn.onClick.AddListener(TaskOnClick);
+        }
         Button btn2 = quitGameButton.GetComponent<Button>();
         btn2.onClick.AddListener(QuitGame);
     }
@@ -28,7 +32,19 @@ public class StartButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene(nextLevelName);
     }
-    void QuitGame(){
-        Application.Quit();
+    public void QuitGame(){
+        if(SceneManager.GetActiveScene().name == "MainScene"){
+            Application.Quit();
+        }
+        else{
+            sceneController = FindFirstObjectByType<SceneController>();
+            sceneController.EndMinigame(0);
+            sceneController.PlayGame();
+
+        }
+    }
+
+    public void LoadStartScreen(){
+        SceneManager.LoadScene("StartScreen");
     }
 }

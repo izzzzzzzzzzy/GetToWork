@@ -13,8 +13,11 @@ public class LoadSceneUIScript : MonoBehaviour
     public GameObject loadsOptions;
     public TMP_Text saveOrLoadText;
     public Button saveFile1;
+    public TMP_Text saveFile1Description;
     public Button saveFile2;
+    public TMP_Text saveFile2Description;
     public Button saveFile3;
+    public TMP_Text saveFile3Description;
     public Button goBack;
 
     public GameObject yesOrNoLoad;
@@ -41,10 +44,18 @@ public class LoadSceneUIScript : MonoBehaviour
 
         saveFile1 = saveFile1.GetComponent<Button>();
         saveFile1.onClick.AddListener(delegate {ShowConfirmationButton("SaveData1.dat"); });
+        saveFile1Description = saveFile1Description.GetComponent<TMP_Text>();
+        ShowSaveInfo("SaveData1.dat", saveFile1Description);
+
         saveFile2 = saveFile2.GetComponent<Button>();
         saveFile2.onClick.AddListener(delegate {ShowConfirmationButton("SaveData2.dat");} );
+        saveFile2Description = saveFile2Description.GetComponent<TMP_Text>();
+        ShowSaveInfo("SaveData2.dat", saveFile2Description);
+
         saveFile3 = saveFile3.GetComponent<Button>();
         saveFile3.onClick.AddListener(delegate {ShowConfirmationButton("SaveData3.dat");} );
+        saveFile3Description = saveFile3Description.GetComponent<TMP_Text>();
+        ShowSaveInfo("SaveData3.dat", saveFile3Description);
 
         confirmLoad = confirmLoad.GetComponent<Button>();
         confirmLoad.onClick.AddListener(LoadSave);
@@ -115,6 +126,16 @@ public class LoadSceneUIScript : MonoBehaviour
             else{
                 Debug.Log("file name blank!");
             }
+        }
+    }
+
+    void ShowSaveInfo(string name, TMP_Text texty){
+        SaveData values = MainManager.Instance.ShowJsonData(MainManager.Instance, name);
+        if(values.debt <= 0 && values.dayNum <=0){
+            texty.text = "Day: 0\nDebt: 500000\nMoney: 0";
+        }
+        else{
+            texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
         }
     }
 }

@@ -99,8 +99,8 @@ public class SceneController : MonoBehaviour
 
     public void StartDay()
     {
-        mainCameraCoords = new(0, -15, -10);
-        mainPlayerCoords = new(0, -15);
+        //mainCameraCoords = new(0, -15, -10);
+        //mainPlayerCoords = new(0, -15);
 
         MainManager.Instance.StartDay();
 
@@ -147,6 +147,15 @@ public class SceneController : MonoBehaviour
             mainPlayer = FindFirstObjectByType<MainPlayerController>();
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
+        }
+
+        if(scene.name == "StartScreen" || scene.name == "EndOfDay"){
+            pauseMenuActivateButton.SetActive(false);
+            PlayGame();
+        }
+        else{
+            pauseMenuActivateButton.SetActive(true);
+            PlayGame();
         }
     }
 

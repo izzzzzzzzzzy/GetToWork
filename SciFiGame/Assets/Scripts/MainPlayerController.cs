@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainPlayerController : PlayerBase
 {
-    SceneController controller;
+    //SceneController controller;
     Rigidbody2D rb;
 
     [SerializeField] private GameObject interactSign;

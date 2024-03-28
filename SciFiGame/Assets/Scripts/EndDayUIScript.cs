@@ -108,6 +108,7 @@ public class EndDayUIScript : MonoBehaviour
             MainManager.Instance.debt -= debtPaid;
             MainManager.Instance.money -= totalCost;
             MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
+            MainManager.Instance.dayNum += 1;
             MainManager.Instance.SaveJsonData(MainManager.Instance);
             FindFirstObjectByType<SceneController>().StartDay();
         }
