@@ -100,6 +100,13 @@ public class LoadSceneUIScript : MonoBehaviour
             }
             else if(MainManager.Instance.fileName != ""){
                 Debug.Log("file not made yet!");
+                MainManager.Instance.debt = 500000;
+                MainManager.Instance.money = 0;
+                MainManager.Instance.dayNum = 0;
+                MainManager.Instance.rArmHealth = 0;
+                MainManager.Instance.lArmHealth = 0;
+                MainManager.Instance.rLegHealth = 0;
+                MainManager.Instance.lLegHealth = 0;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
                 SceneManager.LoadScene("MainScene");
@@ -114,6 +121,7 @@ public class LoadSceneUIScript : MonoBehaviour
                 Debug.Log("Overwriting save data");
                 MainManager.Instance.debt = 500000;
                 MainManager.Instance.money = 0;
+                MainManager.Instance.dayNum = 0;
                 MainManager.Instance.rArmHealth = 0;
                 MainManager.Instance.lArmHealth = 0;
                 MainManager.Instance.rLegHealth = 0;
@@ -131,11 +139,6 @@ public class LoadSceneUIScript : MonoBehaviour
 
     void ShowSaveInfo(string name, TMP_Text texty){
         SaveData values = MainManager.Instance.ShowJsonData(MainManager.Instance, name);
-        if(values.debt <= 0 && values.dayNum <=0){
-            texty.text = "Day: 0\nDebt: 500000\nMoney: 0";
-        }
-        else{
-            texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
-        }
+        texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
     }
 }

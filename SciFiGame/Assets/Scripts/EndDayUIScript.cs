@@ -20,6 +20,7 @@ public class EndDayUIScript : MonoBehaviour
     public TMP_Text debt;
     public TMP_Text moneyHave;
     public TMP_Text moneyRemaining;
+    public TMP_Text dayCounter;
 
     public float debtValue;
     public float moneyValue;
@@ -60,10 +61,12 @@ public class EndDayUIScript : MonoBehaviour
 
         debt = debt.GetComponent<TMP_Text>();
         moneyRemaining = moneyRemaining.GetComponent<TMP_Text>();
+        dayCounter = dayCounter.GetComponent<TMP_Text>();
 
         totalCost = 6;
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
+        dayCounter.text = "Day " + MainManager.Instance.dayNum;
 
         debtWarning.SetActive(false);
     }
@@ -79,6 +82,7 @@ public class EndDayUIScript : MonoBehaviour
         moneyHave.text = "$" + moneyValue;
         debt.text = "$" + debtValue;
         moneyRemaining.text = "= $" + (moneyValue-totalCost) + ".00";
+
         if(moneyValue-totalCost < 0){
             moneyRemaining.text = "<color=#B0221D>" + moneyRemaining.text;
             cantPay = true;
@@ -106,11 +110,17 @@ public class EndDayUIScript : MonoBehaviour
         }
         else{
             MainManager.Instance.debt -= debtPaid;
-            MainManager.Instance.money -= totalCost;
-            MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
-            MainManager.Instance.dayNum += 1;
-            MainManager.Instance.SaveJsonData(MainManager.Instance);
-            FindFirstObjectByType<SceneController>().StartDay();
+            if(MainManager.Instance.debt > 0){
+                MainManager.Instance.money -= totalCost;
+                MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
+                MainManager.Instance.dayNum += 1;
+                MainManager.Instance.SaveJsonData(MainManager.Instance);
+                FindFirstObjectByType<SceneController>().StartDay();
+            }
+            else{
+                MainManager.Instance.SaveJsonData(MainManager.Instance);
+                SceneManager.LoadScene("WinScreen");
+            }
         }
 
     }

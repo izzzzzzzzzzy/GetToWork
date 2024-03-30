@@ -111,8 +111,12 @@ public class MainManager : MonoBehaviour, ISaveable
             return sd;
         }
         else{
-            Debug.Log("Could not load " + name);
-            return new SaveData();
+            Debug.Log("Could not load " + name + ", making new blank");
+            SaveData sd = new SaveData();
+            sd.debt = 500000;
+            sd.money = 0;
+            sd.dayNum = 0;
+            return sd;
         }
     }
 }
