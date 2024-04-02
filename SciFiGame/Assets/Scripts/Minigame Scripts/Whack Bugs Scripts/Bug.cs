@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bug : MonoBehaviour
 {
     private MinigameController gameManager;
+    Animator anim;
+    AudioSource audioSource;
 
     [SerializeField] private float lifetime;
     [SerializeField] private int value;
@@ -13,6 +15,8 @@ public class Bug : MonoBehaviour
     void Start()
     {
         gameManager = FindFirstObjectByType<MinigameController>();
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +35,13 @@ public class Bug : MonoBehaviour
     private void OnMouseDown()
     {
         gameManager.IncreaseScore(value);
+        anim.SetBool("isHit", true);
+        audioSource.Play();
+        StartCoroutine(waitSecsBeforeDestroying(0.7f));
+    }
+
+    private IEnumerator waitSecsBeforeDestroying(float i){
+        yield return new WaitForSeconds(i);
         Destroy(gameObject);
     }
 }

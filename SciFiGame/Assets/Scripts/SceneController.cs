@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class SceneController : MonoBehaviour
     private SceneFade sceneFade;
     private MainPlayerController mainPlayer;
     public Canvas pauseMenu;
+    public GameObject pauseMenuActivateButton;
     private bool isPaused;
 
     private void Awake()
@@ -37,6 +39,12 @@ public class SceneController : MonoBehaviour
         mainCamera = FindFirstObjectByType<Camera>();
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
+        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay"){
+            pauseMenuActivateButton.SetActive(false);
+        }
+        else{
+            pauseMenuActivateButton.SetActive(true);
+        }
 
         mainCameraCoords = new(0, 0, -10);
         mainPlayerCoords = new(0, 0);
@@ -55,7 +63,7 @@ public class SceneController : MonoBehaviour
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay")
         {
             if (!isPaused)
             {
@@ -65,6 +73,9 @@ public class SceneController : MonoBehaviour
             {
                 PlayGame();
             }
+        }
+        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay"){
+            pauseMenuActivateButton.SetActive(true);
         }
         pauseMenu.gameObject.SetActive(isPaused);
     }
@@ -88,8 +99,8 @@ public class SceneController : MonoBehaviour
 
     public void StartDay()
     {
-        mainCameraCoords = new(0, -15, -10);
-        mainPlayerCoords = new(0, -15);
+        //mainCameraCoords = new(0, -15, -10);
+        //mainPlayerCoords = new(0, -15);
 
         MainManager.Instance.StartDay();
 
@@ -136,6 +147,15 @@ public class SceneController : MonoBehaviour
             mainPlayer = FindFirstObjectByType<MainPlayerController>();
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
+        }
+
+        if(scene.name == "StartScreen" || scene.name == "EndOfDay"){
+            pauseMenuActivateButton.SetActive(false);
+            PlayGame();
+        }
+        else{
+            pauseMenuActivateButton.SetActive(true);
+            PlayGame();
         }
     }
 

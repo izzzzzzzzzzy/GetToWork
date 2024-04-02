@@ -22,6 +22,7 @@ public class MainManager : MonoBehaviour, ISaveable
     //timers
     public float dayTime = 180;
     public float timeRemaining;
+    public int dayNum;
 
     //Save data
     public string fileName = "";
@@ -73,6 +74,7 @@ public class MainManager : MonoBehaviour, ISaveable
         sd.lArmHealth = lArmHealth;
         sd.rLegHealth = rLegHealth;
         sd.lLegHealth = lLegHealth;
+        sd.dayNum = dayNum;
     }
 
     public bool LoadJsonData(MainManager mm, string name){
@@ -98,5 +100,23 @@ public class MainManager : MonoBehaviour, ISaveable
         lArmHealth = sd.lArmHealth;
         rLegHealth = sd.rLegHealth;
         lLegHealth = sd.lLegHealth;
+        dayNum = sd.dayNum;
+    }
+
+    public SaveData ShowJsonData(MainManager mm, string name){
+        if(FileManager.LoadFromFile(name, out var json)){
+            SaveData sd = new SaveData();
+            sd.LoadFromJson(json);
+            Debug.Log("Load complete");
+            return sd;
+        }
+        else{
+            Debug.Log("Could not load " + name + ", making new blank");
+            SaveData sd = new SaveData();
+            sd.debt = 500000;
+            sd.money = 0;
+            sd.dayNum = 0;
+            return sd;
+        }
     }
 }

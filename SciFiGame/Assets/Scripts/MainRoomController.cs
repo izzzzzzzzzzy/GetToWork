@@ -37,6 +37,9 @@ public class MainRoomController : MonoBehaviour
             gameOver = true;
 
             timer.gameObject.SetActive(false);
+            if(controller == null){
+                controller = FindFirstObjectByType<SceneController>();
+            }
             controller.EndDay();
         }
     }
