@@ -9,10 +9,14 @@ public class PlayerAnimator : MonoBehaviour
 
     SceneController controller;
     Animator anim;
+    AudioSource footsteps;
+
+    bool isMoving;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        footsteps = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +34,19 @@ public class PlayerAnimator : MonoBehaviour
             anim.SetFloat("AnimLastMoveY", lastInputDirection.y);
 
             anim.SetBool("isWalking", inputDirection != Vector2.zero);
+
+            if (inputDirection.x != 0 || inputDirection.y != 0) {
+                isMoving = true;
+            } else {
+                isMoving = false;
+            }
+
+            if (isMoving && !footsteps.isPlaying) {
+                footsteps.Play();
+            }
+            if (!isMoving) {
+                footsteps.Stop();
+            }
         }
     }
 
