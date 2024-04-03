@@ -32,7 +32,6 @@ public abstract class Interactable: MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            audioSource.Play();
             spriteRenderer.color = baseColor * 3f;
         }
     }
