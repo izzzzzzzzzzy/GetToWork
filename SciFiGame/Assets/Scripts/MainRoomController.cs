@@ -7,7 +7,7 @@ using TMPro;
 public class MainRoomController : MonoBehaviour
 {
     SceneController controller;
-    Timer timer;
+    Clock clock;
 
     [SerializeField] private float timeRemaining;
     [SerializeField] private float score;
@@ -18,9 +18,7 @@ public class MainRoomController : MonoBehaviour
     void Start()
     {
         controller = FindFirstObjectByType<SceneController>();
-        timer = GetComponentInChildren<Timer>();
-
-
+        clock = GetComponentInChildren<Clock>();
         timeRemaining = MainManager.Instance.timeRemaining;
         score = MainManager.Instance.money;
         scoreShow.text = "$" + score;
@@ -30,13 +28,13 @@ public class MainRoomController : MonoBehaviour
     void Update()
     {
         timeRemaining = MainManager.Instance.timeRemaining;
-        timer.SetTime(timeRemaining);
+        clock.SetAngle(timeRemaining);
 
         if (!gameOver && timeRemaining <= 0)
         {
             gameOver = true;
 
-            timer.gameObject.SetActive(false);
+            clock.gameObject.SetActive(false);
             controller.EndDay();
         }
     }
