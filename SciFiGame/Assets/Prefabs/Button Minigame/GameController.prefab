@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6964e205eccf4800a13127c395b7a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTime: 60
-  score: 0
+  miniController: {fileID: 0}
   buttonOrder: ffffffffffffffffffffffffffffffffffffffffffffffff
   difficulty: 1
   input: ffffffffffffffffffffffffffffffffffffffffffffffff
@@ -70,6 +69,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 228087583731781856}
     m_Modifications:
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 87770570778826076, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079038898725247423, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079038898725247423, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1897684347, guid: 34193f25579b74e7e90620bc12f2c6eb, type: 3}
+    - target: {fileID: 1079038898725247423, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079038898725247423, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079038898725247423, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
     - target: {fileID: 4561099260897436133, guid: 3ea6a73ada38142ffadda5c201f88a85, type: 3}
       propertyPath: m_Name
       value: Canvas
