@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b112852f6e3f4d5793a13e5d663fba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debt: 0
+  debt: 100
   money: 0
   rArmHealth: 0
   lArmHealth: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   lLegHealth: 0
   dayTime: 180
   timeRemaining: 0
+  dayNum: 0
   fileName: 
 --- !u!1 &2599033453995063320
 GameObject:
