@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate;
-    [SerializeField] private GameObject spawnedItem;
+    [SerializeField] private GameObject[] spawnedItems;
     [SerializeField] private float spawnRange = 1;
 
     private float spawnTimer;
@@ -25,6 +25,8 @@ public class ItemSpawner : MonoBehaviour
         if (spawnTimer < 0)
         {
             Vector2 spawnPos = new(transform.position.x + Random.Range(-spawnRange, spawnRange), transform.position.y);
+            GameObject spawnedItem = spawnedItems[Random.Range(0, spawnedItems.Length)];
+
             Instantiate(spawnedItem, spawnPos, transform.rotation);
             spawnTimer = spawnRate;
         }
