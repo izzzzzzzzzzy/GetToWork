@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 411940608}
-  - component: {fileID: 411940606}
+  - component: {fileID: 411940609}
   m_Layer: 0
   m_Name: CrateSpawner
   m_TagString: Untagged
@@ -558,22 +558,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &411940606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411940605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d226dc1720cf8294dae7bdc1425f7268, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRate: 4
-  spawnedItems:
-  - {fileID: 7662831068796799305, guid: 8aaab02c62d74394ab9965b8806d5204, type: 3}
-  spawnRange: 8
 --- !u!4 &411940608
 Transform:
   m_ObjectHideFlags: 0
@@ -589,6 +573,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411940609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411940605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bff67bde673d7740899c70ccf045f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 2
+  crate: {fileID: 7662831068796799305, guid: 8aaab02c62d74394ab9965b8806d5204, type: 3}
+  crateWarning: {fileID: 7439283433279868023, guid: e7a030fc0d0222940b81b9e1ab486ac3, type: 3}
+  spawnRange: 8
+  crateWarningLifetime: 2
 --- !u!1001 &551487445
 PrefabInstance:
   m_ObjectHideFlags: 0
