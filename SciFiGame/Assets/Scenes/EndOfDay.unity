@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next Day
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
+  m_sharedMaterial: {fileID: 5492345283375360401, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -992,13 +992,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Failure to payoff debt will result in remote prosthetic termination.
+  m_text: ' Failure to pay off debt will result in remote prosthetic termination.
     This may result in: Death.
 
     Are you sure you wish to continue?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
+  m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1133,8 +1133,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
+  m_sharedMaterial: {fileID: 5492345283375360401, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1567,8 +1567,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pay Debt
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
+  m_sharedMaterial: {fileID: 5492345283375360401, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2076,8 +2076,8 @@ MonoBehaviour:
     reasonable proof of payment for Company assets will result in remote termination
     of Company software.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
+  m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3161,6 +3161,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2602788043985133728}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: dayCounter
+      value: 
+      objectReference: {fileID: 2602788043985133729}
+    - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: debtWarning
       value: 
       objectReference: {fileID: 1967366682}
@@ -3231,6 +3235,17 @@ PrefabInstance:
 --- !u!114 &2602788043985133728 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3581477572955047875, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+  m_PrefabInstance: {fileID: 2602788043985133727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2602788043985133729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7952617708681496060, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
   m_PrefabInstance: {fileID: 2602788043985133727}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
