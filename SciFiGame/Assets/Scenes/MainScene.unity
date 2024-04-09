@@ -4887,17 +4887,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainRoomController
       objectReference: {fileID: 0}
+    - target: {fileID: 1179043744622055952, guid: bfbe01584d3a3499a843985b01101727, type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895020315892825189, guid: bfbe01584d3a3499a843985b01101727, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895020315892825189, guid: bfbe01584d3a3499a843985b01101727, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895020315892825189, guid: bfbe01584d3a3499a843985b01101727, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3867233611460759100, guid: bfbe01584d3a3499a843985b01101727, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0978129
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3867233611460759100, guid: bfbe01584d3a3499a843985b01101727, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.366184
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3867233611460759100, guid: bfbe01584d3a3499a843985b01101727, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.020701
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3867233611460759100, guid: bfbe01584d3a3499a843985b01101727, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4927,7 +4943,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5570623685166083137, guid: bfbe01584d3a3499a843985b01101727, type: 3}
+      propertyPath: m_Name
+      value: Clock
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1345130395311686966, guid: bfbe01584d3a3499a843985b01101727, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9204889513834671164, guid: bfbe01584d3a3499a843985b01101727, type: 3}
