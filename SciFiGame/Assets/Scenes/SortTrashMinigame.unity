@@ -153,7 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 2
-  spawnedItem: {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
+  spawnedItems:
+  - {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
+  - {fileID: 740785450793900598, guid: b463b9fb226b3ca47bfe972e33db3270, type: 3}
+  - {fileID: 5394998868401798263, guid: 997170186c0bafa468c48ac62d6367c8, type: 3}
+  - {fileID: 4133665719036020280, guid: b353cbd06484bbc41bb15f399ea349bb, type: 3}
   spawnRange: 0.5
 --- !u!4 &139893101
 Transform:
@@ -772,7 +776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749249927126811136, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: color
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3064749138125984664, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: m_Color.a
@@ -1407,7 +1411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749249927126811136, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: color
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3064749138125984664, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: m_Color.a

@@ -5,8 +5,8 @@ using UnityEngine;
 public class TrashChute : MonoBehaviour
 {
 
-    [Header("Colors: 0 = red, 1 = blue, 2 = green, 3 = yellow")]
-    [SerializeField] private int color;
+    [Header("Types: 0 = trash, 1 = glass, 2 = compost, 3 = cardboard")]
+    [SerializeField] private int binType;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +20,8 @@ public class TrashChute : MonoBehaviour
         
     }
 
-    public int GetColor()
+    public int GetBinType()
     {
-        return color;
+        return binType;
     }
 }
