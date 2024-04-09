@@ -12,7 +12,7 @@ public class Door : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        controller = FindFirstObjectByType<SceneController>();
+        controller = SceneController.Instance;
     }
 
     // Update is called once per frame
