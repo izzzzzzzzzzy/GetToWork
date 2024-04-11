@@ -4,52 +4,22 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
     DraggableScript draggableScript;
     MinigameController gameManager;
+    AudioSource audioSource;
 
-    public Sprite trash;
-    public Sprite glass;
-    public Sprite compost;
-    public Sprite cardboard;
-    public AudioClip trashSound;
-    public AudioClip glassSound;
-    public AudioClip compostSound;
-    public AudioClip cardboardSound;
-
-    private AudioSource audioSource;
-
-    [SerializeField] private Color[] colors = { Color.red, Color.green, Color.blue, Color.yellow };
+    [SerializeField] private int trashType;
     [SerializeField] private float speed = 5;
     [SerializeField] private int value = 1;
 
-    private int color;
     public bool onBelt;
 
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         draggableScript = GetComponent<DraggableScript>();
         gameManager = FindFirstObjectByType<MinigameController>();
-
-        color = Mathf.FloorToInt(Random.Range(0, colors.Length));
-
-        //spriteRenderer.color = colors[color];
-        if (colors[color] == Color.red) {
-            spriteRenderer.sprite = trash;
-            audioSource.clip = trashSound;
-        } else if (colors[color] == Color.blue) {
-            spriteRenderer.sprite = glass;
-            audioSource.clip = glassSound;
-        } else if (colors[color] == Color.green) {
-            spriteRenderer.sprite = compost;
-            audioSource.clip = compostSound;
-        } else {
-            spriteRenderer.sprite = cardboard;
-            audioSource.clip = cardboardSound;
-        }
     }
 
     // Update is called once per frame
@@ -70,7 +40,7 @@ public class Trash : MonoBehaviour
 
         if (collision.CompareTag("Chute") && !draggableScript.dragging == true)
         {
-            if (color == collision.GetComponent<TrashChute>().GetColor())
+            if (trashType == collision.GetComponent<TrashChute>().GetBinType())
             {
                 gameManager.IncreaseScore(value);
             }

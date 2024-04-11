@@ -11,6 +11,8 @@ public class Bug : MonoBehaviour
     [SerializeField] private float lifetime;
     [SerializeField] private int value;
 
+    private bool isKilled;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +36,17 @@ public class Bug : MonoBehaviour
 
     private void OnMouseDown()
     {
-        gameManager.IncreaseScore(value);
-        anim.SetBool("isHit", true);
-        audioSource.Play();
-        StartCoroutine(waitSecsBeforeDestroying(0.7f));
+        if (!isKilled)
+        {
+            isKilled = true;
+            gameManager.IncreaseScore(value);
+            anim.SetBool("isHit", true);
+            audioSource.Play();
+            StartCoroutine(WaitSecsBeforeDestroying(0.7f));
+        }
     }
 
-    private IEnumerator waitSecsBeforeDestroying(float i){
+    private IEnumerator WaitSecsBeforeDestroying(float i){
         yield return new WaitForSeconds(i);
         Destroy(gameObject);
     }

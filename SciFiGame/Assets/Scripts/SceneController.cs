@@ -46,8 +46,8 @@ public class SceneController : MonoBehaviour
             pauseMenuActivateButton.SetActive(true);
         }
 
-        mainCameraCoords = new(0, 0, -10);
-        mainPlayerCoords = new(0, 0);
+        mainCameraCoords = new(0, -15, -10);
+        mainPlayerCoords = new(0, -15);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -99,8 +99,8 @@ public class SceneController : MonoBehaviour
 
     public void StartDay()
     {
-        //mainCameraCoords = new(0, -15, -10);
-        //mainPlayerCoords = new(0, -15);
+        mainCameraCoords = new(0, -15, -10);
+        mainPlayerCoords = new(0, -15);
 
         MainManager.Instance.StartDay();
 

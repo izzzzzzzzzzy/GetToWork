@@ -11,6 +11,9 @@ public class EndDayUIScript : MonoBehaviour
     public string nextLevelName;
 
     public Toggle payDebt;
+    public TMP_InputField payDebtInput;
+    public int payDebtInputMin = 1;
+
     public Toggle payRent;
     public Toggle payOxygen;
     public Toggle payFood;
@@ -37,7 +40,12 @@ public class EndDayUIScript : MonoBehaviour
 
         payDebt = payDebt.GetComponent<Toggle>();
         payDebt.isOn = true;
-        payDebt.onValueChanged.AddListener(delegate {ToggleActivated(payDebt, 1);});
+        payDebt.onValueChanged.AddListener(delegate {DebtToggleActivated(payDebt);});
+        payDebtInput = payDebtInput.GetComponent<TMP_InputField>();
+        payDebtInput.text = "1";
+        payDebtInput.onEndEdit.AddListener(delegate {DebtToggleActivated(payDebt);});
+        payDebtInput.onEndEdit.AddListener(delegate {DebtInputChanged(payDebt);});
+
 
         payRent = payRent.GetComponent<Toggle>();
         payRent.isOn = true;
@@ -63,7 +71,8 @@ public class EndDayUIScript : MonoBehaviour
         moneyRemaining = moneyRemaining.GetComponent<TMP_Text>();
         dayCounter = dayCounter.GetComponent<TMP_Text>();
 
-        totalCost = 6;
+        totalCost = 5;
+        //totalCostWithoutDebt = 5
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
         dayCounter.text = "Day " + MainManager.Instance.dayNum;
@@ -79,11 +88,21 @@ public class EndDayUIScript : MonoBehaviour
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
 
+        payDebtInput.enabled = payDebt.isOn;
+        if(int.Parse(payDebtInput.text) < 1){
+            payDebtInput.text = "1";
+        }
+
+        //if(totalCost != totalCostWithoutDebt + int.Parse(payDebtInput.text)){
+        //    totalCost = totalCostWithoutDebt + int.Parse(payDebtInput.text);
+        //}
+        //payDebtInput.onEndEdit.AddListener(delegate{(ToggleActivated(payDebt, int.Parse(payDebtInput.text)));} );
+
         moneyHave.text = "$" + moneyValue;
         debt.text = "$" + debtValue;
-        moneyRemaining.text = "= $" + (moneyValue-totalCost) + ".00";
+        moneyRemaining.text = "= $" + (moneyValue-totalCost - int.Parse(payDebtInput.text)) + ".00";
 
-        if(moneyValue-totalCost < 0){
+        if(moneyValue-totalCost - int.Parse(payDebtInput.text) < 0){
             moneyRemaining.text = "<color=#B0221D>" + moneyRemaining.text;
             cantPay = true;
         }
@@ -98,6 +117,8 @@ public class EndDayUIScript : MonoBehaviour
         else{
             nextDayButton.interactable = true;
         }
+
+
     }
     void TaskOnClick()
     {
@@ -111,7 +132,7 @@ public class EndDayUIScript : MonoBehaviour
         else{
             MainManager.Instance.debt -= debtPaid;
             if(MainManager.Instance.debt > 0){
-                MainManager.Instance.money -= totalCost;
+                MainManager.Instance.money -= totalCost + int.Parse(payDebtInput.text);
                 MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
                 MainManager.Instance.dayNum += 1;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
@@ -127,12 +148,27 @@ public class EndDayUIScript : MonoBehaviour
 
     void ToggleActivated(Toggle toggle, int cost){
         if(toggle.isOn){
-            totalCost +=1;
+            totalCost += cost;
             toggle.GetComponentInChildren<TMP_Text>().enabled = true;
         }
         else{
-            totalCost -=1;
+            totalCost -= cost;
             toggle.GetComponentInChildren<TMP_Text>().enabled = false;
+        }
+    }
+
+    void DebtToggleActivated(Toggle toggle){
+        if(toggle.isOn){
+            toggle.GetComponentInChildren<TMP_Text>().enabled = true;
+        }
+        else{
+            toggle.GetComponentInChildren<TMP_Text>().enabled = false;
+        }
+    }
+
+    void DebtInputChanged(Toggle toggle){
+        if(toggle.isOn){
+            toggle.GetComponentInChildren<TMP_Text>().text = "-$"+int.Parse(payDebtInput.text) + ".00";
         }
     }
 }
