@@ -988,7 +988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 97}
+  m_AnchoredPosition: {x: 0, y: 81}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803915231
@@ -1102,10 +1102,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
     - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1779966943}
+    - target: {fileID: 4704535688912105099, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
+    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
     - target: {fileID: 7343115448689419288, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1153,6 +1181,18 @@ PrefabInstance:
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5566038
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5185074
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_Color.r
+      value: 0.49096656
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1231,21 +1271,16 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8299045212674868909, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 8738335419234831816, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1779966943}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1656344526871715821, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 6030006399529308521, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 4172876081311351265, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 6711565501153327759, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 3298066618119996444, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 2762975315968143563, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 1842509237318079148, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 472906919935184690, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-    - {fileID: 1999822766818289932, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 968265873164908162, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       insertIndex: -1
