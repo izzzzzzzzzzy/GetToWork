@@ -73,6 +73,7 @@ MonoBehaviour:
   lLegHealth: 0
   dayTime: 180
   timeRemaining: 0
+  dayNum: 0
   fileName: 
 --- !u!1 &2599033453995063320
 GameObject:
@@ -769,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2857244232446466692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1405,7 +1406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1468178334690396595
 RectTransform:
   m_ObjectHideFlags: 0
