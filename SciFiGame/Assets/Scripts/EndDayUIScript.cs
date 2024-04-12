@@ -30,7 +30,7 @@ public class EndDayUIScript : MonoBehaviour
     public float totalCost;
     private bool cantPay = false;
 
-    [SerializeField] private float debtPaid = 1;
+    //[SerializeField] private float debtPaid = 1;
     public GameObject debtWarning;
 
     void Start()
@@ -130,7 +130,7 @@ public class EndDayUIScript : MonoBehaviour
             print("warning about money");
         }
         else{
-            MainManager.Instance.debt -= debtPaid;
+            MainManager.Instance.debt -= int.Parse(payDebtInput.text);
             if(MainManager.Instance.debt > 0){
                 MainManager.Instance.money -= totalCost + int.Parse(payDebtInput.text);
                 MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
@@ -139,6 +139,7 @@ public class EndDayUIScript : MonoBehaviour
                 FindFirstObjectByType<SceneController>().StartDay();
             }
             else{
+                MainManager.Instance.debt = 0;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 SceneManager.LoadScene("WinScreen");
             }
