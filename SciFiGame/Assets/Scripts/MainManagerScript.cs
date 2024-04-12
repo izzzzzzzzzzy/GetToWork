@@ -113,9 +113,10 @@ public class MainManager : MonoBehaviour, ISaveable
         else{
             Debug.Log("Could not load " + name + ", making new blank");
             SaveData sd = new SaveData();
-            sd.debt = 500000;
+            sd.debt = 10000;
             sd.money = 0;
             sd.dayNum = 0;
+            sd.isEmpty = true;
             return sd;
         }
     }

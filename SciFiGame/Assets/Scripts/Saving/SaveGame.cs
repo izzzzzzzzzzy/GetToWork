@@ -12,6 +12,7 @@ public class SaveData
     public int rLegHealth;
     public int lLegHealth;
     public int dayNum;
+    public bool isEmpty;
 
 
     public string ToJson()
