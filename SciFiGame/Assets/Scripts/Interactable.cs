@@ -32,7 +32,8 @@ public abstract class Interactable: MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            spriteRenderer.color = baseColor * 3f;
+            spriteRenderer.color = new Color(0, 0, 0, 1f);
+
         }
     }
 

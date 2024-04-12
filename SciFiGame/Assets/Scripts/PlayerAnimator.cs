@@ -12,6 +12,8 @@ public class PlayerAnimator : MonoBehaviour
     AudioSource footsteps;
 
     bool isMoving;
+    public bool canJump;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +38,9 @@ public class PlayerAnimator : MonoBehaviour
 
             anim.SetBool("isWalking", inputDirection != Vector2.zero);
 
-            if (inputDirection.x != 0 || inputDirection.y != 0) {
+            if ((inputDirection.x != 0 || inputDirection.y != 0) && !canJump) {
+                isMoving = true;
+            } else if (inputDirection.y == 0 && inputDirection.x != 0 && canJump) {
                 isMoving = true;
             } else {
                 isMoving = false;
