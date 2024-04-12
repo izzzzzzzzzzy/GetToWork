@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 516705380689652648}
   - component: {fileID: 8461016356221616176}
   - component: {fileID: 8433919191904480947}
-  - component: {fileID: 3573170647471754650}
   m_Layer: 0
   m_Name: CrateWarning
   m_TagString: Untagged
@@ -120,17 +119,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4630eea0c1e7a949a1c00c8013655ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 2
---- !u!114 &3573170647471754650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7439283433279868023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4630eea0c1e7a949a1c00c8013655ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2
+  lifetime: 1
+  crate: {fileID: 7662831068796799305, guid: 8aaab02c62d74394ab9965b8806d5204, type: 3}

@@ -100,7 +100,7 @@ public class LoadSceneUIScript : MonoBehaviour
             }
             else if(MainManager.Instance.fileName != ""){
                 Debug.Log("file not made yet!");
-                MainManager.Instance.debt = 500000;
+                MainManager.Instance.debt = 10000;
                 MainManager.Instance.money = 0;
                 MainManager.Instance.dayNum = 0;
                 MainManager.Instance.rArmHealth = 0;
@@ -119,7 +119,7 @@ public class LoadSceneUIScript : MonoBehaviour
         else{
             if(MainManager.Instance.fileName != ""){
                 Debug.Log("Overwriting save data");
-                MainManager.Instance.debt = 500000;
+                MainManager.Instance.debt = 10000;
                 MainManager.Instance.money = 0;
                 MainManager.Instance.dayNum = 0;
                 MainManager.Instance.rArmHealth = 0;
@@ -128,7 +128,7 @@ public class LoadSceneUIScript : MonoBehaviour
                 MainManager.Instance.lLegHealth = 0;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("Backstory");
 
             }
             else{
