@@ -3872,6 +3872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartScreenButtons
       objectReference: {fileID: 0}
+    - target: {fileID: 1191452972044303550, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1339443986326087581, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -3924,6 +3928,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2238628513887822065, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2731002787606537225, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_Type
       value: 0
@@ -3947,6 +3955,10 @@ PrefabInstance:
     - target: {fileID: 5425545237340450600, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434178293370600499, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 3
       objectReference: {fileID: 0}
     - target: {fileID: 8005079265223414744, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_Camera

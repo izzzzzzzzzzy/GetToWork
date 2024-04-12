@@ -27,6 +27,8 @@ public class LoadSceneUIScript : MonoBehaviour
 
     private bool isNewGame;
 
+    private bool[] savesExist = new bool[3];
+
     void Start()
     {
         confirmationText = yesOrNoLoad.GetComponentInChildren<TMP_Text>();
@@ -45,17 +47,17 @@ public class LoadSceneUIScript : MonoBehaviour
         saveFile1 = saveFile1.GetComponent<Button>();
         saveFile1.onClick.AddListener(delegate {ShowConfirmationButton("SaveData1.dat"); });
         saveFile1Description = saveFile1Description.GetComponent<TMP_Text>();
-        ShowSaveInfo("SaveData1.dat", saveFile1Description);
+        ShowSaveInfo("SaveData1.dat", saveFile1Description, 1);
 
         saveFile2 = saveFile2.GetComponent<Button>();
         saveFile2.onClick.AddListener(delegate {ShowConfirmationButton("SaveData2.dat");} );
         saveFile2Description = saveFile2Description.GetComponent<TMP_Text>();
-        ShowSaveInfo("SaveData2.dat", saveFile2Description);
+        ShowSaveInfo("SaveData2.dat", saveFile2Description, 2);
 
         saveFile3 = saveFile3.GetComponent<Button>();
         saveFile3.onClick.AddListener(delegate {ShowConfirmationButton("SaveData3.dat");} );
         saveFile3Description = saveFile3Description.GetComponent<TMP_Text>();
-        ShowSaveInfo("SaveData3.dat", saveFile3Description);
+        ShowSaveInfo("SaveData3.dat", saveFile3Description, 3);
 
         confirmLoad = confirmLoad.GetComponent<Button>();
         confirmLoad.onClick.AddListener(LoadSave);
@@ -65,15 +67,23 @@ public class LoadSceneUIScript : MonoBehaviour
 
     void ShowLoads(bool newGame){
         isNewGame = newGame;
-        if(isNewGame){
-            loadsOptions.SetActive(true);
+        loadsOptions.SetActive(true);
+
+        if (isNewGame){
             saveOrLoadText.text = "New Game";
             confirmationText.text = "Create new save?";
+
+            saveFile1.interactable = true;
+            saveFile2.interactable = true;
+            saveFile3.interactable = true;
         }
         else{
-            loadsOptions.SetActive(true);
             saveOrLoadText.text = "Load Game";
             confirmationText.text = "Load this save?";
+
+            saveFile1.interactable = savesExist[0];
+            saveFile2.interactable = savesExist[1];
+            saveFile3.interactable = savesExist[2];
         }
 
     }
@@ -137,8 +147,16 @@ public class LoadSceneUIScript : MonoBehaviour
         }
     }
 
-    void ShowSaveInfo(string name, TMP_Text texty){
+    void ShowSaveInfo(string name, TMP_Text texty, int saveNum){
         SaveData values = MainManager.Instance.ShowJsonData(MainManager.Instance, name);
-        texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
+        if (!values.isEmpty)
+        {
+            texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
+            savesExist[saveNum - 1] = true;
+        }
+        else
+        {
+            texty.text = "Empty";
+        }
     }
 }
