@@ -10,13 +10,11 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
 
-    //MainManager mainManager;
-    [SerializeField] private float transitionTime = 1f;
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
 
-    private Camera mainCamera;
-    private SceneFade sceneFade;
+    public Camera mainCamera;
+    public SceneFade sceneFade;
     private MainPlayerController mainPlayer;
     public Canvas pauseMenu;
     public GameObject pauseMenuActivateButton;
@@ -35,7 +33,6 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //mainManager = GetComponent<MainManager>();
         mainCamera = FindFirstObjectByType<Camera>();
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
@@ -59,7 +56,8 @@ public class SceneController : MonoBehaviour
         {
             mainCamera = FindFirstObjectByType<Camera>();
         }
-        if (sceneFade == null) {
+        if (sceneFade == null)
+        {
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
@@ -114,8 +112,8 @@ public class SceneController : MonoBehaviour
 
     IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
-        StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        StartCoroutine(sceneFade.FadeScreen());
+        yield return new WaitForSeconds(1);
 
         mainCamera.transform.position = new Vector3(nCameraPos.x, nCameraPos.y, -10);
         player.transform.position = nPlayerPos;
@@ -126,15 +124,15 @@ public class SceneController : MonoBehaviour
         mainCameraCoords = mainCamera.transform.position;
         mainPlayerCoords = exitCoords;
 
-        StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        StartCoroutine(sceneFade.FadeScreen());
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
     }
 
     IEnumerator LoadScene(string sceneName)
     {
-        StartCoroutine(sceneFade.FadeScreen(transitionTime));
-        yield return new WaitForSeconds(transitionTime);
+        StartCoroutine(sceneFade.FadeScreen());
+        yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
     }
 

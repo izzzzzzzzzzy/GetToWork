@@ -8,7 +8,7 @@ public class BugHole : MonoBehaviour
     [SerializeField] private Vector3 spawnOffset = new Vector3(0, 0.5f, 0);
 
     private GameObject currentBug;
-    private bool hasBug;
+    public bool hasBug;
 
     // Update is called once per frame
     void Update()

@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb6a69ebe0d11d47a52d909580779e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 3
   onStackSound: {fileID: 8300000, guid: 3032db3f7f4814d1e8d48259d03c6e67, type: 3}
   onBreakSound: {fileID: 8300000, guid: 1cd08058a85a84d75a41c95dc09b6a3e, type: 3}
 --- !u!82 &8862824228294057965
