@@ -12,10 +12,10 @@ public class SceneFade : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public IEnumerator FadeScreen(float fadeTime)
+    public IEnumerator FadeScreen()
     {
         animator.SetBool("isFaded", true);
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSeconds(1);
         animator.SetBool("isFaded", false);
     }
 

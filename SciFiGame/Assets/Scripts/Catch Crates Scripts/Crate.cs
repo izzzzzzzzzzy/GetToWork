@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Crate : MonoBehaviour
 {
-    MinigameController controller;
-    Collider2D coll;
+    CrateSpawner spawner;
     Rigidbody2D rb;
     AudioSource ads;
 
@@ -19,8 +18,7 @@ public class Crate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = FindFirstObjectByType<MinigameController>();
-        coll = GetComponent<Collider2D>();
+        spawner = FindFirstObjectByType<CrateSpawner>();
         rb = GetComponent<Rigidbody2D>();
         ads = GetComponent<AudioSource>();
     }
@@ -36,7 +34,7 @@ public class Crate : MonoBehaviour
         if (!broken && collider.CompareTag("Crate Stack"))
         {
             transform.SetParent(collider.transform.parent);
-            controller.IncreaseScore(value);
+            spawner.CaughtCrate(value);
             ads.clip = onStackSound;
             ads.Play();
             Destroy(rb);
@@ -47,7 +45,7 @@ public class Crate : MonoBehaviour
     {
         if (collision.collider.CompareTag("Ground"))
         {
-            controller.DecreaseScore(value);
+            spawner.DroppedCrate(value);
             ads.clip = onBreakSound;
             ads.Play();
             StartCoroutine(WaitForSound());

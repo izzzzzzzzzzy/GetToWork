@@ -3872,6 +3872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartScreenButtons
       objectReference: {fileID: 0}
+    - target: {fileID: 1191452972044303550, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1339443986326087581, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_fontSize
       value: 25
@@ -3955,6 +3959,9 @@ PrefabInstance:
     - target: {fileID: 1990169199160404534, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 0
+    - target: {fileID: 2238628513887822065, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 2
       objectReference: {fileID: 0}
     - target: {fileID: 2731002787606537225, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_Type
@@ -3966,7 +3973,7 @@ PrefabInstance:
       objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
     - target: {fileID: 5321923596773095968, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5377039603632453368, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_Type
@@ -3995,6 +4002,10 @@ PrefabInstance:
     - target: {fileID: 6552422301284111110, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6434178293370600499, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
+      propertyPath: m_text
+      value: Slot 3
       objectReference: {fileID: 0}
     - target: {fileID: 8005079265223414744, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
       propertyPath: m_Camera

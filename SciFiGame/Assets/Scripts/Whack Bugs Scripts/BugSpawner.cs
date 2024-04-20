@@ -7,8 +7,8 @@ public class BugSpawner : MonoBehaviour
     [SerializeField] private float spawnRate = 1f;
     [SerializeField] private float rateRange = .5f;
 
-    private BugHole[] allHoles;
-    private List<BugHole> freeHoles = new();
+    public BugHole[] allHoles;
+    public List<BugHole> freeHoles = new();
     private BugHole hole;
     private float timer;
     
@@ -23,7 +23,7 @@ public class BugSpawner : MonoBehaviour
     {
         foreach (BugHole hole in  allHoles)
         {
-            if (!hole.HasBug())
+            if (!hole.HasBug() && !freeHoles.Contains(hole)) 
             {
                 freeHoles.Add(hole);
             }

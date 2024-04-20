@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class CrateSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate;
-    [SerializeField] private GameObject crate;
+    MinigameController controller;
+
+    [SerializeField] private float spawnDelay;
     [SerializeField] private GameObject crateWarning;
-    [SerializeField] private float spawnRange = 1f;
-    [SerializeField] private float crateWarningLifetime = 2f;
+    [SerializeField] private float spawnRange = 8f;
+    [SerializeField] private float maxCrateDistance = 8f;
 
     private float spawnTimer;
+    private float lastSpawnLocation = 0;
+    private float nextSpawnLocation = 0;
+
+    private void Start()
+    {
+        controller = FindFirstObjectByType<MinigameController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -20,17 +28,25 @@ public class CrateSpawner : MonoBehaviour
 
         if (spawnTimer < 0)
         {
-            StartCoroutine(SpawnCrate(transform.position.x + Random.Range(-spawnRange, spawnRange)));
-            spawnTimer = spawnRate;
+            do
+            {
+                nextSpawnLocation = transform.position.x + Random.Range(-spawnRange, spawnRange);
+            } while (Mathf.Abs(nextSpawnLocation - lastSpawnLocation) > maxCrateDistance);
+
+            Instantiate(crateWarning, new Vector2(nextSpawnLocation, transform.position.y), Quaternion.identity);
+
+            lastSpawnLocation = nextSpawnLocation;
+            spawnTimer = spawnDelay;
         }
     }
 
-    IEnumerator SpawnCrate(float xPosition)
+    public void CaughtCrate(int value)
     {
-        Vector2 spawnPos = new(xPosition, transform.position.y);
+        controller.IncreaseScore(value);
+    }
 
-        Instantiate(crateWarning, spawnPos + (2*Vector2.down), Quaternion.identity);
-        yield return new WaitForSeconds(2f);
-        Instantiate(crate, spawnPos, Quaternion.identity);
+    public void DroppedCrate(int value)
+    {
+        controller.DecreaseScore(value);
     }
 }
