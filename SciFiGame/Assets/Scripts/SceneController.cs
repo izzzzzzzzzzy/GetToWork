@@ -19,6 +19,7 @@ public class SceneController : MonoBehaviour
     public Canvas pauseMenu;
     public GameObject pauseMenuActivateButton;
     private bool isPaused;
+    public AudioSource buttonSFX;
 
     private void Awake()
     {
@@ -181,12 +182,16 @@ public class SceneController : MonoBehaviour
 
     public void PauseGame()
     {
+        buttonSFX = this.GetComponentInChildren<AudioSource>();
+        buttonSFX.Play();
         Time.timeScale = 0f;
         isPaused = true;
     }
 
     public void PlayGame()
     {
+        buttonSFX = this.GetComponentInChildren<AudioSource>();
+        buttonSFX.Play();
         Time.timeScale = 1f;
         isPaused = false;
     }

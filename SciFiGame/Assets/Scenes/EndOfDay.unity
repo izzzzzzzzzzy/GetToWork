@@ -1228,10 +1228,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Failure to pay off debt will result in remote prosthetic termination.
-    This may result in: Death.
+  m_text: ' Failure to pay for oxygen may result in: Death.
 
-    Are you sure you wish to continue?'
+    Are you sure you
+    wish to continue?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 1214803606}
   - component: {fileID: 1214803607}
   m_Layer: 5
-  m_Name: Audio Source
+  m_Name: Audio Source SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,11 +1574,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fdc4c197173dd4ed8a9a1dac89e9e671, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
+  m_audioClip: {fileID: 8300000, guid: 56b84356dc1394e25ab9911a9fa5e69d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.58
+  m_Pitch: 0.3
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2441,10 +2441,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: All Company prosthetics hardware, software, and repair tools are considered
-    proprietary assests of the Company. Under interplanetary law failure to provide
-    reasonable proof of payment for Company assets will result in remote termination
-    of Company software.
+  m_text: All Company resources are automatically distributed as needed to Company
+    customers, as determined by Company resource distributers. Under contractual
+    law failure to provide reasonable proof of payment for Company resources, or
+    reasonable proof of ability to work, will result in immediate cancellation of
+    all Company services.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
@@ -3026,7 +3027,7 @@ GameObject:
   - component: {fileID: 1967366683}
   - component: {fileID: 1967366687}
   m_Layer: 5
-  m_Name: DebtWarning
+  m_Name: OxygenWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3136,6 +3137,7 @@ MonoBehaviour:
   nextLevelName: DeathScreen
   closeWindow: {fileID: 356396952}
   payDebt: {fileID: 39654447}
+  buttonSFX: {fileID: 1214803607}
 --- !u!1 &1993959465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,6 +3744,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2602788043985133728}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: toggleSFX
+      value: 
+      objectReference: {fileID: 1214803607}
+    - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: dayCounter
       value: 
       objectReference: {fileID: 2602788043985133729}
@@ -3757,6 +3763,10 @@ PrefabInstance:
       propertyPath: nextLevelName
       value: MainScene
       objectReference: {fileID: 0}
+    - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: oxygenWarning
+      value: 
+      objectReference: {fileID: 1967366682}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: moneyRemaining
       value: 

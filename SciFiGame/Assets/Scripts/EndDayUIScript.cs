@@ -20,6 +20,8 @@ public class EndDayUIScript : MonoBehaviour
     public Toggle payHeating;
     public Toggle payRepair;
 
+    public AudioSource toggleSFX;
+
     public TMP_Text debt;
     public TMP_Text moneyHave;
     public TMP_Text moneyRemaining;
@@ -30,13 +32,15 @@ public class EndDayUIScript : MonoBehaviour
     public float totalCost;
     private bool cantPay = false;
 
-    //[SerializeField] private float debtPaid = 1;
-    public GameObject debtWarning;
+    public GameObject oxygenWarning;
 
     void Start()
     {
+        //all the buttons
         Button btn = nextDayButton.GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
+
+        toggleSFX = toggleSFX.GetComponent<AudioSource>();
 
         payDebt = payDebt.GetComponent<Toggle>();
         payDebt.isOn = true;
@@ -45,7 +49,6 @@ public class EndDayUIScript : MonoBehaviour
         payDebtInput.text = "1";
         payDebtInput.onEndEdit.AddListener(delegate {DebtToggleActivated(payDebt);});
         payDebtInput.onEndEdit.AddListener(delegate {DebtInputChanged(payDebt);});
-
 
         payRent = payRent.GetComponent<Toggle>();
         payRent.isOn = true;
@@ -72,12 +75,11 @@ public class EndDayUIScript : MonoBehaviour
         dayCounter = dayCounter.GetComponent<TMP_Text>();
 
         totalCost = 5;
-        //totalCostWithoutDebt = 5
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
         dayCounter.text = "Day " + MainManager.Instance.dayNum;
 
-        debtWarning.SetActive(false);
+        oxygenWarning.SetActive(false);
     }
 
     // Update is called once per frame
@@ -92,11 +94,6 @@ public class EndDayUIScript : MonoBehaviour
         if(int.Parse(payDebtInput.text) < 1){
             payDebtInput.text = "1";
         }
-
-        //if(totalCost != totalCostWithoutDebt + int.Parse(payDebtInput.text)){
-        //    totalCost = totalCostWithoutDebt + int.Parse(payDebtInput.text);
-        //}
-        //payDebtInput.onEndEdit.AddListener(delegate{(ToggleActivated(payDebt, int.Parse(payDebtInput.text)));} );
 
         moneyHave.text = "$" + moneyValue;
         debt.text = "$" + debtValue;
@@ -122,12 +119,13 @@ public class EndDayUIScript : MonoBehaviour
     }
     void TaskOnClick()
     {
-        if(payDebt.isOn == false){
-            debtWarning.SetActive(true);
+        toggleSFX.Play();
+        if(payOxygen.isOn == false){
+            oxygenWarning.SetActive(true);
         }
         else if(cantPay == true){
-            //should not get here becaus of above, but just in cas
-            print("warning about money");
+            //should not get here because of above, but just in case
+            Debug.Log("warning about money");
         }
         else{
             //setting up for next day and saving game
@@ -159,6 +157,7 @@ public class EndDayUIScript : MonoBehaviour
                 FindFirstObjectByType<SceneController>().StartDay();
             }
             else{
+                //for if they win the game
                 MainManager.Instance.debt = 0;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 SceneManager.LoadScene("WinScreen");
@@ -168,6 +167,7 @@ public class EndDayUIScript : MonoBehaviour
     }
 
     void ToggleActivated(Toggle toggle, int cost){
+        toggleSFX.Play();
         if(toggle.isOn){
             totalCost += cost;
             toggle.GetComponentInChildren<TMP_Text>().enabled = true;
@@ -179,6 +179,7 @@ public class EndDayUIScript : MonoBehaviour
     }
 
     void DebtToggleActivated(Toggle toggle){
+        toggleSFX.Play();
         if(toggle.isOn){
             toggle.GetComponentInChildren<TMP_Text>().enabled = true;
         }
