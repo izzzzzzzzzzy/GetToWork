@@ -130,8 +130,28 @@ public class EndDayUIScript : MonoBehaviour
             print("warning about money");
         }
         else{
+            //setting up for next day and saving game
             MainManager.Instance.debt -= int.Parse(payDebtInput.text);
             if(MainManager.Instance.debt > 0){
+                //repair limbs health if you chose too
+                if(payRepair.isOn){
+                    MainManager.Instance.rArmHealth += 20;
+                    if(MainManager.Instance.rArmHealth > 100){
+                        MainManager.Instance.rArmHealth = 100;
+                    }
+                    MainManager.Instance.lArmHealth += 20;
+                    if(MainManager.Instance.lArmHealth > 100){
+                        MainManager.Instance.lArmHealth = 100;
+                    }
+                    MainManager.Instance.rLegHealth += 20;
+                    if(MainManager.Instance.rLegHealth > 100){
+                        MainManager.Instance.rLegHealth = 100;
+                    }
+                    MainManager.Instance.lLegHealth += 20;
+                    if(MainManager.Instance.lLegHealth > 100){
+                        MainManager.Instance.lLegHealth = 100;
+                    }
+                }
                 MainManager.Instance.money -= totalCost + int.Parse(payDebtInput.text);
                 MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
                 MainManager.Instance.dayNum += 1;

@@ -1443,6 +1443,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -188
       objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.data[0]
+      value: rArmHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.data[1]
+      value: lArmHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 3574737631855586914, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

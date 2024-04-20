@@ -88,10 +88,32 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
-    public void EndMinigame(float score)
+    public void EndMinigame(float score, string[] limbs)
     {
         MainManager.Instance.money += score > 0 ? score : 0;
+        int i = 0;
+        while(i < limbs.Length){
+            if(limbs[i] == "rArmHealth"){
+                MainManager.Instance.rArmHealth -= (int) score/limbs.Length;
+            }
+            else if(limbs[i] == "lArmHealth"){
+                MainManager.Instance.lArmHealth -= (int) score/limbs.Length;
+            }
+            else if(limbs[i] == "rLegHealth"){
+                MainManager.Instance.rLegHealth -= (int) score/limbs.Length;
+            }
+            else if(limbs[i] == "lLegHealth"){
+                MainManager.Instance.lLegHealth -= (int) score/limbs.Length;
+            }
+            else{
+                Debug.Log("Wrong name inputted in GameManager -> Limbs To be Damaged Names: " + i);
+            }
 
+            i+=1;
+        }
+        //for limb in limbs{
+        //    MainManager.Instance.limbHealth -= score/len(limbs)
+        //}
         StartCoroutine(LoadScene("MainScene"));
     }
 

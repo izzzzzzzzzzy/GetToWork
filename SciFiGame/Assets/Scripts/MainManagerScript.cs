@@ -116,7 +116,11 @@ public class MainManager : MonoBehaviour, ISaveable
             sd.debt = 10000;
             sd.money = 0;
             sd.dayNum = 0;
-            sd.isEmpty = true;
+            //sd.isEmpty = true;
+            sd.rArmHealth = 100;
+            sd.lArmHealth = 100;
+            sd.rLegHealth = 100;
+            sd.lLegHealth = 100;
             return sd;
         }
     }
