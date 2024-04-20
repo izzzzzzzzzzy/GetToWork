@@ -10,13 +10,17 @@ public class PlayerAnimator : MonoBehaviour
     SceneController controller;
     Animator anim;
     AudioSource footsteps;
+    Rigidbody2D rb;
 
     bool isMoving;
+    public bool canJump;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         footsteps = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -36,7 +40,9 @@ public class PlayerAnimator : MonoBehaviour
 
             anim.SetBool("isWalking", inputDirection != Vector2.zero);
 
-            if (inputDirection.x != 0 || inputDirection.y != 0) {
+            if ((inputDirection.x != 0 || inputDirection.y != 0) && !canJump) {
+                isMoving = true;
+            } else if (canJump && inputDirection.x != 0 && rb.velocity.y == 0) {
                 isMoving = true;
             } else {
                 isMoving = false;
