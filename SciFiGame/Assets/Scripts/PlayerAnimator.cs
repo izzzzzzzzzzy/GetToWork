@@ -10,6 +10,7 @@ public class PlayerAnimator : MonoBehaviour
     SceneController controller;
     Animator anim;
     AudioSource footsteps;
+    Rigidbody2D rb;
 
     bool isMoving;
     public bool canJump;
@@ -19,6 +20,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         footsteps = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class PlayerAnimator : MonoBehaviour
 
             if ((inputDirection.x != 0 || inputDirection.y != 0) && !canJump) {
                 isMoving = true;
-            } else if (inputDirection.y == 0 && inputDirection.x != 0 && canJump) {
+            } else if (canJump && inputDirection.x != 0 && rb.velocity.y == 0) {
                 isMoving = true;
             } else {
                 isMoving = false;
