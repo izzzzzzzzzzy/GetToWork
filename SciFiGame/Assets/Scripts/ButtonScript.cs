@@ -38,7 +38,10 @@ public class StartButtonScript : MonoBehaviour
         }
         else{
             sceneController = FindFirstObjectByType<SceneController>();
-            sceneController.EndMinigame(0);
+            string[] limbsy = new string[2];
+            limbsy[0] = "lArmHealth";
+            limbsy[1] = "rArmHealth";  //("lArmHealth", "rArmHealth");
+            sceneController.EndMinigame(0, limbsy);
             sceneController.PlayGame();
 
         }

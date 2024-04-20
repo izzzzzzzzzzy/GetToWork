@@ -1748,6 +1748,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -182
       objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.data[0]
+      value: rArmHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.data[1]
+      value: lLegHealth
+      objectReference: {fileID: 0}
     - target: {fileID: 3193195456884072036, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: timeSeconds
       value: 0

@@ -24,7 +24,7 @@ public class EndButtonScript : MonoBehaviour
     void TaskOnClick()
     {
         MainManager.Instance.fileName = "";
-        MainManager.Instance.debt = 500000f;
+        MainManager.Instance.debt = 10000f;
         MainManager.Instance.money = 0f;
         MainManager.Instance.timeRemaining = 120;
         SceneManager.LoadScene("StartScreen");

@@ -13,6 +13,8 @@ public class MinigameController : MonoBehaviour
     [SerializeField] private float score;
     public TMP_Text scoreShow;
 
+    public string[] limbsToBeDamagedNames;
+
     private bool gameOver;
 
     private void Start()
@@ -40,7 +42,7 @@ public class MinigameController : MonoBehaviour
             timer.gameObject.SetActive(false);
 
             controller = FindFirstObjectByType<SceneController>();
-            controller.EndMinigame(score);
+            controller.EndMinigame(score, limbsToBeDamagedNames);
         }
     }
 
