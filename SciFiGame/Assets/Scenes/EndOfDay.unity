@@ -3123,6 +3123,19 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 5043881648269024944, guid: 7b61d544cea6b48efb0e5b0fdae34b26, type: 2}
+    - target: {fileID: 3380604743050670385, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -26.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3380604743050670385, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -126.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3418922317460002062, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_text
+      value: Repairs all of your limbs by 20 points. Once limbs are damaged, they
+        may effect your speed and performance.
+      objectReference: {fileID: 0}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: toggleSFX
       value: 
@@ -3159,6 +3172,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 5492345283375360401, guid: 3ed1e14f6220945fda9fbe4b7aaa47b9, type: 2}
+    - target: {fileID: 4014770346832690850, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4445618485213809353, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
@@ -3166,6 +3183,10 @@ PrefabInstance:
     - target: {fileID: 4445618485213809353, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5005760400970678990, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50.3
       objectReference: {fileID: 0}
     - target: {fileID: 5193939508313466849, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_fontAsset
