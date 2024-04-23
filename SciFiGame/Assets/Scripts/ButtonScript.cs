@@ -11,7 +11,7 @@ public class StartButtonScript : MonoBehaviour
     public Button startButton;
     public Button quitGameButton;
     public string nextLevelName;
-    public AudioSource audio;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class StartButtonScript : MonoBehaviour
     }
     void TaskOnClick()
     {
-        audio.Play();
+        audioSource.Play();
         SceneManager.LoadScene(nextLevelName);
     }
     public void QuitGame(){

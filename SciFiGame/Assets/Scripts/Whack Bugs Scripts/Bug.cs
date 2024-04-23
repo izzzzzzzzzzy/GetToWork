@@ -25,12 +25,11 @@ public class Bug : MonoBehaviour
     void Update()
     {
         lifetime -= Time.deltaTime;
-
-        if (lifetime < 0)
+        if (lifetime < 0 && !isKilled)
         {
+            isKilled = true;
             gameManager.DecreaseScore(value);
-
-            Destroy(gameObject);
+            StartCoroutine(Descend());
         }
     }
 
@@ -40,14 +39,15 @@ public class Bug : MonoBehaviour
         {
             isKilled = true;
             gameManager.IncreaseScore(value);
-            anim.SetBool("isHit", true);
             audioSource.Play();
-            StartCoroutine(WaitSecsBeforeDestroying(0.7f));
+            StartCoroutine(Descend());
         }
     }
 
-    private IEnumerator WaitSecsBeforeDestroying(float i){
-        yield return new WaitForSeconds(i);
+    private IEnumerator Descend()
+    {
+        anim.SetBool("isHit", true);
+        yield return new WaitForSeconds(.7f);
         Destroy(gameObject);
     }
 }
