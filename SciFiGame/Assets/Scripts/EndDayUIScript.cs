@@ -16,8 +16,8 @@ public class EndDayUIScript : MonoBehaviour
 
     public Toggle payRent;
     public Toggle payOxygen;
-    public Toggle payFood;
-    public Toggle payHeating;
+    //public Toggle payFood;
+    //public Toggle payHeating;
     public Toggle payRepair;
 
     public AudioSource toggleSFX;
@@ -58,13 +58,13 @@ public class EndDayUIScript : MonoBehaviour
         payOxygen.isOn = true;
         payOxygen.onValueChanged.AddListener(delegate {ToggleActivated(payOxygen, 1);});
 
-        payFood = payFood.GetComponent<Toggle>();
-        payFood.isOn = true;
-        payFood.onValueChanged.AddListener(delegate {ToggleActivated(payFood, 1);});
+        //payFood = payFood.GetComponent<Toggle>();
+        //payFood.isOn = true;
+        //payFood.onValueChanged.AddListener(delegate {ToggleActivated(payFood, 1);});
 
-        payHeating = payHeating.GetComponent<Toggle>();
-        payHeating.isOn = true;
-        payHeating.onValueChanged.AddListener(delegate {ToggleActivated(payHeating, 1);});
+        //payHeating = payHeating.GetComponent<Toggle>();
+        //payHeating.isOn = true;
+        //payHeating.onValueChanged.AddListener(delegate {ToggleActivated(payHeating, 1);});
 
         payRepair = payRepair.GetComponent<Toggle>();
         payRepair.isOn = true;
@@ -74,7 +74,7 @@ public class EndDayUIScript : MonoBehaviour
         moneyRemaining = moneyRemaining.GetComponent<TMP_Text>();
         dayCounter = dayCounter.GetComponent<TMP_Text>();
 
-        totalCost = 5;
+        totalCost = 3;
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
         dayCounter.text = "Day " + MainManager.Instance.dayNum;
@@ -121,6 +121,9 @@ public class EndDayUIScript : MonoBehaviour
     {
         toggleSFX.Play();
         if(payOxygen.isOn == false){
+            oxygenWarning.SetActive(true);
+        }
+        else if(payRent.isOn == false){
             oxygenWarning.SetActive(true);
         }
         else if(cantPay == true){
