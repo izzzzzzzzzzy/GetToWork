@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour, ISaveable
 {
-    SceneController sceneController;
-
     public static MainManager Instance;
 
     //Player stats
@@ -27,6 +25,7 @@ public class MainManager : MonoBehaviour, ISaveable
     //Save data
     public string fileName = "";
 
+    private bool dayStarted;
 
     private void Awake(){
         if (Instance != null){
@@ -41,18 +40,21 @@ public class MainManager : MonoBehaviour, ISaveable
     // Start is called before the first frame update
     void Start()
     {
-        sceneController = GetComponent<SceneController>();
         timeRemaining = dayTime;
     }
     // Update is called once per frame
     void Update()
     {
-        timeRemaining -= Time.deltaTime;
+        if (dayStarted)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
     }
 
     public void StartDay()
     {
         timeRemaining = dayTime;
+        dayStarted = true;
     }
 
     //Saving and loading

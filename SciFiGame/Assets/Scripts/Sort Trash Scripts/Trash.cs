@@ -6,7 +6,6 @@ public class Trash : MonoBehaviour
 {
     DraggableScript draggableScript;
     MinigameController gameManager;
-    AudioSource audioSource;
 
     [SerializeField] private int trashType;
     [SerializeField] private float speed = 5;
@@ -17,7 +16,6 @@ public class Trash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         draggableScript = GetComponent<DraggableScript>();
         gameManager = FindFirstObjectByType<MinigameController>();
     }
@@ -42,6 +40,7 @@ public class Trash : MonoBehaviour
         {
             if (trashType == collision.GetComponent<TrashChute>().GetBinType())
             {
+                print("hi");
                 gameManager.IncreaseScore(value);
             }
             else

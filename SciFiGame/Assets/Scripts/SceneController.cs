@@ -120,11 +120,8 @@ public class SceneController : MonoBehaviour
 
     public void StartDay()
     {
-        mainCameraCoords = new(0, -15, -10);
-        mainPlayerCoords = new(0, -15);
-
-        MainManager.Instance.StartDay();
-
+        mainCameraCoords = new(0, -17, -10);
+        mainPlayerCoords = new(0, -21);
         StartCoroutine(LoadScene("MainScene"));
     }
 

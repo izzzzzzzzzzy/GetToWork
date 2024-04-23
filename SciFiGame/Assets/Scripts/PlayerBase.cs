@@ -11,6 +11,7 @@ public class PlayerBase : MonoBehaviour
     protected bool jumpInput;
     protected bool jumpHeld;
     protected bool interactInput;
+    protected bool canWalk = true;
 
     protected void InitializeComponents()
     {
@@ -20,15 +21,28 @@ public class PlayerBase : MonoBehaviour
 
     protected void GetInputs()
     {
-        //print(inputs);
-        jumpInput = inputs.GetJumpInput();
-        jumpHeld = inputs.GetJumpHeld();
         interactInput = inputs.GetInteractInput();
-        inputDirection = inputs.GetDirection();
+        if (canWalk)
+        {
+            inputDirection = inputs.GetDirection();
+            jumpInput = inputs.GetJumpInput();
+            jumpHeld = inputs.GetJumpHeld();
+        }
+        else
+        {
+            inputDirection = Vector2.zero;
+            jumpInput = false;
+            jumpHeld = false;
+        }
 
         if (inputDirection.magnitude != 0)
         {
             lastInputDirection = inputDirection;
         }
+    }
+
+    public void SetCanWalk(bool canWalk)
+    {
+        this.canWalk = canWalk;
     }
 }
