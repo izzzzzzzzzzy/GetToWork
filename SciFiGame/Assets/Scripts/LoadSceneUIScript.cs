@@ -86,7 +86,7 @@ public class LoadSceneUIScript : MonoBehaviour
 
         if (isNewGame){
             saveOrLoadText.text = "New Game";
-            confirmationText.text = "Create new save?";
+            confirmationText.text = "Overwrite this save?";
 
             saveFile1.interactable = true;
             saveFile2.interactable = true;
@@ -164,7 +164,7 @@ public class LoadSceneUIScript : MonoBehaviour
 
     void ShowSaveInfo(string name, TMP_Text texty, int saveNum){
         SaveData values = MainManager.Instance.ShowJsonData(MainManager.Instance, name);
-        if (!values.isEmpty)
+        if (!values.isEmpty && values.dayNum!=0)
         {
             texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
             savesExist[saveNum - 1] = true;
