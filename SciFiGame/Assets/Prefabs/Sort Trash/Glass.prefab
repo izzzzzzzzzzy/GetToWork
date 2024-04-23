@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6984156349598853161, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
+      propertyPath: trashType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8391736347096764642, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_audioClip
       value: 

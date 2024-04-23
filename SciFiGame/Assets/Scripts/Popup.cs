@@ -1,14 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Popup : Interactable
+public class Popup : MonoBehaviour, IInteractable
 {
-    public Canvas popUp;
+    AudioSource audioSource;
+    Canvas popup;
+
+    [SerializeField] private AudioClip onSound;
+    [SerializeField] private AudioClip offSound;
+
+    private bool isActive;
     void Start() {
-        popUp.gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
+        popup = GetComponentInChildren<Canvas>();
+
+        popup.gameObject.SetActive(false);
     }
-    override public void Interact(GameObject player) {
-        popUp.gameObject.SetActive(true);
+    public void Interact(GameObject player) {
+        isActive = !isActive;
+        popup.gameObject.SetActive(isActive);
+
+        if (isActive) {
+            audioSource.clip = onSound;
+        }
+        else
+        {
+            audioSource.clip = offSound;
+        }
+        audioSource.Play();
+
+        PlayerBase playerBase = player.GetComponent<PlayerBase>();
+        playerBase.SetCanWalk(!isActive);
     }
 }

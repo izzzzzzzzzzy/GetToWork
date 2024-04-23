@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trashType: 0
-  speed: 2
-  value: 1
-  onBelt: 0
+  speed: 2.5
+  value: 3
+  onBelt: 1
 --- !u!114 &868597956813132670
 MonoBehaviour:
   m_ObjectHideFlags: 0
