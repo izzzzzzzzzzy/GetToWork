@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EndButtonScript : MonoBehaviour
 {
     public Button endButton;
-    //MainManager mainManager;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class EndButtonScript : MonoBehaviour
     }
     void TaskOnClick()
     {
+        audio.Play();
         MainManager.Instance.fileName = "";
         MainManager.Instance.debt = 10000f;
         MainManager.Instance.money = 0f;

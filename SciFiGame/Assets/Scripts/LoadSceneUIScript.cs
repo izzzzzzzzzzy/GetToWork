@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneUIScript : MonoBehaviour
 {
+    public AudioSource buttonSound;
+
     public Button loadScreen;
     public Button newGame;
 
@@ -37,32 +39,45 @@ public class LoadSceneUIScript : MonoBehaviour
 
         loadScreen = loadScreen.GetComponent<Button>();
         loadScreen.onClick.AddListener(delegate {ShowLoads(false);});
+        loadScreen.onClick.AddListener(ButtonSound);
+
         newGame = newGame.GetComponent<Button>();
         newGame.onClick.AddListener(delegate {ShowLoads(true);});
+        newGame.onClick.AddListener(ButtonSound);
+
         goBack = goBack.GetComponent<Button>();
         goBack.onClick.AddListener(HideLoads);
+        goBack.onClick.AddListener(ButtonSound);
+
         loadsOptions.SetActive(false);
         saveOrLoadText = saveOrLoadText.GetComponent<TMP_Text>();
 
         saveFile1 = saveFile1.GetComponent<Button>();
         saveFile1.onClick.AddListener(delegate {ShowConfirmationButton("SaveData1.dat"); });
+        saveFile1.onClick.AddListener(ButtonSound);
         saveFile1Description = saveFile1Description.GetComponent<TMP_Text>();
         ShowSaveInfo("SaveData1.dat", saveFile1Description, 1);
 
         saveFile2 = saveFile2.GetComponent<Button>();
         saveFile2.onClick.AddListener(delegate {ShowConfirmationButton("SaveData2.dat");} );
+        saveFile2.onClick.AddListener(ButtonSound);
         saveFile2Description = saveFile2Description.GetComponent<TMP_Text>();
         ShowSaveInfo("SaveData2.dat", saveFile2Description, 2);
 
         saveFile3 = saveFile3.GetComponent<Button>();
         saveFile3.onClick.AddListener(delegate {ShowConfirmationButton("SaveData3.dat");} );
+        saveFile3.onClick.AddListener(ButtonSound);
         saveFile3Description = saveFile3Description.GetComponent<TMP_Text>();
         ShowSaveInfo("SaveData3.dat", saveFile3Description, 3);
 
         confirmLoad = confirmLoad.GetComponent<Button>();
         confirmLoad.onClick.AddListener(LoadSave);
+        confirmLoad.onClick.AddListener(ButtonSound);
+
         cancelLoad = cancelLoad.GetComponent<Button>();
         cancelLoad.onClick.AddListener(HideConfirmationButton);
+        cancelLoad.onClick.AddListener(ButtonSound);
+
     }
 
     void ShowLoads(bool newGame){
@@ -158,5 +173,9 @@ public class LoadSceneUIScript : MonoBehaviour
         {
             texty.text = "Empty";
         }
+    }
+
+    public void ButtonSound() {
+        buttonSound.Play();
     }
 }
