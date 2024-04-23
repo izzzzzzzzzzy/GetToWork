@@ -37,15 +37,16 @@ public class SceneController : MonoBehaviour
         mainCamera = FindFirstObjectByType<Camera>();
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
-        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay"){
+        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory")
+        {
             pauseMenuActivateButton.SetActive(false);
         }
         else{
             pauseMenuActivateButton.SetActive(true);
         }
 
-        mainCameraCoords = new(0, -15, -10);
-        mainPlayerCoords = new(0, -15);
+        mainCameraCoords = new(0, -17, -10);
+        mainPlayerCoords = new(0, -21);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -62,7 +63,7 @@ public class SceneController : MonoBehaviour
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay")
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory")
         {
             if (!isPaused)
             {
@@ -130,6 +131,11 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadScene("EndOfDay"));
     }
 
+    public void PlayBackstory()
+    {
+        StartCoroutine(LoadScene("Backstory"));
+    }
+
     IEnumerator Teleport(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(sceneFade.FadeScreen());
@@ -187,8 +193,6 @@ public class SceneController : MonoBehaviour
 
     public void PlayGame()
     {
-        buttonSFX = this.GetComponentInChildren<AudioSource>();
-        buttonSFX.Play();
         Time.timeScale = 1f;
         isPaused = false;
     }

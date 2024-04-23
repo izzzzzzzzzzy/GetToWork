@@ -86,7 +86,7 @@ public class LoadSceneUIScript : MonoBehaviour
 
         if (isNewGame){
             saveOrLoadText.text = "New Game";
-            confirmationText.text = "Overwrite this save?";
+            confirmationText.text = "Start new game?";
 
             saveFile1.interactable = true;
             saveFile2.interactable = true;
@@ -121,7 +121,7 @@ public class LoadSceneUIScript : MonoBehaviour
         if(!isNewGame){
             if(MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName)){
                 Debug.Log("loaded!");
-                SceneManager.LoadScene("MainScene");
+                SceneController.Instance.StartDay();
             }
             else if(MainManager.Instance.fileName != ""){
                 Debug.Log("file not made yet!");
@@ -134,8 +134,7 @@ public class LoadSceneUIScript : MonoBehaviour
                 MainManager.Instance.lLegHealth = 100;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
-                SceneManager.LoadScene("MainScene");
-
+                SceneController.Instance.StartDay();
             }
             else{
                 Debug.Log("file name blank!");
@@ -153,7 +152,7 @@ public class LoadSceneUIScript : MonoBehaviour
                 MainManager.Instance.lLegHealth = 100;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
-                SceneManager.LoadScene("Backstory");
+                SceneController.Instance.PlayBackstory();
 
             }
             else{

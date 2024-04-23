@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfed113875affd9419e3f1e3d55abebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0.5
   rateRange: 0.5
   allHoles: []
   freeHoles: []
