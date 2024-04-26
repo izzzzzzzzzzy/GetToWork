@@ -96,37 +96,37 @@ public class SceneController : MonoBehaviour
         int i = 0;
         while(i < limbs.Length){
             if(limbs[i] == "rArmHealth"){
-                MainManager.Instance.rArmHealth -= (int) score/limbs.Length;
+                MainManager.Instance.rArmHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.rArmHealth < 0){
                     MainManager.Instance.rArmHealth = 0;
                 }
             }
             else if(limbs[i] == "headHealth"){
-                MainManager.Instance.headHealth -= (int) score/limbs.Length;
+                MainManager.Instance.headHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.headHealth < 0){
                     MainManager.Instance.headHealth = 0;
                 }
             }
             else if(limbs[i] == "eyeHealth"){
-                MainManager.Instance.eyeHealth -= (int) score/limbs.Length;
+                MainManager.Instance.eyeHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.eyeHealth < 0){
                     MainManager.Instance.eyeHealth = 0;
                 }
             }
             else if(limbs[i] == "lArmHealth"){
-                MainManager.Instance.lArmHealth -= (int) score/limbs.Length;
+                MainManager.Instance.lArmHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.lArmHealth < 0){
                     MainManager.Instance.lArmHealth = 0;
                 }
             }
             else if(limbs[i] == "rLegHealth"){
-                MainManager.Instance.rLegHealth -= (int) score/limbs.Length;
+                MainManager.Instance.rLegHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.rLegHealth < 0){
                     MainManager.Instance.rLegHealth = 0;
                 }
             }
             else if(limbs[i] == "lLegHealth"){
-                MainManager.Instance.lLegHealth -= (int) score/limbs.Length;
+                MainManager.Instance.lLegHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.lLegHealth < 0){
                     MainManager.Instance.lLegHealth = 0;
                 }
