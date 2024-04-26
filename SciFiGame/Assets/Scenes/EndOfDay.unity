@@ -974,10 +974,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Failure to pay for oxygen or rent may result in: Death.
+  m_text: ' Failure to pay for oxygen or rent, or to repair broken limbs, may result
+    in: Death.
 
-    Are you
-    sure you wish to continue?'
+    Are you sure you wish to continue?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
