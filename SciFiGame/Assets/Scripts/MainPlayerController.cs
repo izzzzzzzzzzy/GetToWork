@@ -11,7 +11,7 @@ public class MainPlayerController : PlayerBase
     [SerializeField] private int velocity = 5;
 
     private bool canInteract;
-    private IInteractable interactable;
+    private Interactable interactable;
 
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class MainPlayerController : PlayerBase
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        interactable = collision.gameObject.GetComponent<IInteractable>();
+        interactable = collision.gameObject.GetComponent<Interactable>();
         canInteract = interactable != null;
     }
 

@@ -130,7 +130,7 @@ public class EndDayUIScript : MonoBehaviour
             //should not get here because of above, but just in case
             Debug.Log("warning about money");
         }
-        else if(payRepair.isOn == false && (MainManager.Instance.headHealth<=20 || MainManager.Instance.eyeHealth<=20 || MainManager.Instance.rArmHealth<=0 || MainManager.Instance.lArmHealth<=20 || MainManager.Instance.rLegHealth<=20 || MainManager.Instance.lLegHealth<=20)){
+        else if(payRepair.isOn == false && CheckLimbsBroken()){
             //check for if limbs are <=0 and you don't choose to heal them
             oxygenWarning.SetActive(true);
         }
@@ -140,29 +140,12 @@ public class EndDayUIScript : MonoBehaviour
             if(MainManager.Instance.debt > 0){
                 //repair limbs health if you chose too
                 if(payRepair.isOn){
-                    MainManager.Instance.headHealth += 20;
-                    if(MainManager.Instance.headHealth > 100){
-                        MainManager.Instance.headHealth = 100;
-                    }
-                    MainManager.Instance.eyeHealth += 20;
-                    if(MainManager.Instance.eyeHealth > 100){
-                        MainManager.Instance.eyeHealth = 100;
-                    }
-                    MainManager.Instance.rArmHealth += 20;
-                    if(MainManager.Instance.rArmHealth > 100){
-                        MainManager.Instance.rArmHealth = 100;
-                    }
-                    MainManager.Instance.lArmHealth += 20;
-                    if(MainManager.Instance.lArmHealth > 100){
-                        MainManager.Instance.lArmHealth = 100;
-                    }
-                    MainManager.Instance.rLegHealth += 20;
-                    if(MainManager.Instance.rLegHealth > 100){
-                        MainManager.Instance.rLegHealth = 100;
-                    }
-                    MainManager.Instance.lLegHealth += 20;
-                    if(MainManager.Instance.lLegHealth > 100){
-                        MainManager.Instance.lLegHealth = 100;
+                    for (int i = 0; i < 6; i++){
+                        MainManager.Instance.limbHealths[i] += 20;
+                        if (MainManager.Instance.limbHealths[i] > 100)
+                        {
+                            MainManager.Instance.limbHealths[i] = 100;
+                        }
                     }
                 }
                 MainManager.Instance.money -= totalCost + int.Parse(payDebtInput.text);
@@ -179,6 +162,17 @@ public class EndDayUIScript : MonoBehaviour
             }
         }
 
+    }
+
+    private bool CheckLimbsBroken()
+    {
+        foreach (int health in MainManager.Instance.limbHealths){
+            if (health > 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void ToggleActivated(Toggle toggle, int cost){

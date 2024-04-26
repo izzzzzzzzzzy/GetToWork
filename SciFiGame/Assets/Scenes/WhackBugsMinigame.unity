@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 0.5
-  rateRange: 0.5
+  rateRange: 0.2
   allHoles: []
   freeHoles: []
 --- !u!4 &507991839

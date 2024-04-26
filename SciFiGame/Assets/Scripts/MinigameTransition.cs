@@ -1,27 +1,57 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class MinigameTransition : MonoBehaviour, IInteractable
+public class MinigameTransition : Interactable
 {
     SceneController controller;
+    MainManager mainManager;
     SpriteRenderer spriteRenderer;
     AudioSource audioSource;
 
     [SerializeField] private string nextScene;
     [SerializeField] private Vector3 returnOffset;
+    [SerializeField] private string limb = "rLegHealth";
+
+    private string[] limbIndices = new string[] { "rLegHealth", "lLegHealth", "rArmHealth", "lArmHealth", "headHealth", "eyeHealth" };
+    private int limbIndex;
+    private bool isActive;
 
     private void Start()
     {
         controller = SceneController.Instance;
+        mainManager = MainManager.Instance;
 
         audioSource = gameObject.GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        limbIndex = Array.IndexOf(limbIndices, limb);
     }
 
-    public void Interact(GameObject player)
+    private void Update()
     {
-        controller.StartMinigame(nextScene, transform.position + returnOffset);
+        isActive = mainManager.limbHealths[limbIndex] > 0;
+
+        if (!isActive)
+        {
+            spriteRenderer.color = Color.red;
+        }
+        else
+        {
+            spriteRenderer.color = Color.white;
+        }
+    }
+
+    public override void Interact(GameObject player)
+    {
+        controller.StartMinigame(nextScene, transform.position + returnOffset, limbIndex);
+    }
+
+    public override bool IsActive()
+    {
+        return isActive;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
