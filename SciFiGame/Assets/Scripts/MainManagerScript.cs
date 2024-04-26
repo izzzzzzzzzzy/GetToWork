@@ -12,13 +12,7 @@ public class MainManager : MonoBehaviour, ISaveable
     //Player stats
     public float debt;
     public float money;
-    public int headHealth;
-    public int eyeHealth;
-    public int rArmHealth;
-    public int lArmHealth;
-    public int rLegHealth;
-    public int lLegHealth;
-    public int[] limbHealth = new int[6];
+    public int[] limbHealths = new int[] {100, 100, 100, 100, 100, 100};
 
 //timers
     public float dayTime = 180;
@@ -66,11 +60,7 @@ public class MainManager : MonoBehaviour, ISaveable
         debt = 2000;
         money = 0;
         dayNum = 0;
-        rArmHealth = 100;
-        lArmHealth = 100;
-        rLegHealth = 100;
-        lLegHealth = 100;
-        limbHealth = new int[] {100, 100, 100, 100, 100, 100};
+        limbHealths = new int[] {100, 100, 100, 100, 100, 100};
     }
 
     //Saving and loading
@@ -88,13 +78,7 @@ public class MainManager : MonoBehaviour, ISaveable
         sd.name = fileName;
         sd.debt = debt;
         sd.money = money;
-        sd.headHealth = headHealth;
-        sd.eyeHealth = eyeHealth;
-        sd.rArmHealth = rArmHealth;
-        sd.lArmHealth = lArmHealth;
-        sd.rLegHealth = rLegHealth;
-        sd.lLegHealth = lLegHealth;
-        sd.limbHealth = limbHealth;
+        sd.limbHealths = limbHealths;
         sd.dayNum = dayNum;
     }
 
@@ -117,13 +101,7 @@ public class MainManager : MonoBehaviour, ISaveable
         fileName = sd.name;
         debt = sd.debt;
         money = sd.money;
-        limbHealth = sd.limbHealth;
-        headHealth = sd.headHealth;
-        eyeHealth = sd.eyeHealth;
-        rArmHealth = sd.rArmHealth;
-        lArmHealth = sd.lArmHealth;
-        rLegHealth = sd.rLegHealth;
-        lLegHealth = sd.lLegHealth;
+        limbHealths = sd.limbHealths;
         dayNum = sd.dayNum;
     }
 
@@ -136,17 +114,15 @@ public class MainManager : MonoBehaviour, ISaveable
         }
         else{
             Debug.Log("Could not load " + name + ", making new blank");
-            SaveData sd = new SaveData();
-            sd.debt = 10000;
-            sd.money = 0;
-            sd.dayNum = 0;
-            //sd.isEmpty = true;
-            sd.headHealth = 100;
-            sd.eyeHealth = 100;
-            sd.rArmHealth = 100;
-            sd.lArmHealth = 100;
-            sd.rLegHealth = 100;
-            sd.lLegHealth = 100;
+            SaveData sd = new()
+            {
+                debt = 2000,
+                money = 0,
+                dayNum = 0,
+                isEmpty = true,
+                limbHealths = limbHealths
+            };
+
             return sd;
         }
     }

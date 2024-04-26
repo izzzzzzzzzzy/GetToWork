@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     public GameObject pauseMenuActivateButton;
     private bool isPaused;
     public AudioSource buttonSFX;
+    private int limbIndex = -1;
 
     private void Awake()
     {
@@ -85,57 +86,19 @@ public class SceneController : MonoBehaviour
         StartCoroutine(Teleport(player, nPlayerPos, nCameraPos));
     }
 
-    public void StartMinigame(string sceneName, Vector2 exitCoords)
+    public void StartMinigame(string sceneName, Vector2 exitCoords, int limbIndex)
     {
+        this.limbIndex = limbIndex;
         StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
     public void EndMinigame(float score, string[] limbs)
     {
         MainManager.Instance.money += score > 0 ? score : 0;
-        int i = 0;
-        while(i < limbs.Length){
-            if(limbs[i] == "rArmHealth"){
-                MainManager.Instance.rArmHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.rArmHealth < 0){
-                    MainManager.Instance.rArmHealth = 0;
-                }
-            }
-            else if(limbs[i] == "headHealth"){
-                MainManager.Instance.headHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.headHealth < 0){
-                    MainManager.Instance.headHealth = 0;
-                }
-            }
-            else if(limbs[i] == "eyeHealth"){
-                MainManager.Instance.eyeHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.eyeHealth < 0){
-                    MainManager.Instance.eyeHealth = 0;
-                }
-            }
-            else if(limbs[i] == "lArmHealth"){
-                MainManager.Instance.lArmHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.lArmHealth < 0){
-                    MainManager.Instance.lArmHealth = 0;
-                }
-            }
-            else if(limbs[i] == "rLegHealth"){
-                MainManager.Instance.rLegHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.rLegHealth < 0){
-                    MainManager.Instance.rLegHealth = 0;
-                }
-            }
-            else if(limbs[i] == "lLegHealth"){
-                MainManager.Instance.lLegHealth -= (int) (score/2)/limbs.Length;
-                if(MainManager.Instance.lLegHealth < 0){
-                    MainManager.Instance.lLegHealth = 0;
-                }
-            }
-            else{
-                Debug.Log("Wrong name inputted in GameManager -> Limbs To be Damaged Names: " + i);
-            }
-
-            i+=1;
+        if (limbIndex != -1)
+        {
+            MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2) / limbs.Length;
+            limbIndex = -1;
         }
         //for limb in limbs{
         //    MainManager.Instance.limbHealth -= score/len(limbs)

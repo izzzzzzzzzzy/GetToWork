@@ -32,7 +32,7 @@ public class MinigameTransition : Interactable
 
     private void Update()
     {
-        isActive = mainManager.limbHealth[limbIndex] > 0;
+        isActive = mainManager.limbHealths[limbIndex] > 0;
 
         if (!isActive)
         {
@@ -46,7 +46,7 @@ public class MinigameTransition : Interactable
 
     public override void Interact(GameObject player)
     {
-        controller.StartMinigame(nextScene, transform.position + returnOffset);
+        controller.StartMinigame(nextScene, transform.position + returnOffset, limbIndex);
     }
 
     public override bool IsActive()
