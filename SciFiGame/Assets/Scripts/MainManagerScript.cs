@@ -12,6 +12,8 @@ public class MainManager : MonoBehaviour, ISaveable
     //Player stats
     public float debt;
     public float money;
+    public int headHealth;
+    public int eyeHealth;
     public int rArmHealth;
     public int lArmHealth;
     public int rLegHealth;
@@ -72,6 +74,8 @@ public class MainManager : MonoBehaviour, ISaveable
         sd.name = fileName;
         sd.debt = debt;
         sd.money = money;
+        sd.headHealth = headHealth;
+        sd.eyeHealth = eyeHealth;
         sd.rArmHealth = rArmHealth;
         sd.lArmHealth = lArmHealth;
         sd.rLegHealth = rLegHealth;
@@ -98,6 +102,8 @@ public class MainManager : MonoBehaviour, ISaveable
         fileName = sd.name;
         debt = sd.debt;
         money = sd.money;
+        headHealth = sd.headHealth;
+        eyeHealth = sd.eyeHealth;
         rArmHealth = sd.rArmHealth;
         lArmHealth = sd.lArmHealth;
         rLegHealth = sd.rLegHealth;
@@ -119,6 +125,8 @@ public class MainManager : MonoBehaviour, ISaveable
             sd.money = 0;
             sd.dayNum = 0;
             //sd.isEmpty = true;
+            sd.headHealth = 100;
+            sd.eyeHealth = 100;
             sd.rArmHealth = 100;
             sd.lArmHealth = 100;
             sd.rLegHealth = 100;
