@@ -1750,11 +1750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: limbsToBeDamagedNames.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: limbsToBeDamagedNames.Array.data[0]
-      value: rArmHealth
+      value: lArmHealth
       objectReference: {fileID: 0}
     - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: limbsToBeDamagedNames.Array.data[1]

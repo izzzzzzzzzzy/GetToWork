@@ -130,12 +130,24 @@ public class EndDayUIScript : MonoBehaviour
             //should not get here because of above, but just in case
             Debug.Log("warning about money");
         }
+        else if(payRepair.isOn == false && (MainManager.Instance.headHealth<=20 || MainManager.Instance.eyeHealth<=20 || MainManager.Instance.rArmHealth<=0 || MainManager.Instance.lArmHealth<=20 || MainManager.Instance.rLegHealth<=20 || MainManager.Instance.lLegHealth<=20)){
+            //check for if limbs are <=0 and you don't choose to heal them
+            oxygenWarning.SetActive(true);
+        }
         else{
             //setting up for next day and saving game
             MainManager.Instance.debt -= int.Parse(payDebtInput.text);
             if(MainManager.Instance.debt > 0){
                 //repair limbs health if you chose too
                 if(payRepair.isOn){
+                    MainManager.Instance.headHealth += 20;
+                    if(MainManager.Instance.headHealth > 100){
+                        MainManager.Instance.headHealth = 100;
+                    }
+                    MainManager.Instance.eyeHealth += 20;
+                    if(MainManager.Instance.eyeHealth > 100){
+                        MainManager.Instance.eyeHealth = 100;
+                    }
                     MainManager.Instance.rArmHealth += 20;
                     if(MainManager.Instance.rArmHealth > 100){
                         MainManager.Instance.rArmHealth = 100;

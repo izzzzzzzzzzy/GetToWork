@@ -33,7 +33,8 @@ public class MainPlayerController : PlayerBase
 
         interactSign.SetActive(canInteract);
 
-        rb.velocity = inputDirection.normalized * velocity;
+        //int legHealth = MainManager.Instance.rLegHealth + MainManager.Instance.lLegHealth;
+        rb.velocity = inputDirection.normalized * velocity; //* (legHealth/200);
         anim.SetInputs(inputDirection, lastInputDirection);
     }
 
