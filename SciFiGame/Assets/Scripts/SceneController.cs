@@ -94,7 +94,7 @@ public class SceneController : MonoBehaviour
     {
         MainManager.Instance.money += score > 0 ? score : 0;
         int i = 0;
-        while(i < limbs.Length){
+        while(i < limbs.Length && score > 0){
             if(limbs[i] == "rArmHealth"){
                 MainManager.Instance.rArmHealth -= (int) (score/2)/limbs.Length;
                 if(MainManager.Instance.rArmHealth < 0){
