@@ -37,11 +37,13 @@ public class SceneController : MonoBehaviour
         mainCamera = FindFirstObjectByType<Camera>();
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
+
         if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory")
         {
             pauseMenuActivateButton.SetActive(false);
-        }
-        else{
+            print("false");
+
+        } else {
             pauseMenuActivateButton.SetActive(true);
         }
 
@@ -74,7 +76,7 @@ public class SceneController : MonoBehaviour
                 PlayGame();
             }
         }
-        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay"){
+        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory"){
             pauseMenuActivateButton.SetActive(true);
         }
         pauseMenu.gameObject.SetActive(isPaused);
