@@ -16,8 +16,9 @@ public class MainManager : MonoBehaviour, ISaveable
     public int lArmHealth;
     public int rLegHealth;
     public int lLegHealth;
+    public int[] limbHealth = new int[6];
 
-    //timers
+//timers
     public float dayTime = 180;
     public float timeRemaining;
     public int dayNum;
@@ -28,6 +29,7 @@ public class MainManager : MonoBehaviour, ISaveable
     private bool dayStarted;
 
     private void Awake(){
+
         if (Instance != null){
             Destroy(gameObject);
             return;
@@ -57,9 +59,21 @@ public class MainManager : MonoBehaviour, ISaveable
         dayStarted = true;
     }
 
+    public void FillBaseData()
+    {
+        debt = 2000;
+        money = 0;
+        dayNum = 0;
+        rArmHealth = 100;
+        lArmHealth = 100;
+        rLegHealth = 100;
+        lLegHealth = 100;
+        limbHealth = new int[] {100, 100, 100, 100, 100, 100};
+    }
+
     //Saving and loading
     public void SaveJsonData(MainManager mm){
-        SaveData sd = new SaveData();
+        SaveData sd = new();
         mm.PopulateSaveData(sd);
 
         if(FileManager.WriteToFile(mm.fileName, sd.ToJson())){
@@ -76,12 +90,13 @@ public class MainManager : MonoBehaviour, ISaveable
         sd.lArmHealth = lArmHealth;
         sd.rLegHealth = rLegHealth;
         sd.lLegHealth = lLegHealth;
+        sd.limbHealth = limbHealth;
         sd.dayNum = dayNum;
     }
 
     public bool LoadJsonData(MainManager mm, string name){
         if(FileManager.LoadFromFile(name, out var json)){
-            SaveData sd = new SaveData();
+            SaveData sd = new();
             sd.LoadFromJson(json);
 
             mm.LoadFromSaveData(sd);
@@ -98,6 +113,7 @@ public class MainManager : MonoBehaviour, ISaveable
         fileName = sd.name;
         debt = sd.debt;
         money = sd.money;
+        limbHealth = sd.limbHealth;
         rArmHealth = sd.rArmHealth;
         lArmHealth = sd.lArmHealth;
         rLegHealth = sd.rLegHealth;
@@ -107,22 +123,22 @@ public class MainManager : MonoBehaviour, ISaveable
 
     public SaveData ShowJsonData(MainManager mm, string name){
         if(FileManager.LoadFromFile(name, out var json)){
-            SaveData sd = new SaveData();
+            SaveData sd = new();
             sd.LoadFromJson(json);
             Debug.Log("Load complete");
             return sd;
         }
         else{
             Debug.Log("Could not load " + name + ", making new blank");
-            SaveData sd = new SaveData();
-            sd.debt = 10000;
-            sd.money = 0;
-            sd.dayNum = 0;
-            //sd.isEmpty = true;
-            sd.rArmHealth = 100;
-            sd.lArmHealth = 100;
-            sd.rLegHealth = 100;
-            sd.lLegHealth = 100;
+            SaveData sd = new()
+            {
+                debt = 10000,
+                money = 0,
+                dayNum = 0,
+                isEmpty = true,
+                limbHealth = new int[] {100, 100, 100, 100, 100, 100}
+
+            };
             return sd;
         }
     }

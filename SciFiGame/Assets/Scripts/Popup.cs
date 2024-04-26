@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Popup : MonoBehaviour, IInteractable
+public class Popup : Interactable
 {
     AudioSource audioSource;
     Canvas popup;
@@ -18,7 +18,7 @@ public class Popup : MonoBehaviour, IInteractable
 
         popup.gameObject.SetActive(false);
     }
-    public void Interact(GameObject player) {
+     public override void Interact(GameObject player) {
         isActive = !isActive;
         popup.gameObject.SetActive(isActive);
 

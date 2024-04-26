@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : Interactable
 {
     SceneController controller;
     SpriteRenderer spriteRenderer;
@@ -20,7 +20,7 @@ public class Door : MonoBehaviour, IInteractable
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void Interact(GameObject player)
+    public override void Interact(GameObject player)
     {
         controller.EnterDoor(player, nPlayerPos, nCameraPos);
         MainManager.Instance.StartDay();
