@@ -619,6 +619,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.83137256
       objectReference: {fileID: 0}
+    - target: {fileID: 2839173200840930762, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2930501653566753953, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 0.8666667
@@ -678,6 +682,22 @@ PrefabInstance:
     - target: {fileID: 2930501653566753953, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.90588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176106789484523460, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -269324637, guid: cb244e401607142e9a14e8dd6c92ba97, type: 3}
+    - target: {fileID: 3176106789484523460, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176106789484523460, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3176106789484523460, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3322298012380437115, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: miniController
@@ -843,6 +863,22 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4236402307390959371, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2125249303, guid: cb244e401607142e9a14e8dd6c92ba97, type: 3}
+    - target: {fileID: 4236402307390959371, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236402307390959371, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236402307390959371, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4363776412283914736, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_Name
       value: orange button
@@ -922,6 +958,10 @@ PrefabInstance:
     - target: {fileID: 5558476554983141442, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_Color.r
       value: 0.83137256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566723316241109984, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5566723316241109984, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_ReferencePixelsPerUnit
@@ -1047,6 +1087,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: red button
       objectReference: {fileID: 0}
+    - target: {fileID: 7844971089276680314, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7979287339699205969, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       propertyPath: m_Colors.m_NormalColor.b
       value: 0.8666667
@@ -1124,7 +1168,8 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5329150931930881717, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6441804051577988338, guid: 9a1371d5897d3419f96b3d843829d4d0, type: 3}
       insertIndex: 0
