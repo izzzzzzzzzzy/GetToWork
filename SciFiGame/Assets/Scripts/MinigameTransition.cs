@@ -15,7 +15,7 @@ public class MinigameTransition : Interactable
     [SerializeField] private Vector3 returnOffset;
     [SerializeField] private string limb = "rLegHealth";
 
-    private string[] limbIndices = new string[] { "rLegHealth", "lLegHealth", "rArmHealth", "lArmHealth", "headHealth", "eyeHealth" };
+    private string[] limbIndices = new string[] { "headHealth", "eyeHealth", "lArmHealth", "rArmHealth", "lLegHealth", "rLegHealth" };
     private int limbIndex;
     private bool isActive;
 
