@@ -6,7 +6,7 @@ public static class SaveDataManager
 
     public static void SaveJsonData(IEnumerable<ISaveable> a_Saveables, string name)
     {
-        SaveData sd = new SaveData();
+        SaveData sd = new();
         foreach (var saveable in a_Saveables)
         {
             saveable.PopulateSaveData(sd);
@@ -22,7 +22,7 @@ public static class SaveDataManager
     {
         if (FileManager.LoadFromFile(name, out var json))
         {
-            SaveData sd = new SaveData();
+            SaveData sd = new();
             sd.LoadFromJson(json);
 
             foreach (var saveable in a_Saveables)

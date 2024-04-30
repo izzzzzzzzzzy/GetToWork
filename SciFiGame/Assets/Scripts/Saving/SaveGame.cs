@@ -7,12 +7,7 @@ public class SaveData
     public string name;
     public float debt;
     public float money;
-    public int headHealth;
-    public int eyeHealth;
-    public int rArmHealth;
-    public int lArmHealth;
-    public int rLegHealth;
-    public int lLegHealth;
+    public int[] limbHealths;
     public int dayNum;
     public bool isEmpty;
 
