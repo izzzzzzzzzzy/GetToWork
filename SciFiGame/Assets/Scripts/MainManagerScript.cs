@@ -71,7 +71,6 @@ public class MainManager : MonoBehaviour, ISaveable
         if(FileManager.WriteToFile(mm.fileName, sd.ToJson())){
             Debug.Log("Save Successful");
         }
-
     }
 
     public void PopulateSaveData(SaveData sd){
