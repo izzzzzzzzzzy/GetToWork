@@ -305,6 +305,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrateCatchingPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8322117119916382424, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_Volume
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322117119916382424, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6023135a61f9840aea8b8e5045e5c01b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
