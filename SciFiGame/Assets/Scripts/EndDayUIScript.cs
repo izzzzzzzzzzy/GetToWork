@@ -142,7 +142,7 @@ public class EndDayUIScript : MonoBehaviour
                 //repair limbs health if you chose too
                 if(payRepair.isOn){
                     for (int i = 0; i < 6; i++){
-                        MainManager.Instance.limbHealths[i] += 20;
+                        MainManager.Instance.limbHealths[i] += 25;
                         if (MainManager.Instance.limbHealths[i] > 100)
                         {
                             MainManager.Instance.limbHealths[i] = 100;

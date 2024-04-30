@@ -5,9 +5,16 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public virtual bool IsActive()
+
+    private bool isActive = true;
+    public bool IsActive()
     {
-        return true;
+        return isActive;
+    }
+
+    public void SetActive(bool isActive)
+    {
+        this.isActive = isActive;
     }
     public abstract void Interact(GameObject player);
 }
