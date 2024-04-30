@@ -12,6 +12,7 @@ public class PlatformingPlayerController : PlayerBase
     Item item;
     MinigameController controller;
     Rigidbody2D rb;
+    public AudioSource sound;
 
     [Header("Inputs")]
     public float jumpTimer;
@@ -37,6 +38,7 @@ public class PlatformingPlayerController : PlayerBase
         item = GetComponent<Item>();
         controller = FindFirstObjectByType<MinigameController>();
         rb = GetComponent<Rigidbody2D>();
+        sound = GetComponent<AudioSource>();
 
         InitializeComponents();
     }
@@ -103,6 +105,7 @@ public class PlatformingPlayerController : PlayerBase
 
         if (item != null)
         {
+            sound.Play();
             controller.IncreaseScore(item.GetValue());
             item.TakeHit();
         }

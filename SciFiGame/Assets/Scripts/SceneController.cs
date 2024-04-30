@@ -199,7 +199,7 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
         }
 
-        if(scene.name == "StartScreen" || scene.name == "EndOfDay"){
+        if(scene.name == "StartScreen" || scene.name == "EndOfDay" || scene.name == "Backstory"){
             pauseMenuActivateButton.SetActive(false);
             PlayGame();
         }

@@ -7,9 +7,9 @@ public class ButtonMinigame : MonoBehaviour
 {
     public MinigameController miniController;
 
-    [SerializeField] private int[] buttonOrder = {-1, -1, -1, -1, -1, -1};
+    [SerializeField] private int[] buttonOrder = {-1, -1, -1, -1, -1, -1, -1, -1};
     [SerializeField] private int difficulty = 1;
-    [SerializeField] private int[] input = { -1, -1, -1, -1, -1, -1 };
+    [SerializeField] private int[] input = { -1, -1, -1, -1, -1, -1};
     private int placeInInput = 0;
     public Button[] buttons;
 
@@ -19,27 +19,27 @@ public class ButtonMinigame : MonoBehaviour
 
     public Canvas correctFeedback;
     public Canvas incorrectFeedback;
-    //private bool gameOver;
 
     void Start(){
         showingButtons = true;
         miniController = miniController.GetComponent<MinigameController>();
-
-        /*for(int i = 0; i < buttons.Length; i++){
-            Button temp = buttons[i].GetComponent<Button>();
-            temp.onClick.AddListener(delegate {ButtonSelected(i);});
-        }
-        Tried to do this scalably, did not work*/
+        
+        // Tried to do this scalably, did not work
         Button temp0 = buttons[0].GetComponent<Button>();
         temp0.onClick.AddListener(delegate {ButtonSelected(0);});
+
         Button temp1 = buttons[1].GetComponent<Button>();
         temp1.onClick.AddListener(delegate {ButtonSelected(1);});
+
         Button temp2 = buttons[2].GetComponent<Button>();
         temp2.onClick.AddListener(delegate {ButtonSelected(2);});
+
         Button temp3 = buttons[3].GetComponent<Button>();
         temp3.onClick.AddListener(delegate {ButtonSelected(3);});
+
         Button temp4 = buttons[4].GetComponent<Button>();
         temp4.onClick.AddListener(delegate {ButtonSelected(4);});
+
         Button temp5 = buttons[5].GetComponent<Button>();
         temp5.onClick.AddListener(delegate {ButtonSelected(5);});
 
@@ -58,13 +58,10 @@ public class ButtonMinigame : MonoBehaviour
                 showingButtons = false;
             }
         }
-        /*else if(miniController.GetTimeRemaining() <= 0){
-
-        }*/
     }
 
     void ScrambleButtonOrder(){
-        buttonOrder = new int[] {-1, -1, -1, -1, -1, -1};
+        buttonOrder = new int[] {-1, -1, -1, -1, -1, -1, -1, -1};
         int i = 0;
         while(i <= difficulty){
             buttonOrder[i] = Random.Range(0, buttons.Length);
@@ -116,13 +113,13 @@ public class ButtonMinigame : MonoBehaviour
             if(areEqual){
                 miniController.IncreaseScore(difficulty * 5);
                 difficulty +=1;
-                input = new int[] {-1, -1, -1, -1, -1, -1};
+                input = new int[] {-1, -1, -1, -1, -1, -1, -1, -1};
                 placeInInput = 0;
                 StartCoroutine(ShowFeedback(0));
                 showingButtons = true;
             }
             else{
-                input = new int[] {-1, -1, -1, -1, -1, -1};
+                input = new int[] {-1, -1, -1, -1, -1, -1, -1, -1};
                 placeInInput = 0;
                 StartCoroutine(ShowFeedback(1));
                 showingButtons = true;
