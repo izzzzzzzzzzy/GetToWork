@@ -39,7 +39,7 @@ public class SceneController : MonoBehaviour
         sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
-        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory")
+        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory" || SceneManager.GetActiveScene().name == "DeathScreen")
         {
             pauseMenuActivateButton.SetActive(false);
             print("false");
@@ -66,7 +66,7 @@ public class SceneController : MonoBehaviour
             sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory")
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen")
         {
             if (!isPaused)
             {
@@ -77,7 +77,7 @@ public class SceneController : MonoBehaviour
                 PlayGame();
             }
         }
-        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory"){
+        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen") {
             pauseMenuActivateButton.SetActive(true);
         }
         pauseMenu.gameObject.SetActive(isPaused);
@@ -172,7 +172,7 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
         }
 
-        if(scene.name == "StartScreen" || scene.name == "EndOfDay"){
+        if(scene.name == "StartScreen" || scene.name == "EndOfDay" || scene.name == "Backstory" || scene.name == "DeathScreen"){
             pauseMenuActivateButton.SetActive(false);
             PlayGame();
         }

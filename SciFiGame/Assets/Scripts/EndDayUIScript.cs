@@ -33,6 +33,7 @@ public class EndDayUIScript : MonoBehaviour
     private bool cantPay = false;
 
     public GameObject oxygenWarning;
+    int input = 0;
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class EndDayUIScript : MonoBehaviour
         payDebt.isOn = true;
         payDebt.onValueChanged.AddListener(delegate {DebtToggleActivated(payDebt);});
         payDebtInput = payDebtInput.GetComponent<TMP_InputField>();
-        payDebtInput.text = "1";
+        payDebtInput.text = "0";
         payDebtInput.onEndEdit.AddListener(delegate {DebtToggleActivated(payDebt);});
         payDebtInput.onEndEdit.AddListener(delegate {DebtInputChanged(payDebt);});
 
@@ -57,14 +58,6 @@ public class EndDayUIScript : MonoBehaviour
         payOxygen = payOxygen.GetComponent<Toggle>();
         payOxygen.isOn = true;
         payOxygen.onValueChanged.AddListener(delegate {ToggleActivated(payOxygen, 1);});
-
-        //payFood = payFood.GetComponent<Toggle>();
-        //payFood.isOn = true;
-        //payFood.onValueChanged.AddListener(delegate {ToggleActivated(payFood, 1);});
-
-        //payHeating = payHeating.GetComponent<Toggle>();
-        //payHeating.isOn = true;
-        //payHeating.onValueChanged.AddListener(delegate {ToggleActivated(payHeating, 1);});
 
         payRepair = payRepair.GetComponent<Toggle>();
         payRepair.isOn = true;
@@ -91,15 +84,23 @@ public class EndDayUIScript : MonoBehaviour
         moneyValue = MainManager.Instance.money;
 
         payDebtInput.enabled = payDebt.isOn;
-        if(int.Parse(payDebtInput.text) < 1){
-            payDebtInput.text = "1";
+
+        try {
+            input = int.Parse(payDebtInput.text);
+
+        } catch (System.Exception e) {
+            input = 0;
         }
 
-        moneyHave.text = "$" + moneyValue;
-        debt.text = "$" + debtValue;
-        moneyRemaining.text = "= $" + (moneyValue-totalCost - int.Parse(payDebtInput.text)) + ".00";
+        if (input < 0){
+            payDebtInput.text = "0";
+        }
 
-        if(moneyValue-totalCost - int.Parse(payDebtInput.text) < 0){
+        moneyHave.text = "¶" + moneyValue;
+        debt.text = "¶" + debtValue;
+        moneyRemaining.text = "= ¶" + (moneyValue-totalCost - input) + ".00";
+
+        if(moneyValue-totalCost - input < 0){
             moneyRemaining.text = "<color=#B0221D>" + moneyRemaining.text;
             cantPay = true;
         }
@@ -136,7 +137,7 @@ public class EndDayUIScript : MonoBehaviour
         }
         else{
             //setting up for next day and saving game
-            MainManager.Instance.debt -= int.Parse(payDebtInput.text);
+            MainManager.Instance.debt -= input;
             if(MainManager.Instance.debt > 0){
                 //repair limbs health if you chose too
                 if(payRepair.isOn){
@@ -148,7 +149,7 @@ public class EndDayUIScript : MonoBehaviour
                         }
                     }
                 }
-                MainManager.Instance.money -= totalCost + int.Parse(payDebtInput.text);
+                MainManager.Instance.money -= totalCost + input;
                 MainManager.Instance.timeRemaining = MainManager.Instance.dayTime;
                 MainManager.Instance.dayNum += 1;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
@@ -199,7 +200,7 @@ public class EndDayUIScript : MonoBehaviour
 
     void DebtInputChanged(Toggle toggle){
         if(toggle.isOn){
-            toggle.GetComponentInChildren<TMP_Text>().text = "-$"+int.Parse(payDebtInput.text) + ".00";
+            toggle.GetComponentInChildren<TMP_Text>().text = "-¶" + input.ToString() + ".00";
         }
     }
 }
