@@ -13,11 +13,13 @@ public class InputHandler : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        jumpHeld = Input.GetButton("Jump");
-        jumpInput = Input.GetButtonDown("Jump");
-        interactInput = Input.GetKeyDown(KeyCode.E);
-        pauseInput = Input.GetKeyDown(KeyCode.Escape);
+        if (SceneController.inputsEnabled) {
+            inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            jumpHeld = Input.GetButton("Jump");
+            jumpInput = Input.GetButtonDown("Jump");
+            interactInput = Input.GetKeyDown(KeyCode.E);
+            pauseInput = Input.GetKeyDown(KeyCode.Escape);
+        }
     }
 
     public Vector2 GetDirection()
