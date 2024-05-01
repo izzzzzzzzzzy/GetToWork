@@ -19,6 +19,9 @@ public class LimbStatusDisplay : MonoBehaviour
     public TMP_Text lLegText;
     public SpriteRenderer llImage;
 
+    private SpriteRenderer[] sprites;
+    private int[] limbHealths;
+
     //36A81A
     private Color greenColor= Color.green;//new Color(54f, 168f, 26f);
     private Color yellowColor= Color.yellow;//new Color(238f, 241f, 42f);
@@ -30,87 +33,40 @@ public class LimbStatusDisplay : MonoBehaviour
         hImage = hImage.GetComponent<SpriteRenderer>();
         eyeText = eyeText.GetComponent<TMP_Text>();
         eImage = eImage.GetComponent<SpriteRenderer>();
-        rArmText = rArmText.GetComponent<TMP_Text>();
-        raImage = raImage.GetComponent<SpriteRenderer>();
         lArmText = lArmText.GetComponent<TMP_Text>();
         laImage = laImage.GetComponent<SpriteRenderer>();
-        rLegText = rLegText.GetComponent<TMP_Text>();
-        rlImage = rlImage.GetComponent<SpriteRenderer>();
+        rArmText = rArmText.GetComponent<TMP_Text>();
+        raImage = raImage.GetComponent<SpriteRenderer>();
         lLegText = lLegText.GetComponent<TMP_Text>();
         llImage = llImage.GetComponent<SpriteRenderer>();
+        rLegText = rLegText.GetComponent<TMP_Text>();
+        rlImage = rlImage.GetComponent<SpriteRenderer>();
 
-        headText.text = "Head\n" + MainManager.Instance.headHealth + "/100";
-        eyeText.text = "Eye\n" + MainManager.Instance.eyeHealth + "/100";
-        rArmText.text = MainManager.Instance.rArmHealth + "/100";
-        lArmText.text = MainManager.Instance.lArmHealth + "/100";
-        rLegText.text = MainManager.Instance.rLegHealth + "/100";
-        lLegText.text = MainManager.Instance.lLegHealth + "/100";
+        sprites = new SpriteRenderer[] { hImage, eImage, laImage, raImage, llImage, rlImage };
+        limbHealths = MainManager.Instance.limbHealths;
 
-        if(MainManager.Instance.headHealth <= 30){
-            hImage.color = redColor;
-        }
-        else if(MainManager.Instance.headHealth <= 70){
-            hImage.color = yellowColor;
-        }
-        else{
-            hImage.color = greenColor;
-        }
+        headText.text = "Head\n" + limbHealths[0] + "/100";
+        eyeText.text = "Eye\n" + limbHealths[1] + "/100";
+        lArmText.text = limbHealths[2] + "/100";
+        rArmText.text = limbHealths[3] + "/100";
+        lLegText.text = limbHealths[4] + "/100";
+        rLegText.text = limbHealths[5] + "/100";
 
-        if(MainManager.Instance.eyeHealth <= 30){
-            eImage.color = redColor;
+        for (int i = 0; i < 6; i++)
+        {
+            if (limbHealths[i] <= 30)
+            {
+                sprites[i].color = redColor;
+            }
+            else if (limbHealths[i] <= 70)
+            {
+                sprites[i].color = yellowColor;
+            }
+            else
+            {
+                sprites[i].color = greenColor;
+            }
         }
-        else if(MainManager.Instance.eyeHealth <= 70){
-            eImage.color = yellowColor;
-        }
-        else{
-            eImage.color = Color.blue;
-        }
-
-        if(MainManager.Instance.rArmHealth <= 30){
-            raImage.color = redColor;
-        }
-        else if(MainManager.Instance.rArmHealth <= 70){
-            raImage.color = yellowColor;
-        }
-        else{
-            raImage.color = greenColor;
-        }
-
-        if(MainManager.Instance.lArmHealth <= 30){
-            laImage.color = redColor;
-        }
-        else if(MainManager.Instance.lArmHealth <= 70){
-            laImage.color = yellowColor;
-        }
-        else{
-            laImage.color = greenColor;
-        }
-
-        if(MainManager.Instance.rLegHealth <= 30){
-            rlImage.color = redColor;
-        }
-        else if(MainManager.Instance.rLegHealth <= 70){
-            rlImage.color = yellowColor;
-        }
-        else{
-            rlImage.color = greenColor;
-        }
-
-        if(MainManager.Instance.lLegHealth <= 30){
-            llImage.color = redColor;
-        }
-        else if(MainManager.Instance.lLegHealth <= 70){
-            llImage.color = yellowColor;
-        }
-        else{
-            llImage.color = greenColor;
-        }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 

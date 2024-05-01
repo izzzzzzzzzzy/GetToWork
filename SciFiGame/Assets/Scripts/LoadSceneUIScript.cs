@@ -125,13 +125,7 @@ public class LoadSceneUIScript : MonoBehaviour
             }
             else if(MainManager.Instance.fileName != ""){
                 Debug.Log("file not made yet!");
-                MainManager.Instance.debt = 10000;
-                MainManager.Instance.money = 0;
-                MainManager.Instance.dayNum = 0;
-                MainManager.Instance.rArmHealth = 100;
-                MainManager.Instance.lArmHealth = 100;
-                MainManager.Instance.rLegHealth = 100;
-                MainManager.Instance.lLegHealth = 100;
+                MainManager.Instance.FillBaseData();
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
                 SceneController.Instance.StartDay();
@@ -143,13 +137,7 @@ public class LoadSceneUIScript : MonoBehaviour
         else{
             if(MainManager.Instance.fileName != ""){
                 Debug.Log("Overwriting save data");
-                MainManager.Instance.debt = 10000;
-                MainManager.Instance.money = 0;
-                MainManager.Instance.dayNum = 0;
-                MainManager.Instance.rArmHealth = 100;
-                MainManager.Instance.lArmHealth = 100;
-                MainManager.Instance.rLegHealth = 100;
-                MainManager.Instance.lLegHealth = 100;
+                MainManager.Instance.FillBaseData();
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
                 MainManager.Instance.LoadJsonData(MainManager.Instance, MainManager.Instance.fileName);
                 SceneController.Instance.PlayBackstory();

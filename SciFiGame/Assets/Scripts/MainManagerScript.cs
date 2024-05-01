@@ -12,14 +12,9 @@ public class MainManager : MonoBehaviour, ISaveable
     //Player stats
     public float debt;
     public float money;
-    public int headHealth;
-    public int eyeHealth;
-    public int rArmHealth;
-    public int lArmHealth;
-    public int rLegHealth;
-    public int lLegHealth;
+    public int[] limbHealths = new int[] {100, 100, 100, 100, 100, 100};
 
-    //timers
+//timers
     public float dayTime = 180;
     public float timeRemaining;
     public int dayNum;
@@ -30,6 +25,7 @@ public class MainManager : MonoBehaviour, ISaveable
     private bool dayStarted;
 
     private void Awake(){
+
         if (Instance != null){
             Destroy(gameObject);
             return;
@@ -59,9 +55,17 @@ public class MainManager : MonoBehaviour, ISaveable
         dayStarted = true;
     }
 
+    public void FillBaseData()
+    {
+        debt = 2000;
+        money = 0;
+        dayNum = 0;
+        limbHealths = new int[] {100, 100, 100, 100, 100, 100};
+    }
+
     //Saving and loading
     public void SaveJsonData(MainManager mm){
-        SaveData sd = new SaveData();
+        SaveData sd = new();
         mm.PopulateSaveData(sd);
 
         if(FileManager.WriteToFile(mm.fileName, sd.ToJson())){
@@ -74,18 +78,13 @@ public class MainManager : MonoBehaviour, ISaveable
         sd.name = fileName;
         sd.debt = debt;
         sd.money = money;
-        sd.headHealth = headHealth;
-        sd.eyeHealth = eyeHealth;
-        sd.rArmHealth = rArmHealth;
-        sd.lArmHealth = lArmHealth;
-        sd.rLegHealth = rLegHealth;
-        sd.lLegHealth = lLegHealth;
+        sd.limbHealths = limbHealths;
         sd.dayNum = dayNum;
     }
 
     public bool LoadJsonData(MainManager mm, string name){
         if(FileManager.LoadFromFile(name, out var json)){
-            SaveData sd = new SaveData();
+            SaveData sd = new();
             sd.LoadFromJson(json);
 
             mm.LoadFromSaveData(sd);
@@ -102,35 +101,28 @@ public class MainManager : MonoBehaviour, ISaveable
         fileName = sd.name;
         debt = sd.debt;
         money = sd.money;
-        headHealth = sd.headHealth;
-        eyeHealth = sd.eyeHealth;
-        rArmHealth = sd.rArmHealth;
-        lArmHealth = sd.lArmHealth;
-        rLegHealth = sd.rLegHealth;
-        lLegHealth = sd.lLegHealth;
+        limbHealths = sd.limbHealths;
         dayNum = sd.dayNum;
     }
 
     public SaveData ShowJsonData(MainManager mm, string name){
         if(FileManager.LoadFromFile(name, out var json)){
-            SaveData sd = new SaveData();
+            SaveData sd = new();
             sd.LoadFromJson(json);
             Debug.Log("Load complete");
             return sd;
         }
         else{
             Debug.Log("Could not load " + name + ", making new blank");
-            SaveData sd = new SaveData();
-            sd.debt = 10000;
-            sd.money = 0;
-            sd.dayNum = 0;
-            //sd.isEmpty = true;
-            sd.headHealth = 100;
-            sd.eyeHealth = 100;
-            sd.rArmHealth = 100;
-            sd.lArmHealth = 100;
-            sd.rLegHealth = 100;
-            sd.lLegHealth = 100;
+            SaveData sd = new()
+            {
+                debt = 2000,
+                money = 0,
+                dayNum = 0,
+                isEmpty = true,
+                limbHealths = limbHealths
+            };
+
             return sd;
         }
     }
