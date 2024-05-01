@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
+    public static Boolean inputsEnabled = true;
 
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -143,6 +144,7 @@ public class SceneController : MonoBehaviour
         //    MainManager.Instance.limbHealth -= score/len(limbs)
         //}
         StartCoroutine(LoadScene("MainScene"));
+
     }
 
     public void StartDay()
@@ -185,6 +187,7 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(sceneFade.FadeScreen());
         yield return new WaitForSeconds(1);
+        
         SceneManager.LoadScene(sceneName);
     }
 
