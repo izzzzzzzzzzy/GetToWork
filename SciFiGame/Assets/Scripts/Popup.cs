@@ -11,18 +11,19 @@ public class Popup : Interactable
     [SerializeField] private AudioClip onSound;
     [SerializeField] private AudioClip offSound;
 
-    private bool isActive;
+    private bool isOpen;
     void Start() {
         audioSource = GetComponent<AudioSource>();
         popup = GetComponentInChildren<Canvas>();
 
         popup.gameObject.SetActive(false);
     }
-     public override void Interact(GameObject player) {
-        isActive = !isActive;
-        popup.gameObject.SetActive(isActive);
 
-        if (isActive) {
+    public override void Interact(GameObject player) {
+        isOpen = !isOpen;
+        popup.gameObject.SetActive(isOpen);
+
+        if (isOpen) {
             audioSource.clip = onSound;
         }
         else
@@ -32,6 +33,6 @@ public class Popup : Interactable
         audioSource.Play();
 
         PlayerBase playerBase = player.GetComponent<PlayerBase>();
-        playerBase.SetCanWalk(!isActive);
+        playerBase.SetCanWalk(!isOpen);
     }
 }

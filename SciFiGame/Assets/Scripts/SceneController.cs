@@ -120,6 +120,16 @@ public class SceneController : MonoBehaviour
     public void EndDay()
     {
         StartCoroutine(LoadScene("EndOfDay"));
+
+        int[] limbHealths = MainManager.Instance.limbHealths;
+
+        for (int i = 0; i < 6; i++)
+        {
+            if (limbHealths[i] < 0)
+            {
+                limbHealths[i] = 0;
+            }
+        }
     }
 
     public void PlayBackstory()

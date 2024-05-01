@@ -41,7 +41,7 @@ public class MainPlayerController : PlayerBase
     private void OnTriggerStay2D(Collider2D collision)
     {
         interactable = collision.gameObject.GetComponent<Interactable>();
-        canInteract = interactable != null;
+        canInteract = interactable != null && interactable.IsActive();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
