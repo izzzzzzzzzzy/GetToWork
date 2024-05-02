@@ -8,6 +8,7 @@ TagManager:
   - Chute
   - Ground
   - Crate Stack
+  - Bug
   layers:
   - Default
   - TransparentFX
