@@ -16,6 +16,7 @@ public class MinigameController : MonoBehaviour
     public string[] limbsToBeDamagedNames;
 
     private bool gameOver;
+    public bool gameStarted;
 
     private void Start()
     {
@@ -24,13 +25,17 @@ public class MinigameController : MonoBehaviour
         startScreen = GetComponentInChildren<MinigameStartScreen>();
 
         scoreShow.text = "$" + score;
-        Time.timeScale = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeRemaining -= Time.deltaTime;
+        if (gameStarted)
+        {
+            timeRemaining -= Time.deltaTime;
+        }
+
+        PlayerBase.SetCanWalk(gameStarted);
 
         timer.SetTime(timeRemaining);
         scoreShow.text = "$" + score;
@@ -58,9 +63,9 @@ public class MinigameController : MonoBehaviour
 
     public void StartGame()
     {
-        Time.timeScale = 1f;
         startScreen.gameObject.SetActive(false);
         timer.gameObject.SetActive(true);
+        gameStarted = true;
     }
 
     public float GetTimeRemaining(){

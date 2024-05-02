@@ -32,7 +32,6 @@ public class Popup : Interactable
         }
         audioSource.Play();
 
-        PlayerBase playerBase = player.GetComponent<PlayerBase>();
-        playerBase.SetCanWalk(!isOpen);
+        PlayerBase.SetCanWalk(!isOpen);
     }
 }

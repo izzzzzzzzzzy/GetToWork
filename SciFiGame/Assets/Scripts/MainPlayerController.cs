@@ -29,6 +29,7 @@ public class MainPlayerController : PlayerBase
         if (canInteract && interactInput)
         {
             interactable.Interact(gameObject);
+            interactInput = false;
         }
 
         interactSign.SetActive(canInteract);

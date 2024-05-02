@@ -29,8 +29,6 @@ public class CameraController : MonoBehaviour {
             UIimages[i].enabled = false;
         }
 
-        playerRB = player.GetComponent<Rigidbody2D>();
-
         if (!hasXBounds) {
             xRange[0] = float.MinValue;
             xRange[1] = float.MaxValue;
@@ -43,6 +41,12 @@ public class CameraController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+        if (player == null)
+        {
+            player = FindFirstObjectByType<PlatformingPlayerController>().GetComponent<Transform>();
+            playerRB = player.GetComponent<Rigidbody2D>();
+        } 
+
         targetPosition = player.position + offset;
 
         targetPosition.x += playerRB.velocity.x * lookAheadMultiplier;

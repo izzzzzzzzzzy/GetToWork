@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class ItemSpawner : MonoBehaviour
+public class TrashSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate;
     [SerializeField] private GameObject[] spawnedItems;
     [SerializeField] private float spawnRange = 1;
+    [SerializeField] private MinigameController miniController;
 
-    private float spawnTimer;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public float spawnTimer;
+   
     // Update is called once per frame
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        if (miniController.gameStarted)
+        {
+            spawnTimer -= Time.deltaTime;
+        }
 
         if (spawnTimer < 0)
         {

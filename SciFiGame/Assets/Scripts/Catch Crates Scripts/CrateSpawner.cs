@@ -11,6 +11,7 @@ public class CrateSpawner : MonoBehaviour
     [SerializeField] private GameObject crateWarning;
     [SerializeField] private float spawnRange = 8f;
     [SerializeField] private float maxCrateDistance = 8f;
+    [SerializeField] private MinigameController miniController;
 
     private float spawnTimer;
     private float lastSpawnLocation = 0;
@@ -24,9 +25,12 @@ public class CrateSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawnTimer -= Time.deltaTime;
+        if (miniController.gameStarted)
+        {
+            spawnTimer -= Time.deltaTime;
+        }
 
-        if (spawnTimer < 0)
+            if (spawnTimer < 0)
         {
             do
             {

@@ -90,6 +90,8 @@ public class EndDayUIScript : MonoBehaviour
 
         } catch (System.Exception e) {
             input = 0;
+
+            throw e;
         }
 
         if (input < 0){
