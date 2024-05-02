@@ -7,19 +7,19 @@ using TMPro;
 public class LimbStatusDisplay : MonoBehaviour
 {
     public TMP_Text headText;
-    public SpriteRenderer hImage;
+    public Image hImage;
     public TMP_Text eyeText;
-    public SpriteRenderer eImage;
+    public Image eImage;
     public TMP_Text rArmText;
-    public SpriteRenderer raImage;
+    public Image raImage;
     public TMP_Text lArmText;
-    public SpriteRenderer laImage;
+    public Image laImage;
     public TMP_Text rLegText;
-    public SpriteRenderer rlImage;
+    public Image rlImage;
     public TMP_Text lLegText;
-    public SpriteRenderer llImage;
+    public Image llImage;
 
-    private SpriteRenderer[] sprites;
+    private Image[] sprites;
     private int[] limbHealths;
 
     //36A81A
@@ -27,45 +27,34 @@ public class LimbStatusDisplay : MonoBehaviour
     private Color yellowColor= Color.yellow;//new Color(238f, 241f, 42f);
     private Color redColor= Color.red;//new Color(241f, 51f, 42f);
     // Start is called before the first frame update
-    void Start()
-    {
-        headText = headText.GetComponent<TMP_Text>();
-        hImage = hImage.GetComponent<SpriteRenderer>();
-        eyeText = eyeText.GetComponent<TMP_Text>();
-        eImage = eImage.GetComponent<SpriteRenderer>();
-        lArmText = lArmText.GetComponent<TMP_Text>();
-        laImage = laImage.GetComponent<SpriteRenderer>();
-        rArmText = rArmText.GetComponent<TMP_Text>();
-        raImage = raImage.GetComponent<SpriteRenderer>();
-        lLegText = lLegText.GetComponent<TMP_Text>();
-        llImage = llImage.GetComponent<SpriteRenderer>();
-        rLegText = rLegText.GetComponent<TMP_Text>();
-        rlImage = rlImage.GetComponent<SpriteRenderer>();
+    void Start() { 
 
-        sprites = new SpriteRenderer[] { hImage, eImage, laImage, raImage, llImage, rlImage };
+        sprites = new Image[] { hImage, eImage, laImage, raImage, llImage, rlImage };
         limbHealths = MainManager.Instance.limbHealths;
 
         headText.text = "Head\n" + limbHealths[0] + "/100";
         eyeText.text = "Eye\n" + limbHealths[1] + "/100";
-        lArmText.text = limbHealths[2] + "/100";
-        rArmText.text = limbHealths[3] + "/100";
-        lLegText.text = limbHealths[4] + "/100";
-        rLegText.text = limbHealths[5] + "/100";
+        lArmText.text = "L. Arm\n" + limbHealths[2] + "/100";
+        rArmText.text = "R. Arm\n" + limbHealths[3] + "/100";
+        lLegText.text = "L. Leg\n" + limbHealths[4] + "/100";
+        rLegText.text = "R. Leg\n" + limbHealths[5] + "/100";
 
         for (int i = 0; i < 6; i++)
         {
-            if (limbHealths[i] <= 30)
-            {
-                sprites[i].color = redColor;
-            }
-            else if (limbHealths[i] <= 70)
-            {
-                sprites[i].color = yellowColor;
-            }
-            else
-            {
-                sprites[i].color = greenColor;
-            }
+            //if (limbhealths[i] <= 30)
+            //{
+            //    sprites[i].color = redcolor;
+            //}
+            //else if (limbhealths[i] <= 70)
+            //{
+            //    sprites[i].color = yellowcolor;
+            //}
+            //else
+            //{
+            //    sprites[i].color = greencolor;
+            //}
+            float health = limbHealths[i] / 100f;
+            sprites[i].color = new Color(2f * (1 - health), 2f * health, 0);
         }
 
     }
