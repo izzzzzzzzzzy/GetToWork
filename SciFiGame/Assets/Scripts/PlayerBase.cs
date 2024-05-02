@@ -11,7 +11,7 @@ public class PlayerBase : MonoBehaviour
     protected bool jumpInput;
     protected bool jumpHeld;
     protected bool interactInput;
-    protected bool canWalk = true;
+    protected static bool canWalk = true;
 
     protected void InitializeComponents()
     {
@@ -41,8 +41,8 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-    public void SetCanWalk(bool canWalk)
+    public static void SetCanWalk(bool canWalk)
     {
-        this.canWalk = canWalk;
+        PlayerBase.canWalk = canWalk;
     }
 }

@@ -20,6 +20,14 @@ public class InputHandler : MonoBehaviour {
             interactInput = Input.GetKeyDown(KeyCode.E);
             pauseInput = Input.GetKeyDown(KeyCode.Escape);
         }
+        else
+        {
+            inputDirection = Vector2.zero;
+            jumpHeld = false;
+            jumpInput = false;  
+            interactInput = false;
+            pauseInput = false;
+        }
     }
 
     public Vector2 GetDirection()

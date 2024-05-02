@@ -6,7 +6,6 @@ using TMPro;
 
 public class MainRoomController : MonoBehaviour
 {
-    SceneController controller;
     Clock clock;
 
     [SerializeField] private float timeRemaining;
@@ -17,7 +16,6 @@ public class MainRoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller = FindFirstObjectByType<SceneController>();
         clock = GetComponentInChildren<Clock>();
         timeRemaining = MainManager.Instance.timeRemaining;
         score = MainManager.Instance.money;
@@ -35,10 +33,8 @@ public class MainRoomController : MonoBehaviour
             gameOver = true;
 
             clock.gameObject.SetActive(false);
-            if(controller == null){
-                controller = FindFirstObjectByType<SceneController>();
-            }
-            controller.EndDay();
+            
+            SceneController.Instance.EndDay();
         }
     }
 }

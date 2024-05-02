@@ -6,6 +6,7 @@ public class BugSpawner : MonoBehaviour
 {
     [SerializeField] private float spawnRate = 1f;
     [SerializeField] private float rateRange = .5f;
+    [SerializeField] private MinigameController miniController;
 
     public BugHole[] allHoles;
     public List<BugHole> freeHoles = new();
@@ -39,6 +40,9 @@ public class BugSpawner : MonoBehaviour
             hole.SpawnBug();
         }
 
-        timer -= Time.deltaTime;
+        if (miniController.gameStarted)
+        {
+            timer -= Time.deltaTime;
+        }
     }
 }

@@ -40,7 +40,6 @@ public class Trash : MonoBehaviour
         {
             if (trashType == collision.GetComponent<TrashChute>().GetBinType())
             {
-                print("hi");
                 gameManager.IncreaseScore(value);
             }
             else

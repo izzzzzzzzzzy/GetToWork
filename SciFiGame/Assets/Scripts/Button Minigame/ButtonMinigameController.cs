@@ -49,13 +49,18 @@ public class ButtonMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(miniController.GetTimeRemaining() >= 0 && showingButtons){
-            if(placeInButtons <= buttons.Length){
-                ScrambleButtonOrder();
-                Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
-                prevButColor = x.image.color;
-                StartCoroutine(PlayButtons());
-                showingButtons = false;
+        if (miniController.gameStarted)
+        {
+            if (miniController.GetTimeRemaining() >= 0 && showingButtons)
+            {
+                if (placeInButtons <= buttons.Length)
+                {
+                    ScrambleButtonOrder();
+                    Button x = buttons[buttonOrder[placeInButtons]].GetComponent<Button>();
+                    prevButColor = x.image.color;
+                    StartCoroutine(PlayButtons());
+                    showingButtons = false;
+                }
             }
         }
     }

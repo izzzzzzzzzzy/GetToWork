@@ -36,14 +36,16 @@ public class SceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCamera = FindFirstObjectByType<Camera>();
-        sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
+
+        if (SceneManager.GetActiveScene().name == "Vertical Platformer")
+        {
+            mainCamera.GetComponent<CameraController>().enabled = true;
+        }
 
         if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory" || SceneManager.GetActiveScene().name == "DeathScreen")
         {
             pauseMenuActivateButton.SetActive(false);
-            print("false");
 
         } else {
             pauseMenuActivateButton.SetActive(true);
@@ -58,15 +60,6 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mainCamera == null)
-        {
-            mainCamera = FindFirstObjectByType<Camera>();
-        }
-        if (sceneFade == null)
-        {
-            sceneFade = mainCamera.GetComponentInChildren<SceneFade>();
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen")
         {
             if (!isPaused)
@@ -87,6 +80,11 @@ public class SceneController : MonoBehaviour
     public void EnterDoor(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(Teleport(player, nPlayerPos, nCameraPos));
+    }
+
+    public void MoveCamera(Vector2 nCameraPos)
+    {
+        StartCoroutine(Teleport(null, new(), nCameraPos));
     }
 
     public void StartMinigame(string sceneName, Vector2 exitCoords, int limbIndex)
@@ -143,7 +141,11 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         mainCamera.transform.position = new Vector3(nCameraPos.x, nCameraPos.y, -10);
-        player.transform.position = nPlayerPos;
+
+        if (player != null)
+        {
+            player.transform.position = nPlayerPos;
+        }
     }
 
     IEnumerator LoadMinigame(string sceneName, Vector2 exitCoords)
@@ -153,6 +155,7 @@ public class SceneController : MonoBehaviour
 
         StartCoroutine(sceneFade.FadeScreen());
         yield return new WaitForSeconds(1);
+
         SceneManager.LoadScene(sceneName);
     }
 
@@ -166,22 +169,36 @@ public class SceneController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mainCamera = FindFirstObjectByType<Camera>();
+        PlayGame();
 
         if (scene.name == "MainScene")
         {
             mainPlayer = FindFirstObjectByType<MainPlayerController>();
             mainPlayer.transform.position = mainPlayerCoords;
             mainCamera.transform.position = mainCameraCoords;
+
+            mainCamera.orthographicSize = 7;
+        }
+        else
+        {
+            mainCamera.transform.position = new Vector3(0, 0, -10);
+            mainCamera.orthographicSize = 5;
         }
 
         if(scene.name == "StartScreen" || scene.name == "EndOfDay" || scene.name == "Backstory" || scene.name == "DeathScreen"){
             pauseMenuActivateButton.SetActive(false);
-            PlayGame();
         }
         else{
             pauseMenuActivateButton.SetActive(true);
-            PlayGame();
+        }
+
+        if (SceneManager.GetActiveScene().name == "Vertical Platformer")
+        {
+            mainCamera.GetComponent<CameraController>().enabled = true;
+        }
+        else
+        {
+            mainCamera.GetComponent<CameraController>().enabled = false;
         }
     }
 

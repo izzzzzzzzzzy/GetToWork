@@ -20,7 +20,7 @@ public class SceneFade : MonoBehaviour
         Cursor.visible = false;
 
         animator.SetBool("isFaded", true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
         animator.SetBool("isFaded", false);
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
