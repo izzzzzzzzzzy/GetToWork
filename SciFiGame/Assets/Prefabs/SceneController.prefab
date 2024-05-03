@@ -360,31 +360,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6548793385106181380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 819819346516937156, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
-        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8477584154974382793}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3476037926063048355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1246,7 @@ GameObject:
   - component: {fileID: 1135901680753430152}
   - component: {fileID: 3018703350348885565}
   - component: {fileID: 2073864440214397478}
+  - component: {fileID: 7325991529055631231}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1378,31 +1355,23 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3018703350348885565}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 819819346516937156, guid: 59276394650b1498f9ab64b468a106c6, type: 3}
-        m_TargetAssemblyTypeName: StartButtonScript, Assembly-CSharp
-        m_MethodName: LoadStartScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8477584154974382793}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7325991529055631231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7239612876267613570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 2073864440214397478}
+  quitGameButton: {fileID: 5474303841960898895}
+  nextLevelName: 
+  audioSource: {fileID: 8477584154974382793}
 --- !u!1 &7241771600589292961
 GameObject:
   m_ObjectHideFlags: 0

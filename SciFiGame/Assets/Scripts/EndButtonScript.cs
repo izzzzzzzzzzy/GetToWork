@@ -25,9 +25,11 @@ public class EndButtonScript : MonoBehaviour
     {
         audioSource.Play();
         MainManager.Instance.fileName = "";
-        MainManager.Instance.debt = 10000f;
-        MainManager.Instance.money = 0f;
+        MainManager.Instance.debt = 1500f;
+        MainManager.Instance.money = 0;
+        MainManager.Instance.dayNum = 0;
         MainManager.Instance.timeRemaining = 120;
+        MainManager.Instance.limbHealths = new int[] {100, 100, 100, 100, 100, 100};
         SceneManager.LoadScene("StartScreen");
     }
 }
