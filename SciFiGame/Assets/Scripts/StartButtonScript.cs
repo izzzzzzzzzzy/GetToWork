@@ -40,9 +40,9 @@ public class StartButtonScript : MonoBehaviour
         }
         else{
             sceneController = FindFirstObjectByType<SceneController>();
-            string[] limbsy = new string[2];
-            limbsy[0] = "lArmHealth";
-            limbsy[1] = "rArmHealth";  //("lArmHealth", "rArmHealth");
+            string[] limbsy = new string[0];
+            //limbsy[0] = "lArmHealth";
+            //limbsy[1] = "rArmHealth";
             sceneController.EndMinigame(0, limbsy);
             sceneController.PlayGame();
 
