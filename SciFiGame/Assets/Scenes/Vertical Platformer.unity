@@ -3413,10 +3413,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Welcome [Employee_Name], to the Scrap Yard. \n-Use WASD + SPACE to maneuveor
+  m_text: "Welcome [Employee_Name], to the Scrap Yard. \n-Use WASD + SPACE to maneuver
     up the scrap yard\n- Collect metal scraps throughout the yard\n-More scrap will
-    be available as you ascend \n\n- Metal plates are worth 1 credit \n\n-Copper
-    wires are worth 2 credits"
+    be available as you ascend \n\n- Metal plates are worth 1 predit \n\n-Copper
+    wires are worth 2 predits"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
