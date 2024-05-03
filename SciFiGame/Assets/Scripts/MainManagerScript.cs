@@ -43,7 +43,7 @@ public class MainManager : MonoBehaviour, ISaveable
     // Update is called once per frame
     void Update()
     {
-        if (dayStarted && !SceneController.Instance.IsPaused())
+        if (dayStarted && !SceneController.Instance.IsPaused() && !SceneController.screenFading)
         {
             if (SceneController.Instance.inMinigame)
             {

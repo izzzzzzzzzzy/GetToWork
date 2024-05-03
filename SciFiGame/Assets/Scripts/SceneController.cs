@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
-    public static Boolean inputsEnabled = true;
+    public static bool screenFading;
+    public static bool inputsEnabled = true;
 
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -23,6 +24,7 @@ public class SceneController : MonoBehaviour
     public AudioSource buttonSFX;
     private int limbIndex = -1;
     public bool inMinigame = false;
+    public bool isDead;
 
     private void Awake()
     {
@@ -103,6 +105,8 @@ public class SceneController : MonoBehaviour
             limbIndex = -1;
         }
 
+        isDead = CheckIfDead();
+
         StartCoroutine(LoadScene("MainScene"));
     }
 
@@ -130,16 +134,23 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    private bool IsDead()
+    public void GameOver()
+    {
+        StartCoroutine(LoadDeathScreen());
+
+        MainManager.Instance.dayStarted = false;
+    }
+
+    private bool CheckIfDead()
     {
         foreach (int health in MainManager.Instance.limbHealths)
         {
             if (health > 0)
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public void PlayBackstory()
@@ -182,6 +193,14 @@ public class SceneController : MonoBehaviour
         inMinigame = false;
     }
 
+    IEnumerator LoadDeathScreen()
+    {
+        StartCoroutine(sceneFade.FadeScreen());
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("DeathScreen");
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         PlayGame();
@@ -193,11 +212,6 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
 
             mainCamera.orthographicSize = 7;
-
-            if (IsDead())
-            {
-                StartCoroutine(LoadScene("DeathScreen"));
-            }
         }
         else
         {
@@ -212,7 +226,7 @@ public class SceneController : MonoBehaviour
             pauseMenuActivateButton.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name == "Vertical Platformer")
+        if (scene.name == "Vertical Platformer")
         {
             mainCamera.GetComponent<CameraController>().enabled = true;
         }

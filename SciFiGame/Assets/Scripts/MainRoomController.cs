@@ -12,7 +12,7 @@ public class MainRoomController : MonoBehaviour
     [SerializeField] private float score;
     public TMP_Text scoreShow;
 
-    private bool gameOver;
+    private bool dayEnded;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +28,18 @@ public class MainRoomController : MonoBehaviour
         timeRemaining = MainManager.Instance.timeRemaining;
         clock.SetAngle(timeRemaining);
 
-        if (!gameOver && timeRemaining <= 0)
+        if (!dayEnded && (timeRemaining <= 0 || SceneController.Instance.isDead))
         {
-            gameOver = true;
+            dayEnded = true;
 
-            clock.gameObject.SetActive(false);
-            
-            SceneController.Instance.EndDay();
+            if (SceneController.Instance.isDead)
+            {
+                SceneController.Instance.GameOver();
+            }
+            else
+            {
+                SceneController.Instance.EndDay();
+            }
         }
     }
 }
