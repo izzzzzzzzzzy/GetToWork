@@ -16,8 +16,6 @@ public class EndDayUIScript : MonoBehaviour
 
     public Toggle payRent;
     public Toggle payOxygen;
-    //public Toggle payFood;
-    //public Toggle payHeating;
     public Toggle payRepair;
 
     public AudioSource toggleSFX;
@@ -53,21 +51,21 @@ public class EndDayUIScript : MonoBehaviour
 
         payRent = payRent.GetComponent<Toggle>();
         payRent.isOn = true;
-        payRent.onValueChanged.AddListener(delegate {ToggleActivated(payRent, 1);});
+        payRent.onValueChanged.AddListener(delegate {ToggleActivated(payRent, 10);});
 
         payOxygen = payOxygen.GetComponent<Toggle>();
         payOxygen.isOn = true;
-        payOxygen.onValueChanged.AddListener(delegate {ToggleActivated(payOxygen, 1);});
+        payOxygen.onValueChanged.AddListener(delegate {ToggleActivated(payOxygen, 5);});
 
         payRepair = payRepair.GetComponent<Toggle>();
         payRepair.isOn = true;
-        payRepair.onValueChanged.AddListener(delegate {ToggleActivated(payRepair, 1);});
+        payRepair.onValueChanged.AddListener(delegate {ToggleActivated(payRepair, 30);});
 
         debt = debt.GetComponent<TMP_Text>();
         moneyRemaining = moneyRemaining.GetComponent<TMP_Text>();
         dayCounter = dayCounter.GetComponent<TMP_Text>();
 
-        totalCost = 3;
+        totalCost = 45;
         debtValue = MainManager.Instance.debt;
         moneyValue = MainManager.Instance.money;
         dayCounter.text = "Day " + MainManager.Instance.dayNum;
@@ -142,7 +140,7 @@ public class EndDayUIScript : MonoBehaviour
                 //repair limbs health if you chose too
                 if(payRepair.isOn){
                     for (int i = 0; i < 6; i++){
-                        MainManager.Instance.limbHealths[i] += 25;
+                        MainManager.Instance.limbHealths[i] += 30;
                         if (MainManager.Instance.limbHealths[i] > 100)
                         {
                             MainManager.Instance.limbHealths[i] = 100;
