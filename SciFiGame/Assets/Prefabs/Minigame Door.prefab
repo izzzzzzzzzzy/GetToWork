@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4391580859812266716, guid: e300529816052f64dbb9b01e9d85a6a7, type: 3}
       propertyPath: m_text
-      value: I can't do this task while my limb is broken!
+      value: I can't do this task while my limb is broken.
       objectReference: {fileID: 0}
     - target: {fileID: 4391580859812266716, guid: e300529816052f64dbb9b01e9d85a6a7, type: 3}
       propertyPath: m_fontSize
@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8724897192620654820, guid: e300529816052f64dbb9b01e9d85a6a7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 8724897192620654820, guid: e300529816052f64dbb9b01e9d85a6a7, type: 3}
       propertyPath: m_AnchoredPosition.x
