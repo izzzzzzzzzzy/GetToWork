@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4357289642238173226, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: footsteps
+      value: 
+      objectReference: {fileID: 1712934073}
     - target: {fileID: 7620932600744652224, guid: 15143cc68e243ca489b3562667f62611, type: 3}
       propertyPath: m_Name
       value: CrateCatchingPlayer
@@ -313,6 +317,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6023135a61f9840aea8b8e5045e5c01b, type: 3}
+    - target: {fileID: 8322117119916382424, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1149,6 +1157,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1712934073 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8322117119916382424, guid: 15143cc68e243ca489b3562667f62611, type: 3}
+  m_PrefabInstance: {fileID: 129854838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1717099680
 GameObject:
   m_ObjectHideFlags: 0

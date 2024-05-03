@@ -12,7 +12,8 @@ public class PlatformingPlayerController : PlayerBase
     Scrap scrap;
     MinigameController controller;
     Rigidbody2D rb;
-    public AudioSource sound;
+    public AudioSource powerUp;
+
 
     [Header("Inputs")]
     public float jumpTimer;
@@ -38,7 +39,6 @@ public class PlatformingPlayerController : PlayerBase
         scrap = GetComponent<Scrap>();
         controller = FindFirstObjectByType<MinigameController>();
         rb = GetComponent<Rigidbody2D>();
-        sound = GetComponent<AudioSource>();
 
         InitializeComponents();
     }
@@ -105,7 +105,7 @@ public class PlatformingPlayerController : PlayerBase
 
         if (scrap != null)
         {
-            sound.Play();
+            powerUp.Play();
             controller.IncreaseScore(scrap.GetValue());
             scrap.TakeHit();
         }

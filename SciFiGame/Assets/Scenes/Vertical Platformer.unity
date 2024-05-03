@@ -605,6 +605,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &68732914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2272.2488
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 370.40536
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.217705
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120460580956316730, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6311571521777729161, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 8577503682488483449, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fdc4c197173dd4ed8a9a1dac89e9e671, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa0ae58c47d074ad1aab7e66277e87ef, type: 3}
 --- !u!1001 &75379052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1502,6 +1563,8 @@ MonoBehaviour:
   spawnDelay: 3
   scrap: {fileID: 2576178236222324286, guid: 0780bb5c57ee54b5db30df3e0cb1e719, type: 3}
   miniController: {fileID: 1311167014}
+  upperLimit: 20
+  lowerLimit: 7
 --- !u!4 &271485679
 Transform:
   m_ObjectHideFlags: 0
@@ -1511,7 +1574,7 @@ Transform:
   m_GameObject: {fileID: 271485677}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 13.16, z: -0.32628775}
+  m_LocalPosition: {x: -0.6, y: 15.9, z: -0.32628775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3351,8 +3414,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome [Employee_Name], to the Scrap Yard. \n-Use WASD + SPACE to maneuveor
-    up the scrap yard\n- Collect metal scraps as you ascend the yard\n-More scrap
-    will be available as you ascend \n\n- Metal plates are worth 1 credit \n\n-Copper
+    up the scrap yard\n- Collect metal scraps throughout the yard\n-More scrap will
+    be available as you ascend \n\n- Metal plates are worth 1 credit \n\n-Copper
     wires are worth 2 credits"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
@@ -4095,7 +4158,7 @@ RectTransform:
   m_GameObject: {fileID: 711162037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.6, z: 1.1100012}
+  m_LocalScale: {x: 0.5, y: 0.65, z: 1.1100012}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 969149116}
@@ -4264,6 +4327,8 @@ MonoBehaviour:
   spawnDelay: 1
   scrap: {fileID: 2576178236222324286, guid: 0780bb5c57ee54b5db30df3e0cb1e719, type: 3}
   miniController: {fileID: 1311167014}
+  upperLimit: 25
+  lowerLimit: 7
 --- !u!4 &767749423
 Transform:
   m_ObjectHideFlags: 0
@@ -4732,38 +4797,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 1227416231}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: sound
-      value: 
-      objectReference: {fileID: 1227416231}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: jumpForce
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: jumpTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: sceneTimer
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: fallGravity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: itemLayers.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: -5603542509920583335, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: groundLayers.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 210250478538681917, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0034265518
@@ -4804,33 +4837,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 494889458071576839, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: canJump
-      value: 1
+    - target: {fileID: 3566111492658708769, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 892181091055756730, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: m_Mass
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 892181091055756730, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 892181091055756730, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: m_GravityScale
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321031467142830581, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: m_Volume
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 5321031467142830581, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6023135a61f9840aea8b8e5045e5c01b, type: 3}
     - target: {fileID: 6009206333041896685, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
       propertyPath: m_Name
       value: Platforming Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286635629642221807, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6274,11 +6291,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5503273280021029880, guid: 405c43ac868494f8e9f4a6fa9366b7f7, type: 3}
   m_PrefabInstance: {fileID: 466066810}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1227416231 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5321031467142830581, guid: 9fc9186d2dfd32449a1ce359932a32f3, type: 3}
-  m_PrefabInstance: {fileID: 872852015}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1229496016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7215,6 +7227,8 @@ MonoBehaviour:
   spawnDelay: 5
   scrap: {fileID: 5094126725420445184, guid: d4c9b771722594e04b373ca889808e16, type: 3}
   miniController: {fileID: 1311167014}
+  upperLimit: 6
+  lowerLimit: 3
 --- !u!4 &1526071117
 Transform:
   m_ObjectHideFlags: 0
@@ -9719,6 +9733,8 @@ MonoBehaviour:
   spawnDelay: 2
   scrap: {fileID: 5094126725420445184, guid: d4c9b771722594e04b373ca889808e16, type: 3}
   miniController: {fileID: 1311167014}
+  upperLimit: 15
+  lowerLimit: 4
 --- !u!4 &1956935011
 Transform:
   m_ObjectHideFlags: 0
@@ -9728,7 +9744,7 @@ Transform:
   m_GameObject: {fileID: 1956935009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 12.47, z: -0.32628775}
+  m_LocalPosition: {x: -0.6, y: 15.4, z: -0.32628775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10638,9 +10654,10 @@ SceneRoots:
   - {fileID: 422610328}
   - {fileID: 786480259}
   - {fileID: 1189661210}
-  - {fileID: 872852015}
   - {fileID: 1865662025}
   - {fileID: 1956935011}
   - {fileID: 271485679}
   - {fileID: 767749423}
   - {fileID: 1526071117}
+  - {fileID: 68732914}
+  - {fileID: 872852015}
