@@ -24,7 +24,6 @@ public class SceneController : MonoBehaviour
     public AudioSource buttonSFX;
     private int limbIndex = -1;
     public bool inMinigame = false;
-    public bool isDead;
 
     private void Awake()
     {
@@ -105,8 +104,6 @@ public class SceneController : MonoBehaviour
             limbIndex = -1;
         }
 
-        isDead = CheckIfDead();
-
         StartCoroutine(LoadScene("MainScene"));
     }
 
@@ -141,7 +138,19 @@ public class SceneController : MonoBehaviour
         MainManager.Instance.dayStarted = false;
     }
 
-    private bool CheckIfDead()
+    public void RestartGame()
+    {
+        MainManager.Instance.fileName = "";
+        MainManager.Instance.debt = 1500f;
+        MainManager.Instance.money = 0;
+        MainManager.Instance.dayNum = 0;
+        MainManager.Instance.timeRemaining = 120;
+        MainManager.Instance.limbHealths = new int[] { 100, 100, 100, 100, 100, 100 };
+
+        StartCoroutine(LoadScene("StartScreen"));
+    }
+
+    public bool IsDead()
     {
         foreach (int health in MainManager.Instance.limbHealths)
         {
