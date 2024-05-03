@@ -8,6 +8,7 @@ public class TrashSpawner : MonoBehaviour
     [SerializeField] private float spawnRate;
     [SerializeField] private GameObject[] spawnedItems;
     [SerializeField] private float spawnRange = 1;
+    [SerializeField] private float rateRange;
     [SerializeField] private MinigameController miniController;
 
     public float spawnTimer;
@@ -26,7 +27,7 @@ public class TrashSpawner : MonoBehaviour
             GameObject spawnedItem = spawnedItems[Random.Range(0, spawnedItems.Length)];
 
             Instantiate(spawnedItem, spawnPos, transform.rotation);
-            spawnTimer = spawnRate;
+            spawnTimer = spawnRate + Random.Range(-rateRange, rateRange);
         }
     }
 }

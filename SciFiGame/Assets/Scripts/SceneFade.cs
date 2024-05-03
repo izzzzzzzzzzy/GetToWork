@@ -18,13 +18,16 @@ public class SceneFade : MonoBehaviour
         SceneController.inputsEnabled = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        SceneController.screenFading = true;
 
         animator.SetBool("isFaded", true);
         yield return new WaitForSecondsRealtime(1);
         animator.SetBool("isFaded", false);
+
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         SceneController.inputsEnabled = true;
+        SceneController.screenFading = false;
     }
 
 

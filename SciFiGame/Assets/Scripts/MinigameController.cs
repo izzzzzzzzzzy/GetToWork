@@ -24,21 +24,27 @@ public class MinigameController : MonoBehaviour
         timer.gameObject.SetActive(false);
         startScreen = GetComponentInChildren<MinigameStartScreen>();
 
-        scoreShow.text = "$" + score;
-    }
+        controller = SceneController.Instance;
 
+        scoreShow.text = "¶" + score;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (gameStarted)
+        if (!controller.IsPaused())
         {
-            timeRemaining -= Time.deltaTime;
+            Time.timeScale = 1.0f + (MainManager.Instance.dayNum / 40.0f);
+        }
+
+        if (gameStarted && !controller.IsPaused())
+        {
+            timeRemaining -= Time.unscaledDeltaTime;
         }
 
         PlayerBase.SetCanWalk(gameStarted);
 
         timer.SetTime(timeRemaining);
-        scoreShow.text = "$" + score;
+        scoreShow.text = "¶" + score;
 
         if (!gameOver && timeRemaining <= 0)
         {
@@ -46,7 +52,6 @@ public class MinigameController : MonoBehaviour
 
             timer.gameObject.SetActive(false);
 
-            controller = FindFirstObjectByType<SceneController>();
             controller.EndMinigame(score, limbsToBeDamagedNames);
         }
     }

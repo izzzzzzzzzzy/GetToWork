@@ -9,7 +9,8 @@ using UnityEngine.UI;
 public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
-    public static Boolean inputsEnabled = true;
+    public static bool screenFading;
+    public static bool inputsEnabled = true;
 
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -22,6 +23,8 @@ public class SceneController : MonoBehaviour
     private bool isPaused;
     public AudioSource buttonSFX;
     private int limbIndex = -1;
+    public bool inMinigame = false;
+    public bool isDead;
 
     private void Awake()
     {
@@ -94,18 +97,17 @@ public class SceneController : MonoBehaviour
     }
 
     public void EndMinigame(float score, string[] limbs)
-    {
+    {   
         MainManager.Instance.money += score > 0 ? score : 0;
         if (limbIndex != -1)
         {
             MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2) / limbs.Length;
             limbIndex = -1;
         }
-        //for limb in limbs{
-        //    MainManager.Instance.limbHealth -= score/len(limbs)
-        //}
-        StartCoroutine(LoadScene("MainScene"));
 
+        isDead = CheckIfDead();
+
+        StartCoroutine(LoadScene("MainScene"));
     }
 
     public void StartDay()
@@ -119,6 +121,8 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadScene("EndOfDay"));
 
+        MainManager.Instance.dayStarted = false;
+
         int[] limbHealths = MainManager.Instance.limbHealths;
 
         for (int i = 0; i < 6; i++)
@@ -128,6 +132,25 @@ public class SceneController : MonoBehaviour
                 limbHealths[i] = 0;
             }
         }
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(LoadDeathScreen());
+
+        MainManager.Instance.dayStarted = false;
+    }
+
+    private bool CheckIfDead()
+    {
+        foreach (int health in MainManager.Instance.limbHealths)
+        {
+            if (health > 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void PlayBackstory()
@@ -157,6 +180,7 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(sceneName);
+        inMinigame = true;
     }
 
     IEnumerator LoadScene(string sceneName)
@@ -165,6 +189,16 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         SceneManager.LoadScene(sceneName);
+
+        inMinigame = false;
+    }
+
+    IEnumerator LoadDeathScreen()
+    {
+        StartCoroutine(sceneFade.FadeScreen());
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("DeathScreen");
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -192,7 +226,7 @@ public class SceneController : MonoBehaviour
             pauseMenuActivateButton.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name == "Vertical Platformer")
+        if (scene.name == "Vertical Platformer")
         {
             mainCamera.GetComponent<CameraController>().enabled = true;
         }

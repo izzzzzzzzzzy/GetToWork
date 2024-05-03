@@ -7,10 +7,10 @@ public class CrateSpawner : MonoBehaviour
 {
     MinigameController controller;
 
-    [SerializeField] private float spawnDelay;
-    [SerializeField] private GameObject crateWarning;
-    [SerializeField] private float spawnRange = 8f;
+    [SerializeField] private float spawnRate;
+    [SerializeField] private float rateRange;
     [SerializeField] private float maxCrateDistance = 8f;
+    [SerializeField] private GameObject crateWarning;
     [SerializeField] private MinigameController miniController;
 
     private float spawnTimer;
@@ -30,17 +30,17 @@ public class CrateSpawner : MonoBehaviour
             spawnTimer -= Time.deltaTime;
         }
 
-            if (spawnTimer < 0)
+        if (spawnTimer < 0)
         {
             do
             {
-                nextSpawnLocation = transform.position.x + Random.Range(-spawnRange, spawnRange);
+                nextSpawnLocation = transform.position.x + Random.Range(-8, 8);
             } while (Mathf.Abs(nextSpawnLocation - lastSpawnLocation) > maxCrateDistance);
 
             Instantiate(crateWarning, new Vector2(nextSpawnLocation, transform.position.y), Quaternion.identity);
 
             lastSpawnLocation = nextSpawnLocation;
-            spawnTimer = spawnDelay;
+            spawnTimer = spawnRate + Random.Range(-rateRange, rateRange);
         }
     }
 
