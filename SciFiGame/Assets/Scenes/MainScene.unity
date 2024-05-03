@@ -8537,6 +8537,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4921586884505607673, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
+      propertyPath: footsteps
+      value: 
+      objectReference: {fileID: 7155519854914712551}
     - target: {fileID: -813699663770543371, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
       propertyPath: Priority
       value: 150
@@ -8549,6 +8553,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6023135a61f9840aea8b8e5045e5c01b, type: 3}
+    - target: {fileID: -813699663770543371, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 454425075396986572, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -8658,6 +8666,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
+--- !u!82 &7155519854914712551 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -813699663770543371, guid: 43db52eca3a744d93bf9aa61545a0272, type: 3}
+  m_PrefabInstance: {fileID: 7155519854914712550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
