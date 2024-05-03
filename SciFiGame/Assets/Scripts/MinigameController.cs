@@ -26,7 +26,7 @@ public class MinigameController : MonoBehaviour
 
         controller = SceneController.Instance;
 
-        scoreShow.text = "¶" + score;
+        scoreShow.text = "?" + score;
     }
     // Update is called once per frame
     void Update()
@@ -44,7 +44,7 @@ public class MinigameController : MonoBehaviour
         PlayerBase.SetCanWalk(gameStarted);
 
         timer.SetTime(timeRemaining);
-        scoreShow.text = "¶" + score;
+        scoreShow.text = "?" + score;
 
         if (!gameOver && timeRemaining <= 0)
         {

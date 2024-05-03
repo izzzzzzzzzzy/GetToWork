@@ -677,7 +677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xB62000"
+  m_text: "\xB61500"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You also owe the Company \xB62000 in medical fees."
+  m_text: "You also owe the Company \xB61500 in medical fees."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
