@@ -326,6 +326,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &143645816 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 9124101884884016557, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+  m_PrefabInstance: {fileID: 496244533}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330418381
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +518,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 143645816}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 496244535}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6219331297061396493, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MinigameController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6587409804461714428, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -537,6 +566,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9124101884884016557, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd6acb5d689004b5b875085092ace29b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1656344526871715821, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
