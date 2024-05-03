@@ -28,18 +28,27 @@ public class MainRoomController : MonoBehaviour
         timeRemaining = MainManager.Instance.timeRemaining;
         clock.SetAngle(timeRemaining);
 
-        if (!dayEnded && (timeRemaining <= 0 || SceneController.Instance.isDead))
+        if (!dayEnded && (timeRemaining <= 0 || SceneController.Instance.IsDead()))
         {
             dayEnded = true;
+            StartCoroutine(EndDay());
+        }
+    }
 
-            if (SceneController.Instance.isDead)
-            {
-                SceneController.Instance.GameOver();
-            }
-            else
-            {
-                SceneController.Instance.EndDay();
-            }
+    IEnumerator EndDay()
+    {
+        while (SceneController.screenFading)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (SceneController.Instance.IsDead())
+        {
+            SceneController.Instance.GameOver();
+        }
+        else
+        {
+            SceneController.Instance.EndDay();
         }
     }
 }
