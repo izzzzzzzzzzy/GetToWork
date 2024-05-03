@@ -99,9 +99,9 @@ public class PlatformingPlayerController : PlayerBase
         isGrounded = groundHit.collider != null;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        scrap = collision.GetComponent<Scrap>();
+        scrap = collision.collider.gameObject.GetComponent<Scrap>();
 
         if (scrap != null)
         {

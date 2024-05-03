@@ -24,7 +24,8 @@ public class ScrapSpawner : MonoBehaviour {
 
         if (spawnTimer < 0) {
 
-            Instantiate(scrap, Random.insideUnitCircle * 5, Quaternion.identity);
+            Vector2 spawnPos = transform.position + Random.insideUnitSphere * 10;
+            Instantiate(scrap, spawnPos, Quaternion.identity);
 
             spawnTimer = spawnDelay;
         }
