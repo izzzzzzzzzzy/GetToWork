@@ -22,6 +22,7 @@ public class SceneController : MonoBehaviour
     private bool isPaused;
     public AudioSource buttonSFX;
     private int limbIndex = -1;
+    public bool inMinigame = false;
 
     private void Awake()
     {
@@ -94,18 +95,15 @@ public class SceneController : MonoBehaviour
     }
 
     public void EndMinigame(float score, string[] limbs)
-    {
+    {   
         MainManager.Instance.money += score > 0 ? score : 0;
         if (limbIndex != -1)
         {
             MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2) / limbs.Length;
             limbIndex = -1;
         }
-        //for limb in limbs{
-        //    MainManager.Instance.limbHealth -= score/len(limbs)
-        //}
-        StartCoroutine(LoadScene("MainScene"));
 
+        StartCoroutine(LoadScene("MainScene"));
     }
 
     public void StartDay()
@@ -119,6 +117,8 @@ public class SceneController : MonoBehaviour
     {
         StartCoroutine(LoadScene("EndOfDay"));
 
+        MainManager.Instance.dayStarted = false;
+
         int[] limbHealths = MainManager.Instance.limbHealths;
 
         for (int i = 0; i < 6; i++)
@@ -128,6 +128,18 @@ public class SceneController : MonoBehaviour
                 limbHealths[i] = 0;
             }
         }
+    }
+
+    private bool IsDead()
+    {
+        foreach (int health in MainManager.Instance.limbHealths)
+        {
+            if (health > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void PlayBackstory()
@@ -157,6 +169,7 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(sceneName);
+        inMinigame = true;
     }
 
     IEnumerator LoadScene(string sceneName)
@@ -165,6 +178,8 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(1);
         
         SceneManager.LoadScene(sceneName);
+
+        inMinigame = false;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -178,6 +193,11 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
 
             mainCamera.orthographicSize = 7;
+
+            if (IsDead())
+            {
+                StartCoroutine(LoadScene("DeathScreen"));
+            }
         }
         else
         {

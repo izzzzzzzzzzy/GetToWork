@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Bug : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Bug : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isKilled)
+        if (!isKilled && !SceneController.Instance.IsPaused())
         {
             isKilled = true;
             gameManager.IncreaseScore(value);

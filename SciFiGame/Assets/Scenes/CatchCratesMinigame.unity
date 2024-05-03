@@ -492,10 +492,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bff67bde673d7740899c70ccf045f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 2
-  crateWarning: {fileID: 7439283433279868023, guid: e7a030fc0d0222940b81b9e1ab486ac3, type: 3}
-  spawnRange: 8
+  spawnRate: 2
+  rateRange: 0.5
   maxCrateDistance: 12
+  crateWarning: {fileID: 7439283433279868023, guid: e7a030fc0d0222940b81b9e1ab486ac3, type: 3}
   miniController: {fileID: 551487447}
 --- !u!1001 &551487445
 PrefabInstance:

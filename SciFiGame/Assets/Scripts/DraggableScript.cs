@@ -29,13 +29,21 @@ public class DraggableScript : MonoBehaviour
         if(dragging){
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
         }
+
+        if (SceneController.Instance.IsPaused())
+        {
+            dragging = false;
+        }
     }
 
     private void OnMouseDown(){
-        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.localScale = new Vector3(newScaleX, newScaleY, 1);
-        audioSource.Play();
-        dragging = true;
+        if (!SceneController.Instance.IsPaused())
+        {
+            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.localScale = new Vector3(newScaleX, newScaleY, 1);
+            audioSource.Play();
+            dragging = true;
+        }
     }
 
     private void OnMouseUp(){

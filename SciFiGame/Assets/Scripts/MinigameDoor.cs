@@ -19,6 +19,7 @@ public class MinigameDoor : Interactable
 
     private string[] limbIndices = new string[] { "headHealth", "eyeHealth", "lArmHealth", "rArmHealth", "lLegHealth", "rLegHealth" };
     private int limbIndex;
+    
 
     private void Start()
     {

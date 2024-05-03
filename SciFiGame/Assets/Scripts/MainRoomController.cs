@@ -19,7 +19,7 @@ public class MainRoomController : MonoBehaviour
         clock = GetComponentInChildren<Clock>();
         timeRemaining = MainManager.Instance.timeRemaining;
         score = MainManager.Instance.money;
-        scoreShow.text = "$" + score;
+        scoreShow.text = "¶" + score;
     }
 
     // Update is called once per frame

@@ -22,7 +22,7 @@ public class MainManager : MonoBehaviour, ISaveable
     //Save data
     public string fileName = "";
 
-    private bool dayStarted;
+    public bool dayStarted;
 
     private void Awake(){
 
@@ -43,9 +43,19 @@ public class MainManager : MonoBehaviour, ISaveable
     // Update is called once per frame
     void Update()
     {
-        if (dayStarted)
+        if (dayStarted && !SceneController.Instance.IsPaused())
         {
-            timeRemaining -= Time.deltaTime;
+            if (SceneController.Instance.inMinigame)
+            {
+                if (FindFirstObjectByType<MinigameController>().gameStarted)
+                {
+                    timeRemaining -= Time.unscaledDeltaTime;
+                }
+            }
+            else
+            {
+                timeRemaining -= Time.unscaledDeltaTime;
+            }
         }
     }
 

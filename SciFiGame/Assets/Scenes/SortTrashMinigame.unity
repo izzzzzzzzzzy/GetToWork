@@ -302,13 +302,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d226dc1720cf8294dae7bdc1425f7268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1.75
+  spawnRate: 1
   spawnedItems:
   - {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
   - {fileID: 740785450793900598, guid: b463b9fb226b3ca47bfe972e33db3270, type: 3}
   - {fileID: 5394998868401798263, guid: 997170186c0bafa468c48ac62d6367c8, type: 3}
   - {fileID: 4133665719036020280, guid: b353cbd06484bbc41bb15f399ea349bb, type: 3}
   spawnRange: 1
+  rateRange: 0.5
   miniController: {fileID: 496244535}
   spawnTimer: 0
 --- !u!4 &139893101
@@ -1538,7 +1539,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.75}
+  m_Size: {x: 1, y: 4}
   m_EdgeRadius: 0
 --- !u!95 &1280248523
 Animator:
@@ -3048,8 +3049,12 @@ PrefabInstance:
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 5890102857376300306, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890102857376300306, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 5890102857376300306, guid: 5525a986c6511fa44bd690e8687b3bb8, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
