@@ -3163,10 +3163,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2461923618305209389, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_text
+      value: "-\xB65.00"
+      objectReference: {fileID: 0}
     - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: oxygenWarning
       value: 
       objectReference: {fileID: 1967366682}
+    - target: {fileID: 3467306341036317557, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: payDebtInputMin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830584907421749587, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830584907421749587, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3830584907421749587, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042878672708186721, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042878672708186721, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4042878672708186721, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09
@@ -3174,6 +3202,14 @@ PrefabInstance:
     - target: {fileID: 4042878672708186721, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193939508313466849, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_text
+      value: "-\xB630.00"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255178073848351555, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+      propertyPath: m_text
+      value: "-\xB610.00"
       objectReference: {fileID: 0}
     - target: {fileID: 7069577084837843865, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
       propertyPath: m_Camera
@@ -3190,6 +3226,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8348203750563318433, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+    - {fileID: 2443491417450557024, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
+    - {fileID: 5444179844468644730, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9344a4171cbb4e6083ff0060fd34dd3, type: 3}
