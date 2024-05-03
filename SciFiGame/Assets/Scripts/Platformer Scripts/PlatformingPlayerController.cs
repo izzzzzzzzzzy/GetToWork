@@ -9,7 +9,7 @@ public class PlatformingPlayerController : PlayerBase
 {
     Collider2D coll;
     SpriteRenderer mySpriteRenderer;
-    Item item;
+    Scrap scrap;
     MinigameController controller;
     Rigidbody2D rb;
     public AudioSource sound;
@@ -35,7 +35,7 @@ public class PlatformingPlayerController : PlayerBase
     void Start() {
         coll = GetComponent<Collider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
-        item = GetComponent<Item>();
+        scrap = GetComponent<Scrap>();
         controller = FindFirstObjectByType<MinigameController>();
         rb = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
@@ -101,13 +101,13 @@ public class PlatformingPlayerController : PlayerBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        item = collision.GetComponent<Item>();
+        scrap = collision.GetComponent<Scrap>();
 
-        if (item != null)
+        if (scrap != null)
         {
             sound.Play();
-            controller.IncreaseScore(item.GetValue());
-            item.TakeHit();
+            controller.IncreaseScore(scrap.GetValue());
+            scrap.TakeHit();
         }
     }
 
