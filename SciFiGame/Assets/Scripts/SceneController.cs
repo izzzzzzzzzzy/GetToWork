@@ -45,7 +45,7 @@ public class SceneController : MonoBehaviour
             mainCamera.GetComponent<CameraController>().enabled = true;
         }
 
-        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory" || SceneManager.GetActiveScene().name == "DeathScreen")
+        if(SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "EndOfDay" || SceneManager.GetActiveScene().name == "Backstory" || SceneManager.GetActiveScene().name == "DeathScreen" || SceneManager.GetActiveScene().name == "WinScreen")
         {
             pauseMenuActivateButton.SetActive(false);
 
@@ -62,7 +62,7 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen")
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen" && SceneManager.GetActiveScene().name != "WinScreen")
         {
             if (!isPaused)
             {
@@ -73,7 +73,7 @@ public class SceneController : MonoBehaviour
                 PlayGame();
             }
         }
-        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen") {
+        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen" && SceneManager.GetActiveScene().name != "WinScreen") {
             pauseMenuActivateButton.SetActive(true);
         }
         pauseMenu.gameObject.SetActive(isPaused);
@@ -228,7 +228,7 @@ public class SceneController : MonoBehaviour
             mainCamera.orthographicSize = 5;
         }
 
-        if(scene.name == "StartScreen" || scene.name == "EndOfDay" || scene.name == "Backstory" || scene.name == "DeathScreen"){
+        if(scene.name == "StartScreen" || scene.name == "EndOfDay" || scene.name == "Backstory" || scene.name == "DeathScreen" || scene.name == "WinScreen") {
             pauseMenuActivateButton.SetActive(false);
         }
         else{
