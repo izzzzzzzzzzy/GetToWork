@@ -67,7 +67,7 @@ public class MainManager : MonoBehaviour, ISaveable
 
     public void FillBaseData()
     {
-        debt = 2000;
+        debt = 1500;
         money = 0;
         dayNum = 0;
         limbHealths = new int[] {100, 100, 100, 100, 100, 100};
@@ -125,7 +125,7 @@ public class MainManager : MonoBehaviour, ISaveable
             Debug.Log("Could not load " + name + ", making new blank");
             SaveData sd = new()
             {
-                debt = 2000,
+                debt = 1500,
                 money = 0,
                 dayNum = 0,
                 isEmpty = true,
