@@ -8115,6 +8115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 1638775366332858128, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2133471320806477738, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: orthographic size
       value: 7

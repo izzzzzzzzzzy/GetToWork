@@ -4,23 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class EndButtonScript : MonoBehaviour
+public class MenuButtonScript : MonoBehaviour
 {
-    public Button endButton;
-    public AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = endButton.GetComponent<Button>();
-
-        audioSource = btn.GetComponent<AudioSource>();
-        btn.onClick.AddListener(TaskOnClick);
+        GetComponent<Button>().onClick.AddListener(GoToMenu);
     }
 
-    void TaskOnClick()
+    void GoToMenu()
     {
         audioSource.Play();
+        SceneController.Instance.PlayGame();
         SceneController.Instance.RestartGame();
     }
 }

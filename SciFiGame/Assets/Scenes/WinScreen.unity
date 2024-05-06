@@ -357,9 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 1827227146}
-  quitGameButton: {fileID: 1388363601}
-  nextLevelName: StartScreen
   audioSource: {fileID: 0}
 --- !u!114 &579752875
 MonoBehaviour:
@@ -944,11 +941,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1388363600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4359fbcf393bc34f9f611bc9b0dac65, type: 3}
+  m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endButton: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1388363605}
 --- !u!1001 &1709203689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1355,7 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a9156a7f6254b88841586db5875057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endButton: {fileID: 1827227146}
   audioSource: {fileID: 1827227151}
 --- !u!82 &1827227151
 AudioSource:
