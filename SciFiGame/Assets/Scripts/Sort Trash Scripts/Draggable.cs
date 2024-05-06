@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Draggable : MonoBehaviour
 {
+    AudioSource audioSource;
+
     [SerializeField] private float scaleSize = 1.1f;
 
     private Vector3 screenPoint;
     private Vector3 offset;
-    private AudioSource audioSource;
 
     public bool dragging;
 
@@ -22,6 +23,8 @@ public class Draggable : MonoBehaviour
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        audioSource.Play();
 
     }
 
@@ -43,8 +46,5 @@ public class Draggable : MonoBehaviour
     {
         transform.localScale = Vector2.one;
         dragging = false;
-
-        audioSource.Play();
     }
-
 }
