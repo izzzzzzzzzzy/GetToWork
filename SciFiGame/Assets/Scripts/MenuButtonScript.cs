@@ -18,6 +18,16 @@ public class MenuButtonScript : MonoBehaviour
     {
         audioSource.Play();
         SceneController.Instance.PlayGame();
-        SceneController.Instance.RestartGame();
+
+        if (SceneController.Instance.inMinigame)
+        {
+            MinigameController controller = FindFirstObjectByType<MinigameController>();
+            controller.StartGame();
+            controller.SetTimeRemaining(0);
+        }
+        else
+        {
+            SceneController.Instance.RestartGame();
+        }
     }
 }
