@@ -10,6 +10,7 @@ public class LaserController : MonoBehaviour
     private Vector2 direction;
     private GameObject player;
     public Rigidbody2D rb;
+    private SpriteRenderer sprite;
 
 
     // Start is called before the first frame update
@@ -18,13 +19,13 @@ public class LaserController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
         direction = player.GetComponent<BugShootingPlayerController>().inputDirect;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector3(direction.x, direction.y,0) * speed;
-
 		lifeTime -= Time.deltaTime;
 		if(lifeTime <= 0){
 			Destroy(gameObject);
