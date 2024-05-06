@@ -1701,6 +1701,7 @@ GameObject:
   - component: {fileID: 871841831}
   - component: {fileID: 871841830}
   - component: {fileID: 871841829}
+  - component: {fileID: 871841832}
   m_Layer: 5
   m_Name: Legs
   m_TagString: Untagged
@@ -1809,6 +1810,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871841827}
   m_CullTransparentMesh: 1
+--- !u!114 &871841832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871841827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2658174760910347433}
 --- !u!1 &890822306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7341,9 +7355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 0}
-  quitGameButton: {fileID: 871841829}
-  nextLevelName: MainScene
   audioSource: {fileID: 2658174760910347433}
 --- !u!222 &8372034533445325040
 CanvasRenderer:

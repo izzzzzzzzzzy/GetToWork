@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 9e1ab56d8917a4d6a93b24511204afb8
   - enabled: 1
+    path: Assets/Scenes/Backstory.unity
+    guid: 5caf70122fe1d41e4a76076f1e9bf561
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -27,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ButtonMinigame.unity
     guid: b7c6729563e594dc4930d2819242547f
   - enabled: 1
+    path: Assets/Scenes/BugShootMinigame.unity
+    guid: 402dd4599999f4caaafd598654f9e9a4
+  - enabled: 1
     path: Assets/Scenes/EndOfDay.unity
     guid: 3d35a9a695cfd48a3b0d460feb6eecd3
   - enabled: 1
@@ -35,10 +41,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity
     guid: 293b4abdf4d254386b19e6a821081853
-  - enabled: 1
-    path: Assets/Scenes/Backstory.unity
-    guid: 5caf70122fe1d41e4a76076f1e9bf561
-  - enabled: 1
-    path: Assets/Scenes/BugShootMinigame.unity
-    guid: 402dd4599999f4caaafd598654f9e9a4
   m_configObjects: {}
