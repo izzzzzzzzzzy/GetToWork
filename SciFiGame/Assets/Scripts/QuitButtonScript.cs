@@ -16,15 +16,7 @@ public class QuitButtonScript : MonoBehaviour
     public void QuitGame()
     {
         audioSource.Play();
-        if (SceneController.Instance.inMinigame)
-        {
-            FindFirstObjectByType<MinigameController>().SetTimeRemaining(0);
-            SceneController.Instance.PlayGame();
-        }
-        else
-        {
-            SceneController.Instance.PlayGame();
-            Application.Quit();
-        }
+        SceneController.Instance.PlayGame();
+        Application.Quit();
     }
 }
