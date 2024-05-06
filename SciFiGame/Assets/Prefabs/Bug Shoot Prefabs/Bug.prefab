@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1620047479296896938}
   - component: {fileID: 3057160169134272635}
   - component: {fileID: -2812504444757428373}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bug
   m_TagString: Bug
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007b3c95ba393478c91e5f18a1436907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  health: 1
   velocity: 2
   sightRange: 1
   wallLayers:
@@ -165,7 +165,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0037784576, y: -0.017003417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -176,7 +176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.3047495, y: 0.58058286}
   m_EdgeRadius: 0
 --- !u!95 &-2812504444757428373
 Animator:

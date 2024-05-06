@@ -23,6 +23,16 @@ public class BugController : MonoBehaviour
         controller = FindFirstObjectByType<MinigameController>();
     }
 
+    private void Update() {
+        print(rb.velocity);
+
+        if (rb.velocity.magnitude < 0.1) {
+            int turnDistance = Random.Range(1, 4) * 90;
+
+            transform.Rotate(new(0, 0, turnDistance));
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -30,12 +40,6 @@ public class BugController : MonoBehaviour
         {
             rb.velocity = velocity * transform.up;
 
-            if (CheckForWall())
-            {
-                int turnDistance = Random.Range(1, 4) * 90;
-
-                transform.Rotate(new(0, 0, turnDistance));
-            }
         }
     }
 
@@ -52,7 +56,7 @@ public class BugController : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            controller.IncreaseScore(1);
+            controller.IncreaseScore(3);
             Destroy(gameObject);
         }
     }
