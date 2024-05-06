@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8679153282927294951}
   - component: {fileID: 2068907171205773889}
   - component: {fileID: 4088070888859942113}
-  - component: {fileID: 8477584154974382793}
+  - component: {fileID: 8364650934171001104}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -33,8 +33,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4153715671130163552}
-  - {fileID: 1468178334690396595}
   - {fileID: 5127911542184895416}
+  - {fileID: 1468178334690396595}
   - {fileID: 2857244232446466692}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,7 +56,7 @@ MonoBehaviour:
   sceneFade: {fileID: 666674796609532868}
   pauseMenu: {fileID: 7343115448689419288}
   pauseMenuActivateButton: {fileID: 4704535688912105099}
-  buttonSFX: {fileID: 8477584154974382793}
+  buttonSFX: {fileID: 8364650934171001104}
   inMinigame: 0
 --- !u!114 &4088070888859942113
 MonoBehaviour:
@@ -78,7 +78,7 @@ MonoBehaviour:
   dayNum: 0
   fileName: 
   dayStarted: 0
---- !u!82 &8477584154974382793
+--- !u!82 &8364650934171001104
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,8 +254,9 @@ GameObject:
   - component: {fileID: 4404098457883565944}
   - component: {fileID: 6548793385106181380}
   - component: {fileID: 5474303841960898895}
+  - component: {fileID: 4306903182727954723}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,6 +364,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4306903182727954723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987086724201854033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 8364650934171001104}
 --- !u!1 &3476037926063048355
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +524,7 @@ GameObject:
   - component: {fileID: 709650056279318604}
   - component: {fileID: 4360059351254280085}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Pause Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,18 +634,6 @@ MonoBehaviour:
       - m_Target: {fileID: 2068907171205773889}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: PauseGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8477584154974382793}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -925,81 +927,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &4449845896212961059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2561112219250798478}
-  - component: {fileID: 5698738697236091816}
-  - component: {fileID: 1177198528944035080}
-  m_Layer: 5
-  m_Name: Image (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2561112219250798478
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449845896212961059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1468178334690396595}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.4971, y: -25.4841}
-  m_SizeDelta: {x: 184.4545, y: 152.6247}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5698738697236091816
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449845896212961059}
-  m_CullTransparentMesh: 1
---- !u!114 &1177198528944035080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4449845896212961059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.21747063, g: 0.22279154, b: 0.254717, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &4704535688912105099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,9 +1175,9 @@ GameObject:
   - component: {fileID: 1135901680753430152}
   - component: {fileID: 3018703350348885565}
   - component: {fileID: 2073864440214397478}
-  - component: {fileID: 7325991529055631231}
+  - component: {fileID: 8479053784963896026}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1358,7 +1285,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7325991529055631231
+--- !u!114 &8479053784963896026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1367,13 +1294,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7239612876267613570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08524c77f1b004e429a5fe24eb43de8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 70a9156a7f6254b88841586db5875057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 2073864440214397478}
-  quitGameButton: {fileID: 5474303841960898895}
-  nextLevelName: 
-  audioSource: {fileID: 8477584154974382793}
+  audioSource: {fileID: 8364650934171001104}
 --- !u!1 &7241771600589292961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1311,7 @@ GameObject:
   - component: {fileID: 5685629395376164695}
   - component: {fileID: 5501879366719861651}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,18 +1431,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8477584154974382793}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &8531855376810273213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1464,6 @@ RectTransform:
   m_Children:
   - {fileID: 4139512737755006872}
   - {fileID: 2762798318806236281}
-  - {fileID: 2561112219250798478}
   - {fileID: 9117110049960774327}
   - {fileID: 3504545560718477211}
   - {fileID: 9152552369046811657}
