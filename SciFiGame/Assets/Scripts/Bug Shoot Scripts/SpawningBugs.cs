@@ -8,13 +8,13 @@ public class SpawningBug : MonoBehaviour {
 
     [SerializeField] private float timer;
     [SerializeField] private GameObject bug;
-  //  [SerializeField] private MinigameController miniController;
+    [SerializeField] private MinigameController miniController;
     public int upperLimit;
     public int lowerLimit;
     private int range;
 
     private void Start() {
-        //     controller = FindFirstObjectByType<MinigameController>();
+        controller = FindFirstObjectByType<MinigameController>();
         range = Random.Range(lowerLimit, upperLimit);
 
     }
@@ -29,9 +29,9 @@ public class SpawningBug : MonoBehaviour {
             Instantiate(bug, transform.position, Quaternion.identity);
         }
 
-      //  if (miniController.gameStarted) {
+        if (miniController.gameStarted) {
             timer -= Time.deltaTime;
-       // }
+        }
     }
 
     private void SpawnBug() {

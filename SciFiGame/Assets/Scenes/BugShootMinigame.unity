@@ -10941,6 +10941,10 @@ PrefabInstance:
       propertyPath: upperLimit
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7290837383561672077, guid: b48e2510273e44496a305f2fb2980e3d, type: 3}
+      propertyPath: miniController
+      value: 
+      objectReference: {fileID: 914193047}
     - target: {fileID: 8728310495259770056, guid: b48e2510273e44496a305f2fb2980e3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -16695,6 +16699,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &914193047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+  m_PrefabInstance: {fileID: 681421523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e81fff637623ed4d96914dea7ec44f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914844106
 GameObject:
   m_ObjectHideFlags: 0
