@@ -50,10 +50,14 @@ public class BugShooterPlayerController : PlayerBase
         // Shooting up
         inputDirect = new Vector3(lastInputDirection.x, lastInputDirection.y, 0);
 
-        if (animInfo[0].clip.name == "walking-front" || animInfo[0].clip.name == "walking-back" || animInfo[0].clip.name == "idle-front" || animInfo[0].clip.name == "idle-back")
-        {
-
+        if (animInfo[0].clip.name == "walking-left" || animInfo[0].clip.name == "idle-left") {
             rot = Quaternion.Euler(0, 0, 90);
+
+        } else if (animInfo[0].clip.name == "walking-front" || animInfo[0].clip.name == "idle-front") {
+            rot = Quaternion.Euler(0, 0, 180);
+
+        } else if (animInfo[0].clip.name == "walking-right" || animInfo[0].clip.name == "idle-right") {
+            rot = Quaternion.Euler(0, 0, 270);
         }
 
         Instantiate(laser, transform.position + new Vector3(lastInputDirection.x, lastInputDirection.y, 0), rot);

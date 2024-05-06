@@ -16,7 +16,7 @@ public class SpawningBug : MonoBehaviour {
     private void Start() {
         controller = FindFirstObjectByType<MinigameController>();
         range = Random.Range(lowerLimit, upperLimit);
-
+        Instantiate(bug, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -34,8 +34,4 @@ public class SpawningBug : MonoBehaviour {
         }
     }
 
-    private void SpawnBug() {
-        Vector2 spawnPos = transform.position + Random.insideUnitSphere * 10;
-        Instantiate(bug, spawnPos, Quaternion.identity);
-    }
 }
