@@ -13,8 +13,6 @@ public class MinigameController : MonoBehaviour
     [SerializeField] private float score;
     public TMP_Text scoreShow;
 
-    public string[] limbsToBeDamagedNames;
-
     private bool gameOver;
     public bool gameStarted;
 
@@ -52,7 +50,7 @@ public class MinigameController : MonoBehaviour
 
             timer.gameObject.SetActive(false);
 
-            controller.EndMinigame(score, limbsToBeDamagedNames);
+            controller.EndMinigame(score);
         }
     }
 
@@ -75,5 +73,10 @@ public class MinigameController : MonoBehaviour
 
     public float GetTimeRemaining(){
         return timeRemaining;
+    }
+
+    public void SetTimeRemaining(float nTime)
+    {
+        timeRemaining = nTime;
     }
 }

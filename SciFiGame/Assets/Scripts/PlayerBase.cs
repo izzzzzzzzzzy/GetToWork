@@ -12,6 +12,7 @@ public class PlayerBase : MonoBehaviour
     protected bool jumpHeld;
     protected bool interactInput;
     protected static bool canWalk = true;
+    protected static bool canInteract = true;
 
     protected void InitializeComponents()
     {
@@ -21,7 +22,15 @@ public class PlayerBase : MonoBehaviour
 
     protected void GetInputs()
     {
-        interactInput = inputs.GetInteractInput();
+        if (!SceneController.Instance.IsPaused())
+        {
+            interactInput = inputs.GetInteractInput();
+        }
+        else
+        {
+            interactInput = false;
+        }
+
         if (canWalk)
         {
             inputDirection = inputs.GetDirection();
@@ -44,5 +53,10 @@ public class PlayerBase : MonoBehaviour
     public static void SetCanWalk(bool canWalk)
     {
         PlayerBase.canWalk = canWalk;
+    }
+
+    public static void SetCanInteract(bool canInteract)
+    {
+        PlayerBase.canInteract = canInteract;
     }
 }

@@ -62,19 +62,15 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen" && SceneManager.GetActiveScene().name != "WinScreen")
-        {
-            if (!isPaused)
-            {
-                PauseGame();
-            }
-            else
+        if (Input.GetKeyDown(KeyCode.Escape) && inputsEnabled) {
+            if (isPaused)
             {
                 PlayGame();
             }
-        }
-        else if(SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen" && SceneManager.GetActiveScene().name != "WinScreen") {
-            pauseMenuActivateButton.SetActive(true);
+            else
+            {
+                PauseGame();
+            }
         }
         pauseMenu.gameObject.SetActive(isPaused);
     }
@@ -95,12 +91,12 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadMinigame(sceneName, exitCoords));
     }
 
-    public void EndMinigame(float score, string[] limbs)
+    public void EndMinigame(float score)
     {   
         MainManager.Instance.money += score > 0 ? score : 0;
         if (limbIndex != -1)
         {
-            MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2) / limbs.Length;
+            MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2);
             limbIndex = -1;
         }
 
@@ -212,8 +208,6 @@ public class SceneController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        PlayGame();
-
         if (scene.name == "MainScene")
         {
             mainPlayer = FindFirstObjectByType<MainPlayerController>();
@@ -247,15 +241,18 @@ public class SceneController : MonoBehaviour
 
     public void PauseGame()
     {
-        buttonSFX = this.GetComponentInChildren<AudioSource>();
-        buttonSFX.Play();
-        Time.timeScale = 0f;
-        isPaused = true;
+        if (SceneManager.GetActiveScene().name != "StartScreen" && SceneManager.GetActiveScene().name != "EndOfDay" && SceneManager.GetActiveScene().name != "Backstory" && SceneManager.GetActiveScene().name != "DeathScreen" && SceneManager.GetActiveScene().name != "WinScreen")
+        {
+            buttonSFX.Play();
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
     }
 
     public void PlayGame()
     {
         Time.timeScale = 1f;
+        buttonSFX.Play();
         isPaused = false;
     }
 
