@@ -40,7 +40,7 @@ public class SceneController : MonoBehaviour
     {
         mainPlayer = FindFirstObjectByType<MainPlayerController>();
 
-        if (SceneManager.GetActiveScene().name == "Vertical Platformer")
+        if (SceneManager.GetActiveScene().name == "Vertical Platformer" || SceneManager.GetActiveScene().name == "BugShootMinigame")
         {
             mainCamera.GetComponent<CameraController>().enabled = true;
         }
@@ -235,7 +235,7 @@ public class SceneController : MonoBehaviour
             pauseMenuActivateButton.SetActive(true);
         }
 
-        if (scene.name == "Vertical Platformer")
+        if (scene.name == "Vertical Platformer" || scene.name == "BugShootMinigame")
         {
             mainCamera.GetComponent<CameraController>().enabled = true;
         }

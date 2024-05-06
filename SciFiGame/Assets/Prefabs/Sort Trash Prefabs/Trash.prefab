@@ -107,6 +107,22 @@ MonoBehaviour:
   conveyorBottomLeft: {x: -7, y: -8}
   conveyorTopRight: {x: -3, y: 3}
   onBelt: 1
+--- !u!114 &868597956813132670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191633983247687559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75c11d73d4e3452482d7d550617429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedAdjustment: 1
+  newScaleX: 1.2
+  newScaleY: 1.2
+  dragging: 0
 --- !u!50 &493740210665910004
 Rigidbody2D:
   serializedVersion: 4
@@ -262,7 +278,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.14316344, y: -0.016842842}
   serializedVersion: 2
   m_Radius: 0.9
 --- !u!114 &9084923518430919157
@@ -279,3 +295,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleSize: 1.1
   dragging: 0
+  m_Radius: 1.0600064
