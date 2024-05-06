@@ -1337,7 +1337,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome, [Employee_Name], to the Pantry Room! \n- The pantry has become
-    overrun with pests\n- Click to whack the pests and get rid of them\n"
+    overrun with pests\n- Click to whack the pests and get rid of them\nLIMB DEGRADING:
+    right arm\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
