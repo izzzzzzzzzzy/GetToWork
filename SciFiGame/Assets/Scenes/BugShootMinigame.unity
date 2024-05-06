@@ -1080,6 +1080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 4866132648964081870, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2470,7 +2474,7 @@ GameObject:
   - component: {fileID: 129929990}
   - component: {fileID: 129929992}
   - component: {fileID: 129929991}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pipes_turn (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11785,6 +11789,14 @@ PrefabInstance:
     - target: {fileID: 1994834349273897187, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651743187164797023, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
+      propertyPath: limbsToBeDamagedNames.Array.data[0]
+      value: eyeHealth
       objectReference: {fileID: 0}
     - target: {fileID: 3574737631855586914, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,10 +7,11 @@ public class BugController : MonoBehaviour
     Rigidbody2D rb;
     Collider2D coll;
 
-    [SerializeField] private int health = 2;
+    [SerializeField] private int health = 1;
     [SerializeField] private float velocity = 3.0f;
     [SerializeField] private float sightRange = 1f;
     [SerializeField] private LayerMask wallLayers;
+    MinigameController controller;
 
     private bool isDead;
 
@@ -19,6 +20,7 @@ public class BugController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = rb.GetComponent<Collider2D>();
+        controller = FindFirstObjectByType<MinigameController>();
     }
 
     // Update is called once per frame
@@ -50,6 +52,7 @@ public class BugController : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
+            controller.IncreaseScore(1);
             Destroy(gameObject);
         }
     }
