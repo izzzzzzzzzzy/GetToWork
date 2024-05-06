@@ -8127,6 +8127,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
+      propertyPath: limbHealths.Array.data[5]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4153715671130163552, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.y
       value: -17

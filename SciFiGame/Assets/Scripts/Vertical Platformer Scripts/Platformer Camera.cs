@@ -44,8 +44,10 @@ public class CameraController : MonoBehaviour {
         if (player == null)
         {
             player = FindFirstObjectByType<PlatformingPlayerController>().GetComponent<Transform>();
-            playerRB = player.GetComponent<Rigidbody2D>();
-        } 
+            
+        }
+
+        playerRB = player.GetComponent<Rigidbody2D>();
 
         targetPosition = player.position + offset;
 
