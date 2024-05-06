@@ -10,7 +10,8 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
     public static bool screenFading;
-    public static bool inputsEnabled = true;
+    public static bool inputsEnabled = true; 
+    public static string[] limbIndices = new string[] { "headHealth", "eyeHealth", "lArmHealth", "rArmHealth", "lLegHealth", "rLegHealth" };
 
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -24,6 +25,7 @@ public class SceneController : MonoBehaviour
     public AudioSource buttonSFX;
     private int limbIndex = -1;
     public bool inMinigame = false;
+    private string limbBroke = "start";
 
     private void Awake()
     {
@@ -97,6 +99,10 @@ public class SceneController : MonoBehaviour
         if (limbIndex != -1)
         {
             MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2);
+            if (MainManager.Instance.limbHealths[limbIndex] <= 0)
+            {
+                limbBroke = limbIndices[limbIndex];
+            }
             limbIndex = -1;
         }
 
@@ -215,6 +221,12 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
 
             mainCamera.orthographicSize = 7;
+
+            if (limbBroke != "")
+            {
+                FindFirstObjectByType<MainRoomController>().ShowBrokenLimbPopup(limbBroke);
+                limbBroke = "";
+            }
         }
         else
         {

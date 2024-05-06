@@ -10,14 +10,14 @@ public class MainManager : MonoBehaviour, ISaveable
     public static MainManager Instance;
 
     //Player stats
-    public float debt;
-    public float money;
+    public float debt = 1500;
+    public float money = 0;
     public int[] limbHealths = new int[] {100, 100, 100, 100, 100, 100};
 
 //timers
     public float dayTime = 180;
     public float timeRemaining;
-    public int dayNum;
+    public int dayNum = 1;
 
     //Save data
     public string fileName = "";
@@ -69,7 +69,7 @@ public class MainManager : MonoBehaviour, ISaveable
     {
         debt = 1500;
         money = 0;
-        dayNum = 0;
+        dayNum = 1;
         limbHealths = new int[] {100, 100, 100, 100, 100, 100};
     }
 
@@ -127,7 +127,7 @@ public class MainManager : MonoBehaviour, ISaveable
             {
                 debt = 1500,
                 money = 0,
-                dayNum = 0,
+                dayNum = 1,
                 isEmpty = true,
                 limbHealths = limbHealths
             };

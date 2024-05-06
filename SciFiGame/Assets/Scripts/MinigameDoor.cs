@@ -17,7 +17,6 @@ public class MinigameDoor : Interactable
     [SerializeField] private Vector3 returnOffset;
     [SerializeField] private string limb;
 
-    private string[] limbIndices = new string[] { "headHealth", "eyeHealth", "lArmHealth", "rArmHealth", "lLegHealth", "rLegHealth" };
     private int limbIndex;
     
 
@@ -31,7 +30,7 @@ public class MinigameDoor : Interactable
         popup = gameObject.GetComponentInChildren<Popup>();
         coll = gameObject.GetComponent<Collider2D>();
 
-        limbIndex = Array.IndexOf(limbIndices, limb);
+        limbIndex = Array.IndexOf(SceneController.limbIndices, limb);
     }
 
     private void Update()
