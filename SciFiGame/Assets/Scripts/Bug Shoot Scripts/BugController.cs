@@ -11,8 +11,6 @@ public class BugController : MonoBehaviour
     [SerializeField] private float velocity = 3.0f;
     [SerializeField] private float sightRange = 1f;
     [SerializeField] private LayerMask wallLayers;
-    [SerializeField] private float knockbackDistance = 2.0f;
-    [SerializeField] private float stunDuration = 1.0f;
 
     private bool isDead;
     private float stunTimer;
