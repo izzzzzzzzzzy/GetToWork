@@ -18,7 +18,7 @@ public class LaserController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectsWithTag("Player")[0];
-        direction = player.GetComponent<BugShootingPlayerController>().inputDirect;
+        direction = player.GetComponent<BugShooterPlayerController>().inputDirect;
 
     }
 
