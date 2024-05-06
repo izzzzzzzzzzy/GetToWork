@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BugShootingPlayerController : PlayerBase
+public class BugShooterPlayerController : PlayerBase
 {
     Rigidbody2D rb;
 
@@ -16,7 +16,7 @@ public class BugShootingPlayerController : PlayerBase
 
     private float lastTimeFired = 0;
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,8 @@ public class BugShootingPlayerController : PlayerBase
     {
         GetInputs();
 
-        if (interactInput && (lastTimeFired + 1 / rateOfFire) < Time.time) {
+        if (interactInput && (lastTimeFired + 1 / rateOfFire) < Time.time)
+        {
             lastTimeFired = Time.time;
             FireTheLasers();
         }
@@ -39,7 +40,8 @@ public class BugShootingPlayerController : PlayerBase
         anim.SetInputs(inputDirection, lastInputDirection);
     }
 
-    void FireTheLasers(){
+    void FireTheLasers()
+    {
         Quaternion rot = Quaternion.identity;
 
         AnimatorClipInfo[] animInfo = this.animator.GetCurrentAnimatorClipInfo(0);
@@ -48,7 +50,8 @@ public class BugShootingPlayerController : PlayerBase
         // Shooting up
         inputDirect = new Vector3(lastInputDirection.x, lastInputDirection.y, 0);
 
-        if (animInfo[0].clip.name == "walking-front" || animInfo[0].clip.name == "walking-back" || animInfo[0].clip.name == "idle-front" || animInfo[0].clip.name == "idle-back") {
+        if (animInfo[0].clip.name == "walking-front" || animInfo[0].clip.name == "walking-back" || animInfo[0].clip.name == "idle-front" || animInfo[0].clip.name == "idle-back")
+        {
 
             rot = Quaternion.Euler(0, 0, 90);
         }
