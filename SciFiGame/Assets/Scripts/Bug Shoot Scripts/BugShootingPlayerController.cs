@@ -53,7 +53,7 @@ public class BugShootingPlayerController : PlayerBase
             rot = Quaternion.Euler(0, 0, 90);
         }
 
-            Instantiate(laser, transform.position + new Vector3(lastInputDirection.x, lastInputDirection.y, 0), rot);
+        Instantiate(laser, transform.position + new Vector3(lastInputDirection.x, lastInputDirection.y, 0), rot);
 
     }
 }
