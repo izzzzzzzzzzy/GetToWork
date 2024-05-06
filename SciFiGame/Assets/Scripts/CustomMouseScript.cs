@@ -24,14 +24,6 @@ public class CustomMouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //rb.velocity = transform.position * 1 * Time.deltaTime;
-        //transform.position = new Vector3 (mouseDelta.x, mouseDelta.y, Quaternion.identity) * Time.deltaTime;
-        //transform.position = new Vector3(
-        //    Mathf.Clamp(transform.position.x, 0f, Screen.width),
-        //    Mathf.Clamp(transform.position.y, 0f, Screen.height),
-        //    0f);
-        //transform.position.x = Input.GetAxis("Mouse x") * Time.deltaTime;
-        //transform.position.y = Input.GetAxis("Mouse y") * Time.deltaTime;
         transform.position = Input.mousePosition;
         lastMousePos = Input.mousePosition;
     }
