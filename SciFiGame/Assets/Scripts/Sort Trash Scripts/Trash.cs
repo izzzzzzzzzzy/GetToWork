@@ -4,39 +4,35 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
-    DraggableScript draggableScript;
+    Draggable draggable;
     MinigameController gameManager;
 
     [SerializeField] private int trashType;
     [SerializeField] private float speed = 5;
     [SerializeField] private int value = 1;
-
-    public bool onBelt;
+    [SerializeField] private Vector2 conveyorBottomLeft;
+    [SerializeField] private Vector2 conveyorTopRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        draggableScript = GetComponent<DraggableScript>();
+        draggable = GetComponent<Draggable>();
         gameManager = FindFirstObjectByType<MinigameController>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.position.y > 7.5)
+        if (transform.position.x >= conveyorBottomLeft.x && transform.position.y >= conveyorBottomLeft.y && 
+                    transform.position.x <= conveyorTopRight.x && transform.position.y <= conveyorTopRight.y)
         {
-            transform.position = new Vector2(transform.position.x, -7.5f);
+            transform.position += speed * Time.deltaTime * Vector3.up;
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Conveyor"))
-        {
-            transform.position += speed * Time.deltaTime * Vector3.up;
-        }
-
-        if (collision.CompareTag("Chute") && !draggableScript.dragging == true)
+        if (collision.CompareTag("Chute") && draggable.dragging == false)
         {
             if (trashType == collision.GetComponent<TrashChute>().GetBinType())
             {
@@ -49,10 +45,5 @@ public class Trash : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-
-    public void SetSpeed(int nSpeed)
-    {
-        speed = nSpeed;
     }
 }

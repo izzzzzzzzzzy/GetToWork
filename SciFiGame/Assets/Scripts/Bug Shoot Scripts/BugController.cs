@@ -11,11 +11,8 @@ public class BugController : MonoBehaviour
     [SerializeField] private float velocity = 3.0f;
     [SerializeField] private float sightRange = 1f;
     [SerializeField] private LayerMask wallLayers;
-    [SerializeField] private float knockbackDistance = 2.0f;
-    [SerializeField] private float stunDuration = 1.0f;
 
     private bool isDead;
-    private float stunTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,14 +22,11 @@ public class BugController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!isDead)
         {
-            if (stunTimer > 0)
-            {
-                rb.velocity = velocity * transform.right;
-            }
+            rb.velocity = velocity * transform.up;
 
             if (CheckForWall())
             {
@@ -41,12 +35,11 @@ public class BugController : MonoBehaviour
                 transform.Rotate(new(0, 0, turnDistance));
             }
         }
-        stunTimer -= Time.deltaTime;
     }
 
     private bool CheckForWall()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, sightRange, wallLayers);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, sightRange, wallLayers);
 
         return hit.collider != null;
     }
