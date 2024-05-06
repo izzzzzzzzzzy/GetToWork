@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6893557736184612273
+--- !u!1001 &7831937183906601407
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,24 +10,24 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_Name
-      value: Glass
+      value: Cardboard
       objectReference: {fileID: 0}
     - target: {fileID: 6984156349598853161, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: type
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6984156349598853161, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: trashType
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8391736347096764642, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_Volume
-      value: 0.49
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 8391736347096764642, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5364e8f4f3a254a19897b78ada2a8fd5, type: 3}
+      objectReference: {fileID: 8300000, guid: aa11c807d85094aca88cf1095d59ea69, type: 3}
     - target: {fileID: 8415027981395487802, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 8867211377050896901, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -662363324, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
+      objectReference: {fileID: -1969808483, guid: bf8edbc27bf9d42f8885a57b162ab4c5, type: 3}
     m_RemovedComponents:
     - {fileID: 6935389186458059671, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
     - {fileID: 4087147729682509895, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
@@ -80,20 +80,20 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1960932997833353291}
+      addedObject: {fileID: 7749686007123089172}
   m_SourcePrefab: {fileID: 100100000, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
---- !u!1 &740785450793900598 stripped
+--- !u!1 &4133665719036020280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6191633983247687559, guid: ad5c6ad63d43f2145a4becde2ffc1986, type: 3}
-  m_PrefabInstance: {fileID: 6893557736184612273}
+  m_PrefabInstance: {fileID: 7831937183906601407}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1960932997833353291
+--- !u!61 &7749686007123089172
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740785450793900598}
+  m_GameObject: {fileID: 4133665719036020280}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0031380653, y: -0.25236306}
+  m_Offset: {x: -0.1707164, y: 0.14651084}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,5 +130,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76727366, y: 1.8252738}
+  m_Size: {x: 2.0689368, y: 1.9201083}
   m_EdgeRadius: 0
