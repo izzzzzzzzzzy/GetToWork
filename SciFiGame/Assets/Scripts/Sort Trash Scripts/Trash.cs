@@ -6,6 +6,7 @@ public class Trash : MonoBehaviour
 {
     Draggable draggable;
     MinigameController gameManager;
+    AudioSource audioSource;
 
     [SerializeField] private int trashType;
     [SerializeField] private float speed = 5;
