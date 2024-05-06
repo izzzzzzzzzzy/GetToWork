@@ -36,7 +36,7 @@ public class OxygenWarningUIScript : MonoBehaviour
     void Die(){
         //TODO: go to death screen, reset scores and such
         buttonSFX.Play();
-        SceneManager.LoadScene(nextLevelName);
+        SceneController.Instance.ChangeScene("DeathScreen");
         //FindFirstObjectByType<SceneController>().StartDay();
     }
 

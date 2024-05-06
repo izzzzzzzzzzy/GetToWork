@@ -9,6 +9,8 @@ public class BackstoryController : MonoBehaviour
 
     private int index = 0;
 
+    private float timer;
+
     SceneController sceneController;
     
     // Start is called before the first frame update
@@ -20,7 +22,7 @@ public class BackstoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (timer <= 0 && Input.GetKeyDown(KeyCode.E))
         {
             if (index == 6)
             {
@@ -29,7 +31,10 @@ public class BackstoryController : MonoBehaviour
             else
             {
                 sceneController.MoveCamera(backstoryCoords[index++]);
+                timer = 1;
             }
         }
+
+        timer -= Time.deltaTime;
     }
 }

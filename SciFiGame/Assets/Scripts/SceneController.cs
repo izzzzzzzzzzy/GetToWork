@@ -25,7 +25,6 @@ public class SceneController : MonoBehaviour
     public AudioSource buttonSFX;
     private int limbIndex = -1;
     public bool inMinigame = false;
-    private string limbBroke = "start";
 
     private void Awake()
     {
@@ -82,6 +81,11 @@ public class SceneController : MonoBehaviour
         StartCoroutine(Teleport(player, nPlayerPos, nCameraPos));
     }
 
+    public void ChangeScene(string sceneName)
+    {
+        StartCoroutine(LoadScene(sceneName));
+    }
+
     public void MoveCamera(Vector2 nCameraPos)
     {
         StartCoroutine(Teleport(null, new(), nCameraPos));
@@ -99,10 +103,6 @@ public class SceneController : MonoBehaviour
         if (limbIndex != -1)
         {
             MainManager.Instance.limbHealths[limbIndex] -= (int)(score / 2);
-            if (MainManager.Instance.limbHealths[limbIndex] <= 0)
-            {
-                limbBroke = limbIndices[limbIndex];
-            }
             limbIndex = -1;
         }
 
@@ -222,11 +222,6 @@ public class SceneController : MonoBehaviour
 
             mainCamera.orthographicSize = 7;
 
-            if (limbBroke != "")
-            {
-                FindFirstObjectByType<MainRoomController>().ShowBrokenLimbPopup(limbBroke);
-                limbBroke = "";
-            }
         }
         else
         {

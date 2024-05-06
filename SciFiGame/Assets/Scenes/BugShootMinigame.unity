@@ -7489,6 +7489,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6954626148378779843, guid: ca9ec766879b5c4488d3d20685a83a29, type: 3}
+      propertyPath: m_Volume
+      value: 0.485
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954626148378779843, guid: ca9ec766879b5c4488d3d20685a83a29, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c492b5575dc4845a18be16885b2b5411, type: 3}
     - target: {fileID: 8808811198910207451, guid: ca9ec766879b5c4488d3d20685a83a29, type: 3}
       propertyPath: m_Name
       value: Player Variant
@@ -26136,7 +26144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
-  rateOfFire: 1
+  rateOfFire: 7
   inputDirect: {x: 0, y: 0, z: 0}
   laser: {fileID: 5592378646361420988, guid: 4ffb54457a50147f7aab1475e2ad82ff, type: 3}
   laserSound: {fileID: 8300000, guid: 7baf82d2a4db6b2428cce2f12f9813bb, type: 3}
