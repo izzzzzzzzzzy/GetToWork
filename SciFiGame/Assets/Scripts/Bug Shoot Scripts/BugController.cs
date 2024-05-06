@@ -50,15 +50,7 @@ public class BugController : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            StartCoroutine(Death());
+            Destroy(gameObject);
         }
-    }
-
-    IEnumerator Death()
-    {
-        coll.enabled = false;
-        yield return new WaitForSeconds(1);
-
-        Destroy(gameObject);
     }
 }

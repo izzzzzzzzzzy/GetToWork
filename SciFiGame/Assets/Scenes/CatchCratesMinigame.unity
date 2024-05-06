@@ -814,7 +814,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Welcome [Employee_Name], to the Loading Dock. \n- Use WASD to collect
     crates as they drop\n- Warning signs will flash prior to a crate dropping\n-
-    Missing a crate will result in a pay deduction "
+    Missing a crate will result in a pay deduction \n\nLIMB DEGRADING: right leg"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
   m_sharedMaterial: {fileID: -5718153965024806739, guid: cdf06b055aa154b38ab8a1891dcb74b6, type: 2}
@@ -841,8 +841,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 16.3
+  m_fontSizeBase: 16.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
