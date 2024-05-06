@@ -992,7 +992,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de97756d697454ee08ea4d583a27e3a1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.77
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5455,7 +5455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c0e2a0aa4dc462fa4e51537ff2fc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSound: {fileID: 8300000, guid: 562dd98e0d70f4c2698042698e865c5b, type: 3}
+  onSound: {fileID: 0}
   offSound: {fileID: 0}
 --- !u!61 &1262902304
 BoxCollider2D:
@@ -6542,7 +6542,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 562dd98e0d70f4c2698042698e865c5b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.26
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7631,7 +7631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c0e2a0aa4dc462fa4e51537ff2fc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSound: {fileID: 8300000, guid: 562dd98e0d70f4c2698042698e865c5b, type: 3}
+  onSound: {fileID: 0}
   offSound: {fileID: 0}
 --- !u!61 &1915540791
 BoxCollider2D:
@@ -8390,10 +8390,10 @@ PrefabInstance:
         as you can each day to pay off your debt.\n        > You must pay for oxygen
         and rent daily. If you\t\t\tcannot afford both oxygen and rent you will die.
         \n        > Your mechanical enhancements will degrade over \t\t\ttime, but
-        you can pay to repair them. If you don't, \t\tthey will eventually degrade
-        fully and certain jobs \t\twill become unavailable. If all limbs fully degrade
-        \t\tyou will die. \n > Don\u2019t forget that your main goal is to pay off
-        your debt. \n"
+        you can pay to repair them. If you don't \t\t\tpay, they will eventually
+        degrade fully and certain \t\tjobs will become unavailable. If all limbs
+        fully \t\t\tdegrade you will die. \n > Don\u2019t forget that your main goal
+        is to pay off your debt. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 4391580859812266716, guid: e300529816052f64dbb9b01e9d85a6a7, type: 3}
       propertyPath: m_fontSize
