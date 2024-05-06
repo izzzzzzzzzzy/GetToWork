@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 4
-  bug: {fileID: 0}
+  bug: {fileID: 2872829908292260006, guid: 1c6f46200aa7b4cc3a3d905fcb067e8f, type: 3}
   upperLimit: 3
   lowerLimit: 1
