@@ -5,7 +5,6 @@ using UnityEngine;
 public class BugController : MonoBehaviour
 {
     Rigidbody2D rb;
-    Collider2D coll;
 
     [SerializeField] private int health = 1;
     [SerializeField] private float velocity = 3.0f;
@@ -19,13 +18,10 @@ public class BugController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        coll = rb.GetComponent<Collider2D>();
         controller = FindFirstObjectByType<MinigameController>();
     }
 
     private void Update() {
-        print(rb.velocity);
-
         if (rb.velocity.magnitude < 0.1) {
             int turnDistance = Random.Range(1, 4) * 90;
 

@@ -77,7 +77,6 @@ public class LoadSceneUIScript : MonoBehaviour
         cancelLoad = cancelLoad.GetComponent<Button>();
         cancelLoad.onClick.AddListener(HideConfirmationButton);
         cancelLoad.onClick.AddListener(ButtonSound);
-
     }
 
     void ShowLoads(bool newGame){
@@ -151,7 +150,7 @@ public class LoadSceneUIScript : MonoBehaviour
 
     void ShowSaveInfo(string name, TMP_Text texty, int saveNum){
         SaveData values = MainManager.Instance.ShowJsonData(MainManager.Instance, name);
-        if (!values.isEmpty && values.dayNum!=0)
+        if (!values.isEmpty || values.dayNum <= 1)
         {
             texty.text = "Day: " + values.dayNum + "\nDebt: " + values.debt + "\nMoney: " + values.money;
             savesExist[saveNum - 1] = true;

@@ -1263,62 +1263,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    - target: {fileID: 709650056279318604, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 709650056279318604, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 558d21b3a34534e9dbeeec1518764569, type: 3}
-    - target: {fileID: 2068907171205773889, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 965354216}
-    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 3331444358191631686, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -109
-      objectReference: {fileID: 0}
-    - target: {fileID: 3504545560718477211, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40.999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704535688912105099, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5634136917463226673, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 8531855376810273213, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1358,42 +1302,6 @@ PrefabInstance:
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8871072441787118877, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 53.1745
-      objectReference: {fileID: 0}
-    - target: {fileID: 8871072441787118877, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 51.5872
-      objectReference: {fileID: 0}
-    - target: {fileID: 9117110049960774327, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2102992356, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.a
-      value: 0.92156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152552369046811657, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -34.000004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1771,7 +1679,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 871841830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 871841832}
+        m_TargetAssemblyTypeName: QuitButtonScript, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &871841830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,11 +1827,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!20 &965354216 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2133471320806477738, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-  m_PrefabInstance: {fileID: 774865653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &975957375
 GameObject:
   m_ObjectHideFlags: 0

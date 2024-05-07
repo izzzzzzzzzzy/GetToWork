@@ -86,7 +86,7 @@ public class EndDayUIScript : MonoBehaviour
         try {
             input = int.Parse(payDebtInput.text);
 
-        } catch (System.Exception e) {
+        } catch (System.Exception) {
             input = 0;
         }
 

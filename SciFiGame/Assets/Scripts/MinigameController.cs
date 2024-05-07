@@ -19,7 +19,6 @@ public class MinigameController : MonoBehaviour
     private void Start()
     {
         timer = GetComponentInChildren<Timer>();
-        timer.gameObject.SetActive(false);
         startScreen = GetComponentInChildren<MinigameStartScreen>();
 
         controller = SceneController.Instance;
