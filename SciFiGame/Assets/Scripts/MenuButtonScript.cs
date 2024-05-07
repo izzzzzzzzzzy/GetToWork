@@ -7,14 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuButtonScript : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GetComponent<Button>().onClick.AddListener(GoToMenu);
-    }
-
-    void GoToMenu()
+    public void GoToMenu()
     {
         audioSource.Play();
         SceneController.Instance.PlayGame();
@@ -23,7 +16,7 @@ public class MenuButtonScript : MonoBehaviour
         {
             MinigameController controller = FindFirstObjectByType<MinigameController>();
             controller.StartGame();
-            controller.SetTimeRemaining(0);
+            SceneController.Instance.EndMinigame(0);
         }
         else
         {

@@ -7,11 +7,6 @@ using UnityEngine.SceneManagement;
 public class QuitButtonScript : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
-    // Start is called before the first frame update
-    void Start()
-    {
-        GetComponent<Button>().onClick.AddListener(QuitGame);
-    }
 
     public void QuitGame()
     {

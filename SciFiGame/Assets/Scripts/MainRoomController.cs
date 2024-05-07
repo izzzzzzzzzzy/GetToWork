@@ -13,6 +13,9 @@ public class MainRoomController : MonoBehaviour
     public TMP_Text scoreShow;
 
     private bool dayEnded;
+    public NoInteractPopup popupOpen;
+    public bool tutorialRead = true;
+
     // Start is called before the first frame update
     void Start()
     {

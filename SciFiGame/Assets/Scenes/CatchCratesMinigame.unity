@@ -1460,14 +1460,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    - target: {fileID: 4704535688912105099, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Name
-      value: Pause Button
-      objectReference: {fileID: 0}
-    - target: {fileID: 8531855376810273213, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

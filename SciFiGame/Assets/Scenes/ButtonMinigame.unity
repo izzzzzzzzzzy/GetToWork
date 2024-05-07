@@ -1403,46 +1403,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
-    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3018703350348885565, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704535688912105099, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5685629395376164695, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6548793385106181380, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -363734414, guid: 7f06d8ce192ae477bb848519e174bab7, type: 3}
-    - target: {fileID: 7343115448689419288, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8531855376810273213, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1482,18 +1442,6 @@ PrefabInstance:
     - target: {fileID: 8679153282927294951, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5566038
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.g
-      value: 0.5185074
-      objectReference: {fileID: 0}
-    - target: {fileID: 9139899801842534374, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Color.r
-      value: 0.49096656
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

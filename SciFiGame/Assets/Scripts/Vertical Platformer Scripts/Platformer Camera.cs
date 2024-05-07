@@ -43,8 +43,7 @@ public class CameraController : MonoBehaviour {
     private void FixedUpdate() {
         if (player == null)
         {
-            player = FindFirstObjectByType<PlatformingPlayerController>().GetComponent<Transform>();
-            
+            player = FindFirstObjectByType<PlayerBase>().GetComponent<Transform>();
         }
 
         playerRB = player.GetComponent<Rigidbody2D>();

@@ -10,7 +10,7 @@ public class MainPlayerController : PlayerBase
     [SerializeField] private GameObject interactSign;
     [SerializeField] private int velocity = 5;
 
-    private bool canInteract;
+    private bool touchingInteractible;
     private Interactable interactable;
 
 
@@ -26,13 +26,13 @@ public class MainPlayerController : PlayerBase
     {
         GetInputs();
 
-        if (canInteract && interactInput)
+        if (touchingInteractible && interactInput)
         {
             interactable.Interact(gameObject);
             interactInput = false;
         }
 
-        interactSign.SetActive(canInteract);
+        interactSign.SetActive(touchingInteractible);
 
         //int legHealth = MainManager.Instance.rLegHealth + MainManager.Instance.lLegHealth;
         rb.velocity = inputDirection.normalized * velocity; //* (legHealth/200);
@@ -42,12 +42,12 @@ public class MainPlayerController : PlayerBase
     private void OnTriggerStay2D(Collider2D collision)
     {
         interactable = collision.gameObject.GetComponent<Interactable>();
-        canInteract = interactable != null && interactable.IsActive();
+        touchingInteractible = interactable != null && interactable.IsActive();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         interactable = null;
-        canInteract = false;
+        touchingInteractible = false;
     }
 }

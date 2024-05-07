@@ -86,7 +86,7 @@ public class EndDayUIScript : MonoBehaviour
         try {
             input = int.Parse(payDebtInput.text);
 
-        } catch (System.Exception e) {
+        } catch (System.Exception) {
             input = 0;
         }
 
@@ -157,7 +157,7 @@ public class EndDayUIScript : MonoBehaviour
                 //for if they win the game
                 MainManager.Instance.debt = 0;
                 MainManager.Instance.SaveJsonData(MainManager.Instance);
-                SceneManager.LoadScene("WinScreen");
+                SceneController.Instance.ChangeScene("WinScreen");
             }
         }
 

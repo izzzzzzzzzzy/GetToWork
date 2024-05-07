@@ -2721,10 +2721,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3506831610803288016, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3871444715497236854, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2767,46 +2763,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4032291681604903513, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4050259585285258393, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: debt
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: limbHealths.Array.data[1]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: limbHealths.Array.data[2]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: limbHealths.Array.data[3]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: limbHealths.Array.data[4]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088070888859942113, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: limbHealths.Array.data[5]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7343115448689419288, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8531855376810273213, guid: 6b194d8154b77124f96b1c28ac069444, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1626,10 +1626,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 339046335103102130, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -75
-      objectReference: {fileID: 0}
     - target: {fileID: 1898699924990998133, guid: 76e3f3ee15ffd444aa966f87f778ffa7, type: 3}
       propertyPath: m_text
       value: Whack Bugs

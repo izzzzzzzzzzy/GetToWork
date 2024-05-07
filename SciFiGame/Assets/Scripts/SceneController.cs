@@ -10,7 +10,8 @@ public class SceneController : MonoBehaviour
 {
     public static SceneController Instance;
     public static bool screenFading;
-    public static bool inputsEnabled = true;
+    public static bool inputsEnabled = true; 
+    public static string[] limbIndices = new string[] { "headHealth", "eyeHealth", "lArmHealth", "rArmHealth", "lLegHealth", "rLegHealth" };
 
     [SerializeField] private Vector2 mainPlayerCoords;
     [SerializeField] private Vector3 mainCameraCoords;
@@ -78,6 +79,11 @@ public class SceneController : MonoBehaviour
     public void EnterDoor(GameObject player, Vector2 nPlayerPos, Vector2 nCameraPos)
     {
         StartCoroutine(Teleport(player, nPlayerPos, nCameraPos));
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        StartCoroutine(LoadScene(sceneName));
     }
 
     public void MoveCamera(Vector2 nCameraPos)
@@ -215,6 +221,7 @@ public class SceneController : MonoBehaviour
             mainCamera.transform.position = mainCameraCoords;
 
             mainCamera.orthographicSize = 7;
+
         }
         else
         {
